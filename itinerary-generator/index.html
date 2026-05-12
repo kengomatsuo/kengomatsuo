@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Itinerary Generator — internal itinerary drafting tool for Eralink Indonesia, by Kenneth Fang." />
+    <title>Itinerary Generator · Kenneth Fang</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+
+    <nav>
+      <a href="/" class="nav-logo">KF</a>
+      <ul class="nav-links">
+        <li><a href="/#client-work">← Work</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="hero" class="project-hero">
+        <div class="hero-inner">
+          <div class="card-meta">
+            <span class="card-tag">Web App</span>
+            <span class="card-badge card-badge--private">Private</span>
+          </div>
+          <h1>Itinerary Generator</h1>
+          <p class="hero-sub">Internal tool for Eralink Indonesia's operations team to draft, manage, and export customer-ready travel itineraries.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner prose">
+          <div class="detail-grid">
+
+            <div class="detail-block">
+              <h2>The Client</h2>
+              <p>Eralink Indonesia is an Indonesian tour agency that creates and sells travel packages for customers. Their operations team needed an internal tool to replace manual drafting and streamline how itineraries are prepared and shared.</p>
+            </div>
+
+            <div class="detail-block">
+              <h2>What It Does</h2>
+              <p>Staff fill out a structured form to build a travel itinerary, with a live preview rendering the final customer-facing layout in real time. Completed drafts can be exported as PDFs. Itineraries are shared across the team and organised within a shared library, with managers able to view and edit all drafts made by their staff.</p>
+            </div>
+
+            <div class="detail-block">
+              <h2>Features</h2>
+              <ul>
+                <li>Form-based itinerary editor with live PDF preview</li>
+                <li>PDF export for customer-facing documents</li>
+                <li>Airline logo and cover image uploads</li>
+                <li>Shared draft library across the team</li>
+                <li>Role-based access — managers can view and edit all drafts</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h2>Tech Stack</h2>
+              <ul>
+                <li>React 19, TypeScript, Vite</li>
+                <li>Tailwind CSS v4, shadcn/ui</li>
+                <li>@react-pdf/renderer (PDF generation)</li>
+                <li>Express.js, MySQL (VPS-hosted)</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h2>Access</h2>
+              <p>Internal tool accessible to Eralink Indonesia employees only. Not publicly available.</p>
+            </div>
+
+          </div>
+
+          <img src="./screenshot-1.png" alt="Itinerary Generator app screenshot" style="width:100%;border-radius:var(--radius);display:block" loading="lazy">
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-inner">
+        <span class="footer-name">Kenneth Fang</span>
+        <div class="footer-links">
+          <a href="https://github.com/kengomatsuo" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:kenneth@matsuokengo.com">Email</a>
+        </div>
+        <span class="footer-copy">© 2026</span>
+      </div>
+    </footer>
+
+  </body>
+</html>
