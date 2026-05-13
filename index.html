@@ -529,13 +529,22 @@
             targetTiltX = 0,
             targetTiltY = 0;
           let hovered = false;
+          let intro = false;
           let rafId = null;
 
-          card.style.setProperty("--card-light-angle", home + "deg");
+          card.style.setProperty("--card-light-angle", current + "deg");
 
           setTimeout(
-            () => card.style.setProperty("--card-glow", "1"),
-            1000 + index * 60,
+            () => {
+              home = cornerAngle();
+              current = home - 90;
+              target = home;
+              card.style.setProperty("--card-light-angle", current + "deg");
+              card.style.setProperty("--card-glow", "1");
+              intro = true;
+              if (!rafId) rafId = requestAnimationFrame(tick);
+            },
+            400 + index * 250,
           );
 
           function applyTransform() {
@@ -544,13 +553,17 @@
           }
 
           function tick() {
+            const lerpFactor = intro ? 0.04 : 0.18;
             const angleDiff = target - current;
-            if (Math.abs(angleDiff) > 0.2) current += angleDiff * 0.18;
-            else current = target;
+            if (Math.abs(angleDiff) > 0.2) current += angleDiff * lerpFactor;
+            else {
+              current = target;
+              intro = false;
+            }
             card.style.setProperty("--card-light-angle", current + "deg");
 
-            tiltX += (targetTiltX - tiltX) * 0.3;
-            tiltY += (targetTiltY - tiltY) * 0.3;
+            tiltX += (targetTiltX - tiltX) * 0.7;
+            tiltY += (targetTiltY - tiltY) * 0.7;
             applyTransform();
 
             const stillMoving =
@@ -581,8 +594,9 @@
 
             const relX = (x - r.left) / r.width;
             const relY = (y - r.top) / r.height;
-            targetTiltY = (relX - 0.5) * 12;
-            targetTiltX = -(relY - 0.5) * 6;
+            const sizeScale = Math.min(1, 200 / r.width);
+            targetTiltY = (relX - 0.5) * 12 * sizeScale;
+            targetTiltX = -(relY - 0.5) * 6 * sizeScale;
             hovered = true;
             if (!rafId) rafId = requestAnimationFrame(tick);
           }
@@ -605,10 +619,12 @@
           }).observe(card);
 
           const wrapper = document.createElement("div");
+          wrapper.style.display = "flex";
           if (card.classList.contains("project-card--featured"))
             wrapper.classList.add("project-card--featured");
           card.parentNode.insertBefore(wrapper, card);
           wrapper.appendChild(card);
+          card.style.flex = "1";
 
           wrapper.addEventListener("mousemove", (e) =>
             setTarget(e.clientX, e.clientY),
@@ -625,20 +641,38 @@
         document.querySelectorAll(".hero-btn").forEach((btn, index) => {
           function cornerAngle() {
             const r = btn.getBoundingClientRect();
-            return (((Math.atan2(-r.height / 2, -r.width / 2) * 180) / Math.PI + 90) + 360) % 360;
+            return (
+              ((Math.atan2(-r.height / 2, -r.width / 2) * 180) / Math.PI +
+                90 +
+                360) %
+              360
+            );
           }
 
           let home = cornerAngle();
-          let current = home, target = home;
+          let current = home - 90,
+            target = home;
+          let intro = false;
           let rafId = null;
 
-          btn.style.setProperty("--card-light-angle", home + "deg");
-          setTimeout(() => btn.style.setProperty("--card-glow", "1"), 1000 + index * 60);
+          btn.style.setProperty("--card-light-angle", current + "deg");
+          setTimeout(
+            () => {
+              btn.style.setProperty("--card-glow", "1");
+              intro = true;
+              if (!rafId) rafId = requestAnimationFrame(tick);
+            },
+            100 + index * 250,
+          );
 
           function tick() {
+            const lerpFactor = intro ? 0.04 : 0.18;
             const diff = target - current;
-            if (Math.abs(diff) > 0.2) current += diff * 0.18;
-            else current = target;
+            if (Math.abs(diff) > 0.2) current += diff * lerpFactor;
+            else {
+              current = target;
+              intro = false;
+            }
             btn.style.setProperty("--card-light-angle", current + "deg");
             if (Math.abs(diff) > 0.2) rafId = requestAnimationFrame(tick);
             else rafId = null;
@@ -646,15 +680,22 @@
 
           btn.addEventListener("mousemove", (e) => {
             const r = btn.getBoundingClientRect();
-            const raw = (Math.atan2(e.clientY - (r.top + r.height / 2), e.clientX - (r.left + r.width / 2)) * 180) / Math.PI + 90;
-            const delta = ((raw - target + 180) % 360 + 360) % 360 - 180;
+            const raw =
+              (Math.atan2(
+                e.clientY - (r.top + r.height / 2),
+                e.clientX - (r.left + r.width / 2),
+              ) *
+                180) /
+                Math.PI +
+              90;
+            const delta = ((((raw - target + 180) % 360) + 360) % 360) - 180;
             target += delta;
             if (!rafId) rafId = requestAnimationFrame(tick);
           });
 
           btn.addEventListener("mouseleave", () => {
             home = cornerAngle();
-            const delta = ((home - target + 180) % 360 + 360) % 360 - 180;
+            const delta = ((((home - target + 180) % 360) + 360) % 360) - 180;
             target += delta;
             if (!rafId) rafId = requestAnimationFrame(tick);
           });

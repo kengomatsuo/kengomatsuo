@@ -25,8 +25,8 @@
   --nav-h: 54px;
   --max-w: 960px;
   --pad-x: clamp(1.25rem, 5vw, 2.5rem);
-  --glow-border: #e6e6e6;
-  --glow-highlight: #c6c6c6;
+  --glow-border: #e0e0e0;
+  --glow-highlight: #b6b6b6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,7 +39,7 @@
     --text: #ebebeb;
     --muted: #808080;
     --glow-border: #3d3d3d;
-    --glow-highlight: rgb(255 255 255);
+    --glow-highlight: #a6a6a6;
   }
 }
 
@@ -61,6 +61,11 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
 }
 
 /* ── Nav ───────────────────────────────────────────── */
@@ -178,7 +183,7 @@ nav {
         var(--glow-border) 240deg,
         color-mix(
             in srgb,
-            rgb(from var(--glow-highlight) r g b / 0.35)
+            rgb(from var(--glow-highlight) r g b / 0.85)
               calc(var(--card-glow) * 100%),
             var(--glow-border)
           )
@@ -189,7 +194,7 @@ nav {
       border-box;
   transition:
     color 0.15s,
-    --card-glow 1.5s ease;
+    --card-glow 0.7s ease;
 }
 
 .hero-btn:hover {
@@ -240,6 +245,7 @@ section {
   border-radius: var(--radius);
   overflow: hidden;
   user-select: none;
+  cursor: default;
   background:
     linear-gradient(var(--bg), var(--bg)) padding-box,
     conic-gradient(
@@ -256,7 +262,7 @@ section {
         var(--glow-border) 240deg,
         color-mix(
             in srgb,
-            rgb(from var(--glow-highlight) r g b / 0.35)
+            rgb(from var(--glow-highlight) r g b / 0.85)
               calc(var(--card-glow) * 100%),
             var(--glow-border)
           )
@@ -268,7 +274,7 @@ section {
   transition:
     box-shadow 0.18s,
     transform 0.18s,
-    --card-glow 1.5s ease;
+    --card-glow 0.7s ease;
   display: flex;
   flex-direction: column;
 }
