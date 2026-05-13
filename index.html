@@ -621,6 +621,44 @@
           );
           wrapper.addEventListener("touchend", reset);
         });
+
+        document.querySelectorAll(".hero-btn").forEach((btn, index) => {
+          function cornerAngle() {
+            const r = btn.getBoundingClientRect();
+            return (((Math.atan2(-r.height / 2, -r.width / 2) * 180) / Math.PI + 90) + 360) % 360;
+          }
+
+          let home = cornerAngle();
+          let current = home, target = home;
+          let rafId = null;
+
+          btn.style.setProperty("--card-light-angle", home + "deg");
+          setTimeout(() => btn.style.setProperty("--card-glow", "1"), 1000 + index * 60);
+
+          function tick() {
+            const diff = target - current;
+            if (Math.abs(diff) > 0.2) current += diff * 0.18;
+            else current = target;
+            btn.style.setProperty("--card-light-angle", current + "deg");
+            if (Math.abs(diff) > 0.2) rafId = requestAnimationFrame(tick);
+            else rafId = null;
+          }
+
+          btn.addEventListener("mousemove", (e) => {
+            const r = btn.getBoundingClientRect();
+            const raw = (Math.atan2(e.clientY - (r.top + r.height / 2), e.clientX - (r.left + r.width / 2)) * 180) / Math.PI + 90;
+            const delta = ((raw - target + 180) % 360 + 360) % 360 - 180;
+            target += delta;
+            if (!rafId) rafId = requestAnimationFrame(tick);
+          });
+
+          btn.addEventListener("mouseleave", () => {
+            home = cornerAngle();
+            const delta = ((home - target + 180) % 360 + 360) % 360 - 180;
+            target += delta;
+            if (!rafId) rafId = requestAnimationFrame(tick);
+          });
+        });
       });
     </script>
   </body>
