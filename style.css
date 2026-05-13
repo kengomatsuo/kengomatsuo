@@ -55,6 +55,12 @@ a {
 
 /* ── Nav ───────────────────────────────────────────── */
 
+@keyframes nav-border {
+  to {
+    border-bottom-color: var(--border);
+  }
+}
+
 nav {
   position: sticky;
   top: 0;
@@ -65,7 +71,10 @@ nav {
   justify-content: space-between;
   padding: 0 var(--pad-x);
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid transparent;
+  animation: nav-border linear both;
+  animation-timeline: scroll(root);
+  animation-range: 60px 75px;
 }
 
 .nav-logo {
