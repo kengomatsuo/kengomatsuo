@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav>
+    <nav class="appear" style="--appear-y: -12px">
       <a href="#" class="nav-logo">KF</a>
       <ul class="nav-links">
         <li><a href="#personal">Personal</a></li>
@@ -25,12 +25,12 @@
     <main>
       <section id="hero">
         <div class="hero-inner">
-          <h1>Kenneth Fang</h1>
-          <p class="hero-sub">
+          <h1 class="appear" style="--appear-y: 36px">Kenneth Fang</h1>
+          <p class="hero-sub appear" style="--appear-y: 20px">
             Developer &amp; researcher building apps, tools, and things worth
             reading.
           </p>
-          <div class="hero-links">
+          <div class="hero-links appear" style="--appear-y: 16px">
             <a
               href="https://github.com/kengomatsuo"
               class="hero-btn"
@@ -80,7 +80,7 @@
       <!-- ── Personal ───────────────────────────────── -->
       <section id="personal">
         <div class="section-inner">
-          <h2 class="section-title">Personal</h2>
+          <h2 class="section-title appear" style="--appear-y: 14px">Personal</h2>
           <div class="project-grid">
             <article class="project-card project-card--featured">
               <div class="card-image card-image--icon">
@@ -197,7 +197,7 @@
       <!-- ── Client Work ────────────────────────────── -->
       <section id="client-work">
         <div class="section-inner">
-          <h2 class="section-title">Client Work</h2>
+          <h2 class="section-title appear" style="--appear-y: 14px">Client Work</h2>
           <div class="project-grid">
             <article class="project-card">
               <div class="card-image card-image--icon">
@@ -365,7 +365,7 @@
       <!-- ── School ─────────────────────────────────── -->
       <section id="school">
         <div class="section-inner">
-          <h2 class="section-title">School</h2>
+          <h2 class="section-title appear" style="--appear-y: 14px">School</h2>
           <div class="project-grid project-grid--slim">
             <article class="project-card">
               <div class="card-body">
@@ -467,8 +467,8 @@
       <!-- ── Research ───────────────────────────────── -->
       <section id="research">
         <div class="section-inner">
-          <h2 class="section-title">Research</h2>
-          <div class="pub">
+          <h2 class="section-title appear" style="--appear-y: 14px">Research</h2>
+          <div class="pub appear" style="--appear-y: 16px">
             <h3 class="pub-title">
               Client-Based Learning and Zero-Knowledge Proof Implementation in
               Social Media Recommendation Systems
@@ -492,7 +492,7 @@
       </section>
     </main>
 
-    <footer id="contact">
+    <footer id="contact" class="appear" style="--appear-y: 0px">
       <div class="footer-inner">
         <span class="footer-name">Kenneth Fang</span>
         <div class="footer-links">
@@ -509,6 +509,28 @@
     </footer>
     <script>
       window.addEventListener("load", () => {
+        const appearObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(({ target, isIntersecting }) => {
+              if (isIntersecting) {
+                target.classList.add("visible");
+                appearObserver.unobserve(target);
+              }
+            });
+          },
+          { threshold: 0.08, rootMargin: "0px 0px -20px 0px" },
+        );
+
+        function appear(el, delay = 0, y = 18) {
+          if (!el) return;
+          if (!el.classList.contains("appear")) {
+            el.classList.add("appear");
+            if (y !== 18) el.style.setProperty("--appear-y", y + "px");
+          }
+          if (delay) el.style.setProperty("--appear-delay", delay + "s");
+          appearObserver.observe(el);
+        }
+
         document.querySelectorAll(".project-card").forEach((card, index) => {
           // +90 converts JS atan2 (0=right) to CSS angle convention (0=top)
           function cornerAngle() {
@@ -625,6 +647,8 @@
           card.parentNode.insertBefore(wrapper, card);
           wrapper.appendChild(card);
           card.style.flex = "1";
+          const gridIndex = Array.from(card.parentNode.children).indexOf(card);
+          appear(wrapper, gridIndex * 0.07, 22);
 
           wrapper.addEventListener("mousemove", (e) =>
             setTarget(e.clientX, e.clientY),
@@ -700,6 +724,30 @@
             if (!rafId) rafId = requestAnimationFrame(tick);
           });
         });
+
+        // Wait for first paint before triggering appear animations
+        requestAnimationFrame(() =>
+          setTimeout(() => {
+            // Nav slides down, then hero content rises up
+            setTimeout(() => document.querySelector("nav").classList.add("visible"), 0);
+            setTimeout(() => document.querySelector("#hero h1").classList.add("visible"), 60);
+            setTimeout(() => document.querySelector(".hero-sub").classList.add("visible"), 180);
+            setTimeout(() => document.querySelector(".hero-links").classList.add("visible"), 280);
+
+            // Section titles — already have appear in HTML, just observe
+            document.querySelectorAll(".section-title").forEach((el) =>
+              appear(el),
+            );
+
+            // Research pub — stagger slightly after its section title
+            document.querySelectorAll(".pub").forEach((el) =>
+              appear(el, 0.12),
+            );
+
+            // Footer — already has appear in HTML, just observe
+            appear(document.querySelector("footer"));
+          }, 100),
+        );
       });
     </script>
   </body>
