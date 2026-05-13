@@ -522,34 +522,52 @@
           }
 
           let home = cornerAngle();
-          let current = home;
-          let target = home;
+          let current = home,
+            target = home;
+          let tiltX = 0,
+            tiltY = 0,
+            targetTiltX = 0,
+            targetTiltY = 0;
+          let hovered = false;
           let rafId = null;
 
           card.style.setProperty("--card-light-angle", home + "deg");
 
-          // staggered fade-in after layout settles
           setTimeout(
             () => card.style.setProperty("--card-glow", "1"),
-            250 + index * 100,
+            1000 + index * 60,
           );
 
+          function applyTransform() {
+            const lift = hovered ? "translateY(-6px) scale(1.02)" : "";
+            card.style.transform = `perspective(800px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) ${lift}`;
+          }
+
           function tick() {
-            const diff = target - current;
-            if (Math.abs(diff) < 0.2) {
-              current = target;
-              card.style.setProperty("--card-light-angle", current + "deg");
-              rafId = null;
-              return;
-            }
-            current += diff * 0.18;
+            const angleDiff = target - current;
+            if (Math.abs(angleDiff) > 0.2) current += angleDiff * 0.18;
+            else current = target;
             card.style.setProperty("--card-light-angle", current + "deg");
-            rafId = requestAnimationFrame(tick);
+
+            tiltX += (targetTiltX - tiltX) * 0.3;
+            tiltY += (targetTiltY - tiltY) * 0.3;
+            applyTransform();
+
+            const stillMoving =
+              Math.abs(angleDiff) > 0.2 ||
+              Math.abs(targetTiltX - tiltX) > 0.05 ||
+              Math.abs(targetTiltY - tiltY) > 0.05;
+
+            if (stillMoving) {
+              rafId = requestAnimationFrame(tick);
+            } else {
+              if (!hovered) card.style.removeProperty("transform");
+              rafId = null;
+            }
           }
 
           function setTarget(x, y) {
             const r = card.getBoundingClientRect();
-            // +90 to match CSS angle convention
             const raw =
               (Math.atan2(
                 y - (r.top + r.height / 2),
@@ -560,6 +578,12 @@
               90;
             const delta = ((((raw - target + 180) % 360) + 360) % 360) - 180;
             target += delta;
+
+            const relX = (x - r.left) / r.width;
+            const relY = (y - r.top) / r.height;
+            targetTiltY = (relX - 0.5) * 12;
+            targetTiltX = -(relY - 0.5) * 6;
+            hovered = true;
             if (!rafId) rafId = requestAnimationFrame(tick);
           }
 
@@ -567,6 +591,9 @@
             home = cornerAngle();
             const delta = ((((home - target + 180) % 360) + 360) % 360) - 180;
             target += delta;
+            targetTiltX = 0;
+            targetTiltY = 0;
+            hovered = false;
             if (!rafId) rafId = requestAnimationFrame(tick);
           }
 
@@ -583,9 +610,7 @@
           card.addEventListener("mouseleave", reset);
           card.addEventListener(
             "touchmove",
-            (e) => {
-              setTarget(e.touches[0].clientX, e.touches[0].clientY);
-            },
+            (e) => setTarget(e.touches[0].clientX, e.touches[0].clientY),
             { passive: true },
           );
           card.addEventListener("touchend", reset);
