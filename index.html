@@ -604,16 +604,22 @@
             card.style.setProperty("--card-light-angle", home + "deg");
           }).observe(card);
 
-          card.addEventListener("mousemove", (e) =>
+          const wrapper = document.createElement("div");
+          if (card.classList.contains("project-card--featured"))
+            wrapper.classList.add("project-card--featured");
+          card.parentNode.insertBefore(wrapper, card);
+          wrapper.appendChild(card);
+
+          wrapper.addEventListener("mousemove", (e) =>
             setTarget(e.clientX, e.clientY),
           );
-          card.addEventListener("mouseleave", reset);
-          card.addEventListener(
+          wrapper.addEventListener("mouseleave", reset);
+          wrapper.addEventListener(
             "touchmove",
             (e) => setTarget(e.touches[0].clientX, e.touches[0].clientY),
             { passive: true },
           );
-          card.addEventListener("touchend", reset);
+          wrapper.addEventListener("touchend", reset);
         });
       });
     </script>
