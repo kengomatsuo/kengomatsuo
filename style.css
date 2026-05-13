@@ -46,6 +46,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--bg);
+  color-scheme: light dark;
 }
 
 body {
@@ -70,12 +71,6 @@ a {
 
 /* ── Nav ───────────────────────────────────────────── */
 
-@keyframes nav-border {
-  to {
-    border-bottom-color: var(--border);
-  }
-}
-
 nav {
   position: sticky;
   top: 0;
@@ -87,9 +82,11 @@ nav {
   padding: 0 var(--pad-x);
   background: var(--bg);
   border-bottom: 1px solid transparent;
-  animation: nav-border linear both;
-  animation-timeline: scroll(root);
-  animation-range: 60px 75px;
+  transition: border-bottom-color 0.3s ease;
+}
+
+nav.scrolled {
+  border-bottom-color: var(--border);
 }
 
 .nav-logo {
@@ -598,7 +595,8 @@ footer {
   transform: translateY(var(--appear-y, 18px));
   transition:
     opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    border-bottom-color 0.3s ease;
   transition-delay: var(--appear-delay, 0s);
 }
 
@@ -612,4 +610,42 @@ footer {
     transition: opacity 0.3s ease;
     transform: none;
   }
+}
+
+/* ── Back to top ───────────────────────────────────── */
+
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: var(--pad-x);
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.15s,
+    color 0.15s;
+  pointer-events: none;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  border-color: var(--text);
+  color: var(--text);
 }

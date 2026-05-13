@@ -80,7 +80,9 @@
       <!-- ── Personal ───────────────────────────────── -->
       <section id="personal">
         <div class="section-inner">
-          <h2 class="section-title appear" style="--appear-y: 14px">Personal</h2>
+          <h2 class="section-title appear" style="--appear-y: 14px">
+            Personal
+          </h2>
           <div class="project-grid">
             <article class="project-card project-card--featured">
               <div class="card-image card-image--icon">
@@ -197,7 +199,9 @@
       <!-- ── Client Work ────────────────────────────── -->
       <section id="client-work">
         <div class="section-inner">
-          <h2 class="section-title appear" style="--appear-y: 14px">Client Work</h2>
+          <h2 class="section-title appear" style="--appear-y: 14px">
+            Client Work
+          </h2>
           <div class="project-grid">
             <article class="project-card">
               <div class="card-image card-image--icon">
@@ -467,7 +471,9 @@
       <!-- ── Research ───────────────────────────────── -->
       <section id="research">
         <div class="section-inner">
-          <h2 class="section-title appear" style="--appear-y: 14px">Research</h2>
+          <h2 class="section-title appear" style="--appear-y: 14px">
+            Research
+          </h2>
           <div class="pub appear" style="--appear-y: 16px">
             <h3 class="pub-title">
               Client-Based Learning and Zero-Knowledge Proof Implementation in
@@ -492,6 +498,12 @@
       </section>
     </main>
 
+    <button id="back-to-top" aria-label="Back to top">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="2,9 7,4 12,9"/>
+      </svg>
+    </button>
+
     <footer id="contact" class="appear" style="--appear-y: 0px">
       <div class="footer-inner">
         <span class="footer-name">Kenneth Fang</span>
@@ -509,14 +521,34 @@
     </footer>
     <script>
       window.addEventListener("load", () => {
+        const loadTime = Date.now();
+        // Hero sequence ends at ~100ms settle + 280ms last element + 900ms animation
+        const HERO_DONE = 550;
+
+        // Groups card wrappers by section grid so whole section fires together
+        const cardGroups = new Map();
+
         const appearObserver = new IntersectionObserver(
           (entries) => {
+            const toShow = [];
             entries.forEach(({ target, isIntersecting }) => {
-              if (isIntersecting) {
-                target.classList.add("visible");
+              if (!isIntersecting) return;
+              const group = cardGroups.get(target);
+              if (group) {
+                // First card in this section seen — fire entire group
+                group.forEach((t) => { appearObserver.unobserve(t); toShow.push(t); });
+                cardGroups.delete(target);
+                group.forEach((t) => cardGroups.delete(t));
+              } else {
                 appearObserver.unobserve(target);
+                toShow.push(target);
               }
             });
+            if (!toShow.length) return;
+            const wait = Math.max(0, HERO_DONE - (Date.now() - loadTime));
+            setTimeout(() => requestAnimationFrame(() => {
+              toShow.forEach((t) => t.classList.add("visible"));
+            }), wait);
           },
           { threshold: 0.08, rootMargin: "0px 0px -20px 0px" },
         );
@@ -640,6 +672,7 @@
             card.style.setProperty("--card-light-angle", home + "deg");
           }).observe(card);
 
+          const gridIndex = Array.from(card.parentNode.children).indexOf(card);
           const wrapper = document.createElement("div");
           wrapper.style.display = "flex";
           if (card.classList.contains("project-card--featured"))
@@ -647,8 +680,7 @@
           card.parentNode.insertBefore(wrapper, card);
           wrapper.appendChild(card);
           card.style.flex = "1";
-          const gridIndex = Array.from(card.parentNode.children).indexOf(card);
-          appear(wrapper, gridIndex * 0.07, 22);
+          appear(wrapper, 0.15 + gridIndex * 0.1, 22);
 
           wrapper.addEventListener("mousemove", (e) =>
             setTarget(e.clientX, e.clientY),
@@ -660,6 +692,12 @@
             { passive: true },
           );
           wrapper.addEventListener("touchend", reset);
+        });
+
+        // Map each wrapper to its full grid group so the whole section fires at once
+        document.querySelectorAll(".project-grid").forEach((grid) => {
+          const wrappers = Array.from(grid.children);
+          wrappers.forEach((w) => cardGroups.set(w, wrappers));
         });
 
         document.querySelectorAll(".hero-btn").forEach((btn, index) => {
@@ -729,23 +767,51 @@
         requestAnimationFrame(() =>
           setTimeout(() => {
             // Nav slides down, then hero content rises up
-            setTimeout(() => document.querySelector("nav").classList.add("visible"), 0);
-            setTimeout(() => document.querySelector("#hero h1").classList.add("visible"), 60);
-            setTimeout(() => document.querySelector(".hero-sub").classList.add("visible"), 180);
-            setTimeout(() => document.querySelector(".hero-links").classList.add("visible"), 280);
+            setTimeout(
+              () => document.querySelector("nav").classList.add("visible"),
+              0,
+            );
+            setTimeout(
+              () => document.querySelector("#hero h1").classList.add("visible"),
+              60,
+            );
+            setTimeout(
+              () =>
+                document.querySelector(".hero-sub").classList.add("visible"),
+              180,
+            );
+            setTimeout(
+              () =>
+                document.querySelector(".hero-links").classList.add("visible"),
+              280,
+            );
 
             // Section titles — already have appear in HTML, just observe
-            document.querySelectorAll(".section-title").forEach((el) =>
-              appear(el),
-            );
+            document
+              .querySelectorAll(".section-title")
+              .forEach((el) => appear(el));
 
-            // Research pub — stagger slightly after its section title
-            document.querySelectorAll(".pub").forEach((el) =>
-              appear(el, 0.12),
-            );
+            // Research pub — appears after its section title
+            document.querySelectorAll(".pub").forEach((el) => appear(el, 0.15));
 
             // Footer — already has appear in HTML, just observe
             appear(document.querySelector("footer"));
+
+            // Navbar scroll class + back-to-top visibility
+            const nav = document.querySelector("nav");
+            const backToTop = document.getElementById("back-to-top");
+            window.addEventListener(
+              "scroll",
+              () => {
+                nav.classList.toggle("scrolled", window.scrollY > 60);
+                backToTop.classList.toggle("visible", window.scrollY > 300);
+              },
+              { passive: true },
+            );
+
+            backToTop.addEventListener("click", () => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            });
           }, 100),
         );
       });
