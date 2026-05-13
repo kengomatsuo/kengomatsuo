@@ -397,7 +397,7 @@
                 <h3 class="card-title">Last Minute</h3>
                 <p class="card-desc">
                   Online course platform where students can attend classes and
-                  video call peers directly.
+                  peer-to-peer video call.
                 </p>
                 <div class="card-actions">
                   <a
@@ -507,5 +507,90 @@
         <span class="footer-copy">© 2026</span>
       </div>
     </footer>
+    <script>
+      window.addEventListener("load", () => {
+        document.querySelectorAll(".project-card").forEach((card, index) => {
+          // +90 converts JS atan2 (0=right) to CSS angle convention (0=top)
+          function cornerAngle() {
+            const r = card.getBoundingClientRect();
+            return (
+              ((Math.atan2(-r.height / 2, -r.width / 2) * 180) / Math.PI +
+                90 +
+                360) %
+              360
+            );
+          }
+
+          let home = cornerAngle();
+          let current = home;
+          let target = home;
+          let rafId = null;
+
+          card.style.setProperty("--card-light-angle", home + "deg");
+
+          // staggered fade-in after layout settles
+          setTimeout(
+            () => card.style.setProperty("--card-glow", "1"),
+            250 + index * 100,
+          );
+
+          function tick() {
+            const diff = target - current;
+            if (Math.abs(diff) < 0.2) {
+              current = target;
+              card.style.setProperty("--card-light-angle", current + "deg");
+              rafId = null;
+              return;
+            }
+            current += diff * 0.18;
+            card.style.setProperty("--card-light-angle", current + "deg");
+            rafId = requestAnimationFrame(tick);
+          }
+
+          function setTarget(x, y) {
+            const r = card.getBoundingClientRect();
+            // +90 to match CSS angle convention
+            const raw =
+              (Math.atan2(
+                y - (r.top + r.height / 2),
+                x - (r.left + r.width / 2),
+              ) *
+                180) /
+                Math.PI +
+              90;
+            const delta = ((((raw - target + 180) % 360) + 360) % 360) - 180;
+            target += delta;
+            if (!rafId) rafId = requestAnimationFrame(tick);
+          }
+
+          function reset() {
+            home = cornerAngle();
+            const delta = ((((home - target + 180) % 360) + 360) % 360) - 180;
+            target += delta;
+            if (!rafId) rafId = requestAnimationFrame(tick);
+          }
+
+          new ResizeObserver(() => {
+            home = cornerAngle();
+            current = home;
+            target = home;
+            card.style.setProperty("--card-light-angle", home + "deg");
+          }).observe(card);
+
+          card.addEventListener("mousemove", (e) =>
+            setTarget(e.clientX, e.clientY),
+          );
+          card.addEventListener("mouseleave", reset);
+          card.addEventListener(
+            "touchmove",
+            (e) => {
+              setTarget(e.touches[0].clientX, e.touches[0].clientY);
+            },
+            { passive: true },
+          );
+          card.addEventListener("touchend", reset);
+        });
+      });
+    </script>
   </body>
 </html>

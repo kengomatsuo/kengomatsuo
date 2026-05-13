@@ -1,3 +1,9 @@
+@property --card-glow {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
 *,
 *::before,
 *::after {
@@ -15,7 +21,7 @@
   --text: #111111;
   --muted: #737373;
   --accent: #00a068;
-  --radius: 8px;
+  --radius: 24px;
   --nav-h: 54px;
   --max-w: 960px;
   --pad-x: clamp(1.25rem, 5vw, 2.5rem);
@@ -203,23 +209,41 @@ section {
 /* ── Project Card ──────────────────────────────────── */
 
 .project-card {
-  border: 1px solid var(--border);
+  border: 1.5px solid transparent;
   border-radius: var(--radius);
   overflow: hidden;
-  background: var(--bg);
+  user-select: none;
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    conic-gradient(
+        from calc(var(--card-light-angle, 315deg) - 60deg) at 50% 50%,
+        var(--border) 0deg,
+        rgb(255 255 255 / calc(0.85 * var(--card-glow))) 60deg,
+        var(--border) 120deg,
+        var(--border) 220deg,
+        rgb(255 255 255 / calc(0.35 * var(--card-glow))) 240deg,
+        var(--border) 260deg,
+        var(--border) 360deg
+      )
+      border-box;
   transition:
     box-shadow 0.18s,
-    transform 0.18s;
+    transform 0.18s,
+    --card-glow 1.5s ease;
   display: flex;
   flex-direction: column;
 }
 
 .project-card:hover {
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.03);
 }
 
 @media (prefers-color-scheme: dark) {
+  .project-card {
+    border-width: 1px;
+    box-shadow: none;
+  }
   .project-card:hover {
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
   }
@@ -238,6 +262,14 @@ section {
   object-fit: cover;
   object-position: center top;
   display: block;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-touch-callout: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.project-card:hover .card-image img {
+  transform: translateY(-1px) scale(1.05);
 }
 
 .card-image--text {
@@ -301,9 +333,20 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: var(--muted);
+  background: transparent;
   border: 1px solid var(--border);
   border-radius: 4px;
   padding: 0.15em 0.45em;
+  transition:
+    background 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover .card-tag {
+  background: var(--muted);
+  border-color: transparent;
+  color: var(--bg);
 }
 
 .card-badge {
