@@ -581,6 +581,8 @@
           appearObserver.observe(el);
         }
 
+        const orientationTargets = [];
+
         document.querySelectorAll(".project-card").forEach((card, index) => {
           // +90 converts JS atan2 (0=right) to CSS angle convention (0=top)
           function cornerAngle() {
@@ -651,10 +653,8 @@
             }
           }
 
-          function setTarget(x, y) {
+          function setTargetNorm(relX, relY) {
             const r = card.getBoundingClientRect();
-            const relX = (x - r.left) / r.width;
-            const relY = (y - r.top) / r.height;
             // Sweep from top-left corner angle to top-right corner angle
             const rightAngle =
               ((Math.atan2(-r.height / 2, r.width / 2) * 180) / Math.PI +
@@ -670,6 +670,11 @@
             targetTiltX = -(relY - 0.5) * 6 * sizeScale;
             hovered = true;
             if (!rafId) rafId = requestAnimationFrame(tick);
+          }
+
+          function setTarget(x, y) {
+            const r = card.getBoundingClientRect();
+            setTargetNorm((x - r.left) / r.width, (y - r.top) / r.height);
           }
 
           function reset() {
@@ -699,17 +704,49 @@
           card.style.flex = "1";
           appear(wrapper, 0.15 + gridIndex * 0.1, 22);
 
-          wrapper.addEventListener("mousemove", (e) =>
-            setTarget(e.clientX, e.clientY),
-          );
-          wrapper.addEventListener("mouseleave", reset);
-          wrapper.addEventListener(
-            "touchmove",
-            (e) => setTarget(e.touches[0].clientX, e.touches[0].clientY),
-            { passive: true },
-          );
-          wrapper.addEventListener("touchend", reset);
+          if (!window.matchMedia("(hover: none)").matches) {
+            wrapper.addEventListener("mousemove", (e) =>
+              setTarget(e.clientX, e.clientY),
+            );
+            wrapper.addEventListener("mouseleave", reset);
+          } else {
+            orientationTargets.push(setTargetNorm);
+          }
         });
+
+        // Device-orientation highlight for mobile
+        if (
+          window.matchMedia("(hover: none)").matches &&
+          window.DeviceOrientationEvent
+        ) {
+          const TILT_RANGE = 25;
+          let baseGamma = null,
+            baseBeta = null;
+
+          function handleOrientation(e) {
+            if (e.gamma === null) return;
+            if (baseGamma === null) {
+              baseGamma = e.gamma;
+              baseBeta = e.beta ?? 45;
+            }
+            const relX = Math.min(
+              1,
+              Math.max(0, 0.5 + (e.gamma - baseGamma) / (TILT_RANGE * 2)),
+            );
+            const relY = Math.min(
+              1,
+              Math.max(
+                0,
+                0.5 + ((e.beta ?? 45) - baseBeta) / (TILT_RANGE * 2),
+              ),
+            );
+            orientationTargets.forEach((fn) => fn(relX, relY));
+          }
+
+          if (typeof DeviceOrientationEvent.requestPermission !== "function") {
+            window.addEventListener("deviceorientation", handleOrientation);
+          }
+        }
 
         // Map each wrapper to its full grid group so the whole section fires at once
         document.querySelectorAll(".project-grid").forEach((grid) => {
