@@ -11,7 +11,13 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="loading">
+    <div id="loading-overlay">
+      <div class="loading-content">
+        <p class="loading-text" id="loading-text">Loading</p>
+        <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
+      </div>
+    </div>
     <nav class="appear" style="--appear-y: -12px">
       <a href="#" class="nav-logo">MK</a>
       <ul class="nav-links">
@@ -96,7 +102,6 @@
                   <img
                     src="/images/cutling-icon.png"
                     alt="Cutling app icon"
-                    loading="lazy"
                     onerror="
                       this.onerror = null;
                       this.parentElement.parentElement.className =
@@ -164,7 +169,6 @@
                 <img
                   src="/images/itinerary-id-icon.svg"
                   alt="Itinerary.id icon"
-                  loading="lazy"
                   onerror="
                     this.onerror = null;
                     this.parentElement.className =
@@ -215,7 +219,6 @@
                   <img
                     src="/images/txeexpress-logo.svg"
                     alt="TXE Express logo"
-                    loading="lazy"
                     onerror="
                       this.onerror = null;
                       this.parentElement.parentElement.className =
@@ -259,7 +262,6 @@
                   <img
                     src="/images/polindo-logo.png"
                     alt="PT Polindo Utama logo"
-                    loading="lazy"
                     onerror="
                       this.onerror = null;
                       this.parentElement.parentElement.className =
@@ -298,7 +300,6 @@
                   <img
                     src="/images/prevented-ocean-plastic-logo.png"
                     alt="Prevented Ocean Plastic certification mark"
-                    loading="lazy"
                     onerror="
                       this.onerror = null;
                       this.parentElement.parentElement.className =
@@ -337,7 +338,6 @@
                 <img
                   src="/images/eralink-indonesia-logo.webp"
                   alt="Eralink Indonesia logo"
-                  loading="lazy"
                   onerror="
                     this.onerror = null;
                     this.parentElement.className =
@@ -531,7 +531,55 @@
       </div>
     </footer>
     <script>
+      const loadingOverlay = document.getElementById("loading-overlay");
+      const loadingText = document.getElementById("loading-text");
+      const dotStates = ["Loading", "Loading.", "Loading..", "Loading..."];
+      let dotIndex = 0;
+      let dotInterval = null;
+
+      const allImgs = Array.from(document.images);
+      const totalImgs = allImgs.length;
+      let loadedImgs = 0;
+      const fill = loadingOverlay && loadingOverlay.querySelector(".loading-bar-fill");
+
+      function updateBar() {
+        if (!fill || !totalImgs) return;
+        fill.style.transition = "width 0.2s ease";
+        fill.style.width = (loadedImgs / totalImgs * 100) + "%";
+      }
+
+      allImgs.forEach((img) => {
+        if (img.complete) {
+          loadedImgs++;
+        } else {
+          img.addEventListener("load", () => { loadedImgs++; updateBar(); }, { once: true });
+          img.addEventListener("error", () => { loadedImgs++; updateBar(); }, { once: true });
+        }
+      });
+      updateBar();
+
+      setTimeout(() => {
+        if (loadingOverlay) {
+          loadingOverlay.classList.add("visible");
+          dotInterval = setInterval(() => {
+            dotIndex = (dotIndex + 1) % dotStates.length;
+            if (loadingText) loadingText.textContent = dotStates[dotIndex];
+          }, 400);
+        }
+      }, 1000);
+
       window.addEventListener("load", () => {
+        if (loadingOverlay) {
+          clearInterval(dotInterval);
+          if (fill) {
+            fill.style.transition = "width 0.3s ease";
+            fill.style.width = "100%";
+          }
+          setTimeout(() => {
+            loadingOverlay.classList.add("done");
+            loadingOverlay.addEventListener("transitionend", () => loadingOverlay.remove(), { once: true });
+          }, 300);
+        }
         const loadTime = Date.now();
         // Hero sequence ends at ~100ms settle + 280ms last element + 900ms animation
         const HERO_DONE = 550;
@@ -713,6 +761,8 @@
             orientationTargets.push(setTargetNorm);
           }
         });
+
+        document.body.classList.remove("loading");
 
         // Device-orientation highlight for mobile
         if (
