@@ -499,8 +499,17 @@
     </main>
 
     <button id="back-to-top" aria-label="Back to top">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="2,9 7,4 12,9"/>
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 14 14"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="2,9 7,4 12,9" />
       </svg>
     </button>
 
@@ -536,7 +545,10 @@
               const group = cardGroups.get(target);
               if (group) {
                 // First card in this section seen — fire entire group
-                group.forEach((t) => { appearObserver.unobserve(t); toShow.push(t); });
+                group.forEach((t) => {
+                  appearObserver.unobserve(t);
+                  toShow.push(t);
+                });
                 cardGroups.delete(target);
                 group.forEach((t) => cardGroups.delete(t));
               } else {
@@ -546,9 +558,13 @@
             });
             if (!toShow.length) return;
             const wait = Math.max(0, HERO_DONE - (Date.now() - loadTime));
-            setTimeout(() => requestAnimationFrame(() => {
-              toShow.forEach((t) => t.classList.add("visible"));
-            }), wait);
+            setTimeout(
+              () =>
+                requestAnimationFrame(() => {
+                  toShow.forEach((t) => t.classList.add("visible"));
+                }),
+              wait,
+            );
           },
           { threshold: 0.08, rootMargin: "0px 0px -20px 0px" },
         );
@@ -635,19 +651,18 @@
 
           function setTarget(x, y) {
             const r = card.getBoundingClientRect();
-            const raw =
-              (Math.atan2(
-                y - (r.top + r.height / 2),
-                x - (r.left + r.width / 2),
-              ) *
-                180) /
-                Math.PI +
-              90;
-            const delta = ((((raw - target + 180) % 360) + 360) % 360) - 180;
-            target += delta;
-
             const relX = (x - r.left) / r.width;
             const relY = (y - r.top) / r.height;
+            // Sweep from top-left corner angle to top-right corner angle
+            const rightAngle =
+              ((Math.atan2(-r.height / 2, r.width / 2) * 180) / Math.PI +
+                90 +
+                360) %
+              360;
+            const span = ((rightAngle - home + 180 + 360) % 360) - 180;
+            const raw = home + relX * span;
+            const delta = ((((raw - target + 180) % 360) + 360) % 360) - 180;
+            target += delta;
             const sizeScale = Math.min(1, 200 / r.width);
             targetTiltY = (relX - 0.5) * 12 * sizeScale;
             targetTiltX = -(relY - 0.5) * 6 * sizeScale;
@@ -742,14 +757,14 @@
 
           btn.addEventListener("mousemove", (e) => {
             const r = btn.getBoundingClientRect();
-            const raw =
-              (Math.atan2(
-                e.clientY - (r.top + r.height / 2),
-                e.clientX - (r.left + r.width / 2),
-              ) *
-                180) /
-                Math.PI +
-              90;
+            const relX = (e.clientX - r.left) / r.width;
+            const rightAngle =
+              ((Math.atan2(-r.height / 2, r.width / 2) * 180) / Math.PI +
+                90 +
+                360) %
+              360;
+            const span = ((rightAngle - home + 180 + 360) % 360) - 180;
+            const raw = home + relX * span;
             const delta = ((((raw - target + 180) % 360) + 360) % 360) - 180;
             target += delta;
             if (!rafId) rafId = requestAnimationFrame(tick);

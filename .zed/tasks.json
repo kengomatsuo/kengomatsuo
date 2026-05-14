@@ -1,0 +1,12 @@
+[
+  {
+    "label": "Serve",
+    "command": "python3 -m http.server",
+    "working_directory": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Publish to gh-pages",
+    "command": "git push origin main:gh-pages",
+    "working_directory": "$ZED_WORKTREE_ROOT"
+  }
+]
