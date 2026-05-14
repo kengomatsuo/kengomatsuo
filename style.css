@@ -13,6 +13,10 @@
   cursor: default;
 }
 
+a, button, [role="button"], label[for], summary {
+  cursor: pointer;
+}
+
 @media (hover: none) and (pointer: coarse) {
   * {
     -webkit-user-select: none;
