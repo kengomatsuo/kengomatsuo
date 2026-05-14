@@ -10,6 +10,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: default;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  * {
+    -webkit-user-select: none;
+    user-select: none;
+  }
 }
 
 :root {
@@ -140,6 +148,14 @@ nav.scrolled {
   margin-bottom: 1rem;
 }
 
+.hero-alias {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
 .hero-sub {
   font-size: clamp(1rem, 2.5vw, 1.125rem);
   color: var(--muted);
@@ -241,8 +257,6 @@ section {
   border: 1px solid transparent;
   border-radius: var(--radius);
   overflow: hidden;
-  user-select: none;
-  cursor: default;
   background:
     linear-gradient(var(--bg), var(--bg)) padding-box,
     conic-gradient(

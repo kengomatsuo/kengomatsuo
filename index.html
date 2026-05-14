@@ -8,11 +8,12 @@
       content="Kenneth Fang — developer and researcher."
     />
     <title>Kenneth Fang</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav class="appear" style="--appear-y: -12px">
-      <a href="#" class="nav-logo">KF</a>
+      <a href="#" class="nav-logo">MK</a>
       <ul class="nav-links">
         <li><a href="#personal">Personal</a></li>
         <li><a href="#client-work">Work</a></li>
@@ -26,6 +27,7 @@
       <section id="hero">
         <div class="hero-inner">
           <h1 class="appear" style="--appear-y: 36px">Kenneth Fang</h1>
+          <p class="hero-alias appear" style="--appear-y: 24px">Matsuo Kengo</p>
           <p class="hero-sub appear" style="--appear-y: 20px">
             Developer &amp; researcher building apps, tools, and things worth
             reading.
@@ -792,13 +794,18 @@
             );
             setTimeout(
               () =>
+                document.querySelector(".hero-alias").classList.add("visible"),
+              120,
+            );
+            setTimeout(
+              () =>
                 document.querySelector(".hero-sub").classList.add("visible"),
-              180,
+              200,
             );
             setTimeout(
               () =>
                 document.querySelector(".hero-links").classList.add("visible"),
-              280,
+              310,
             );
 
             // Section titles — already have appear in HTML, just observe
