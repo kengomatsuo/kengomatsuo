@@ -15,7 +15,9 @@
     <div id="loading-overlay">
       <div class="loading-content">
         <p class="loading-text" id="loading-text">Loading</p>
-        <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
+        <div class="loading-bar-track">
+          <div class="loading-bar-fill"></div>
+        </div>
       </div>
     </div>
     <nav class="appear" style="--appear-y: -12px">
@@ -336,7 +338,7 @@
             <article class="project-card">
               <div class="card-image card-image--icon">
                 <img
-                  src="/images/eralink-indonesia-logo.webp"
+                  src="/images/eralink-indonesia-logo.png"
                   alt="Eralink Indonesia logo"
                   onerror="
                     this.onerror = null;
@@ -540,20 +542,35 @@
       const allImgs = Array.from(document.images);
       const totalImgs = allImgs.length;
       let loadedImgs = 0;
-      const fill = loadingOverlay && loadingOverlay.querySelector(".loading-bar-fill");
+      const fill =
+        loadingOverlay && loadingOverlay.querySelector(".loading-bar-fill");
 
       function updateBar() {
         if (!fill || !totalImgs) return;
         fill.style.transition = "width 0.2s ease";
-        fill.style.width = (loadedImgs / totalImgs * 100) + "%";
+        fill.style.width = (loadedImgs / totalImgs) * 100 + "%";
       }
 
       allImgs.forEach((img) => {
         if (img.complete) {
           loadedImgs++;
         } else {
-          img.addEventListener("load", () => { loadedImgs++; updateBar(); }, { once: true });
-          img.addEventListener("error", () => { loadedImgs++; updateBar(); }, { once: true });
+          img.addEventListener(
+            "load",
+            () => {
+              loadedImgs++;
+              updateBar();
+            },
+            { once: true },
+          );
+          img.addEventListener(
+            "error",
+            () => {
+              loadedImgs++;
+              updateBar();
+            },
+            { once: true },
+          );
         }
       });
       updateBar();
@@ -577,7 +594,11 @@
           }
           setTimeout(() => {
             loadingOverlay.classList.add("done");
-            loadingOverlay.addEventListener("transitionend", () => loadingOverlay.remove(), { once: true });
+            loadingOverlay.addEventListener(
+              "transitionend",
+              () => loadingOverlay.remove(),
+              { once: true },
+            );
           }, 300);
         }
         const loadTime = Date.now();
@@ -785,10 +806,7 @@
             );
             const relY = Math.min(
               1,
-              Math.max(
-                0,
-                0.5 + ((e.beta ?? 45) - baseBeta) / (TILT_RANGE * 2),
-              ),
+              Math.max(0, 0.5 + ((e.beta ?? 45) - baseBeta) / (TILT_RANGE * 2)),
             );
             orientationTargets.forEach((fn) => fn(relX, relY));
           }
