@@ -6,7 +6,7 @@
   },
   {
     "label": "Publish to gh-pages",
-    "command": "git push origin main:gh-pages",
+    "command": "bash deploy.sh",
     "cwd": "$ZED_WORKTREE_ROOT"
   }
 ]
