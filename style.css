@@ -13,7 +13,11 @@
   cursor: default;
 }
 
-a, button, [role="button"], label[for], summary {
+a,
+button,
+[role="button"],
+label[for],
+summary {
   cursor: pointer;
 }
 
@@ -32,7 +36,7 @@ a, button, [role="button"], label[for], summary {
   --border: #e6e6e6;
   --text: #111111;
   --muted: #737373;
-  --accent: #00a068;
+  --accent: #008760;
   --radius: 24px;
   --nav-h: 54px;
   --max-w: 960px;
@@ -50,6 +54,7 @@ a, button, [role="button"], label[for], summary {
     --border: #252525;
     --text: #ebebeb;
     --muted: #808080;
+    --accent: #00a068;
     --glow-border: #3d3d3d;
     --glow-highlight: #a6a6a6;
   }
@@ -99,7 +104,9 @@ body.loading .project-card {
   background: var(--bg);
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.6s ease, visibility 0s 0.6s;
+  transition:
+    opacity 0.6s ease,
+    visibility 0s 0.6s;
   visibility: hidden;
   z-index: 9999;
 }
@@ -113,7 +120,9 @@ body.loading .project-card {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.5s ease, visibility 0s 0.5s;
+  transition:
+    opacity 0.5s ease,
+    visibility 0s 0.5s;
 }
 .loading-content {
   display: flex;
