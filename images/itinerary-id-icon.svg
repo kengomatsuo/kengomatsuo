@@ -1,20 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1023)"><rect width="1000" height="1000" fill="#ffffff"></rect><g transform="matrix(4.666666666666667,0,0,4.666666666666667,150,150)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="150"><svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000">
   <defs>
+    <clipPath id="SvgjsClipPath1023">
+      <rect width="1000" height="1000" x="0" y="0" rx="350" ry="350"></rect>
+    </clipPath>
     <style>
       .dot { fill: #393e41; }
       .line { stroke: #393e41; stroke-width: 7; stroke-linecap: round; }
       .accent { fill: #587b7f; }
     </style>
-  <clipPath id="SvgjsClipPath1023"><rect width="1000" height="1000" x="0" y="0" rx="350" ry="350"></rect></clipPath></defs>
-  
-  <!-- Connecting lines forming a minimal path -->
-  <line x1="15" y1="45" x2="55" y2="85" class="line"></line>
-  <line x1="55" y1="85" x2="95" y2="65" class="line"></line>
-  <line x1="95" y1="65" x2="135" y2="105" class="line"></line>
-  
-  <!-- Dots at key points -->
-  <circle cx="15" cy="45" r="15" class="dot"></circle>
-  <circle cx="55" cy="85" r="15" class="dot"></circle>
-  <circle cx="95" cy="65" r="15" class="dot"></circle>
-  <circle cx="135" cy="105" r="15" class="accent"></circle>
-</svg></svg></g></g></svg>
+  </defs>
+  <g clip-path="url(#SvgjsClipPath1023)">
+    <rect width="1000" height="1000" fill="#ffffff"></rect>
+    <g transform="matrix(4.666666666666667,0,0,4.666666666666667,150,150)">
+      <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+        <!-- Connecting lines forming a minimal path -->
+        <line x1="15" y1="45" x2="55" y2="85" class="line"></line>
+        <line x1="55" y1="85" x2="95" y2="65" class="line"></line>
+        <line x1="95" y1="65" x2="135" y2="105" class="line"></line>
+
+        <!-- Dots at key points -->
+        <circle cx="15" cy="45" r="15" class="dot"></circle>
+        <circle cx="55" cy="85" r="15" class="dot"></circle>
+        <circle cx="95" cy="65" r="15" class="dot"></circle>
+        <circle cx="135" cy="105" r="15" class="accent"></circle>
+      </svg>
+    </g>
+  </g>
+</svg>
