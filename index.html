@@ -177,18 +177,24 @@
 
             <article class="project-card">
               <div class="card-image card-image--icon">
-                <img
-                  src="/images/itinerary-id-icon.webp"
-                  alt="Itinerary.id icon"
-                  onerror="
-                    this.onerror = null;
-                    this.parentElement.className =
-                      'card-image card-image--text';
-                    this.parentElement.textContent = 'Itinerary.id';
-                    this.parentElement.style.cssText =
-                      'background:#3D5A6C;color:#ffffff';
-                  "
-                />
+                <picture>
+                  <source
+                    srcset="/images/itinerary-id-dark-mode-icon.png"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img
+                    src="/images/itinerary-id-icon.webp"
+                    alt="Itinerary.id icon"
+                    onerror="
+                      this.onerror = null;
+                      this.parentElement.parentElement.className =
+                        'card-image card-image--text';
+                      this.parentElement.parentElement.textContent = 'Itinerary.id';
+                      this.parentElement.parentElement.style.cssText =
+                        'background:#3D5A6C;color:#ffffff';
+                    "
+                  />
+                </picture>
               </div>
               <div class="card-body">
                 <div class="card-meta">
