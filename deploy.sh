@@ -25,6 +25,7 @@ html = re.sub(r'<script src="script\.js"></script>', f'<script>{js}</script>', h
 open('_dist/index.html', 'w').write(html)
 EOF
 
+cp /tmp/_min.css "$DIST/style.css"
 rm -f /tmp/_min.css /tmp/_min.js
 
 # Copy remaining assets
