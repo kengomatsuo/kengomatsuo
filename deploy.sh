@@ -28,7 +28,7 @@ EOF
 rm -f /tmp/_min.css /tmp/_min.js
 
 # Copy remaining assets
-cp favicon.svg CNAME "$DIST/"
+cp favicon.svg CNAME robots.txt "$DIST/"
 cp -r images itinerary-generator polindohc prevented-ocean-plastic "$DIST/"
 
 # Convert PNGs to WebP (only keep if smaller)
@@ -42,7 +42,7 @@ done
 
 # Minify SVGs
 find "$DIST" -name "*.svg" | while IFS= read -r f; do
-  bunx svgo "$f" -o "$f" --quiet
+  bunx svgo "$f" -o "$f" --config svgo.config.js --quiet
 done
 
 # Push to gh-pages
