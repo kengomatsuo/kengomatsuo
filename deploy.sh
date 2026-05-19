@@ -32,6 +32,11 @@ rm -f /tmp/_min.css /tmp/_min.js
 cp favicon.svg CNAME robots.txt "$DIST/"
 cp -r images itinerary-generator polindohc prevented-ocean-plastic "$DIST/"
 
+# Resize images to max 512px height (never upscale)
+find "$DIST" -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" | while IFS= read -r f; do
+  magick "$f" -resize 'x512>' "$f"
+done
+
 # Convert PNGs to WebP (only keep if smaller)
 find "$DIST" -name "*.png" | while IFS= read -r f; do
   out="${f%.png}.webp"

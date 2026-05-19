@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static personal portfolio site (matsuokengo.com). No build step, no dependencies — just `index.html`, `style.css`, and static assets served directly.
+A static personal portfolio site (matsuokengo.com). Source files are plain HTML/CSS/JS — no framework, no build step for development.
 
 ## Development
 
@@ -12,11 +12,23 @@ A static personal portfolio site (matsuokengo.com). No build step, no dependenci
 python3 -m http.server   # serve locally
 ```
 
-Deploy by pushing to `gh-pages`:
+## Deploy
+
+Deploy via `deploy.sh`, which does the following before pushing to `gh-pages`:
+
+1. Minifies `style.css` (via `lightningcss`) and `script.js` (via `terser`) and inlines both into `index.html`
+2. Copies all static assets (`images/`, `itinerary-generator/`, `polindohc/`, `prevented-ocean-plastic/`, `favicon.svg`, `CNAME`, `robots.txt`)
+3. Converts PNGs to WebP with `cwebp -q 85`, keeping the WebP only if it's smaller than the PNG
+4. Minifies SVGs with `svgo`
+5. Force-pushes the result to `origin/gh-pages`
 
 ```bash
-git push origin main:gh-pages
+bash deploy.sh
 ```
+
+In Zed, this is the **"Publish to gh-pages"** task (`.zed/tasks.json`).
+
+Do **not** push directly to `gh-pages` — the branch is owned by the deploy script and will be overwritten.
 
 ## Architecture
 
