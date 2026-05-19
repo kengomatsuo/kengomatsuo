@@ -7,7 +7,7 @@
       name="description"
       content="Kenneth Fang — developer and researcher."
     />
-    <title>Kenneth Fang</title>
+    <title>Portfolio | Kenneth</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -23,20 +23,24 @@
     <nav class="appear" style="--appear-y: -12px">
       <a href="#" class="nav-logo">MK</a>
       <ul class="nav-links">
-        <li><a href="#personal">Personal</a></li>
-        <li><a href="#client-work">Work</a></li>
-        <li><a href="#school">School</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#personal" data-i18n="nav-personal">Personal</a></li>
+        <li><a href="#client-work" data-i18n="nav-work">Work</a></li>
+        <li><a href="#school" data-i18n="nav-school">School</a></li>
+        <li><a href="#research" data-i18n="nav-research">Research</a></li>
+        <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
       </ul>
     </nav>
 
     <main>
       <section id="hero">
         <div class="hero-inner">
-          <h1 class="appear" style="--appear-y: 36px">Kenneth Fang</h1>
-          <p class="hero-alias appear" style="--appear-y: 24px">Matsuo Kengo</p>
-          <p class="hero-sub appear" style="--appear-y: 20px">
+          <h1 class="appear" style="--appear-y: 36px">Kenneth Johannes Fang</h1>
+          <p class="hero-alias appear" style="--appear-y: 24px" data-i18n="hero-alias">Matsuo Kengo</p>
+          <p
+            class="hero-sub appear"
+            style="--appear-y: 20px"
+            data-i18n="hero-sub"
+          >
             Developer &amp; researcher building apps, tools, and things worth
             reading.
           </p>
@@ -81,7 +85,7 @@
                   13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"
                 />
               </svg>
-              Email
+              <span data-i18n="hero-btn-email">Email</span>
             </a>
           </div>
         </div>
@@ -90,7 +94,11 @@
       <!-- ── Personal ───────────────────────────────── -->
       <section id="personal">
         <div class="section-inner">
-          <h2 class="section-title appear" style="--appear-y: 14px">
+          <h2
+            class="section-title appear"
+            style="--appear-y: 14px"
+            data-i18n="section-personal"
+          >
             Personal
           </h2>
           <div class="project-grid">
@@ -128,8 +136,8 @@
                 <div class="card-meta">
                   <span class="card-tag">iOS &amp; macOS</span>
                 </div>
-                <h3 class="card-title">Cutling</h3>
-                <p class="card-desc">
+                <h3 class="card-title" data-i18n="card-title-cutling">Cutling</h3>
+                <p class="card-desc" data-i18n="cutling-desc">
                   Native clipboard manager for iOS and macOS that saves your
                   most-used snippets and images so you can paste them into any
                   app through a built-in keyboard, no account needed.
@@ -147,6 +155,7 @@
                     class="card-link card-link--muted"
                     target="_blank"
                     rel="noopener"
+                    data-i18n="card-link-website"
                     >Website →</a
                   >
                 </div>
@@ -154,23 +163,29 @@
             </article>
 
             <article class="project-card">
-              <div class="card-image card-image--text placeholder">
+              <div class="card-image card-image--text placeholder" data-i18n="img-coming-soon">
                 Coming Soon
               </div>
               <div class="card-body">
                 <div class="card-meta">
                   <span class="card-tag">iOS</span>
-                  <span class="card-badge card-badge--progress"
+                  <span
+                    class="card-badge card-badge--progress"
+                    data-i18n="badge-in-progress"
                     >In Progress</span
                   >
                 </div>
                 <h3 class="card-title">What?</h3>
-                <p class="card-desc">
+                <p class="card-desc" data-i18n="what-desc">
                   iOS app that streams your screen and overlays translations on
                   top of the original text, fully offline.
                 </p>
                 <div class="card-actions">
-                  <span class="card-link card-link--muted">Coming soon</span>
+                  <span
+                    class="card-link card-link--muted"
+                    data-i18n="badge-coming-soon"
+                    >Coming soon</span
+                  >
                 </div>
               </div>
             </article>
@@ -189,7 +204,8 @@
                       this.onerror = null;
                       this.parentElement.parentElement.className =
                         'card-image card-image--text';
-                      this.parentElement.parentElement.textContent = 'Itinerary.id';
+                      this.parentElement.parentElement.textContent =
+                        'Itinerary.id';
                       this.parentElement.parentElement.style.cssText =
                         'background:#3D5A6C;color:#ffffff';
                     "
@@ -198,10 +214,10 @@
               </div>
               <div class="card-body">
                 <div class="card-meta">
-                  <span class="card-tag">Web</span>
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
                 </div>
                 <h3 class="card-title">Itinerary.id</h3>
-                <p class="card-desc">
+                <p class="card-desc" data-i18n="itinerary-id-desc">
                   Travel itinerary planner built for Indonesian travelers.
                 </p>
                 <div class="card-actions">
@@ -210,6 +226,7 @@
                     class="card-link"
                     target="_blank"
                     rel="noopener"
+                    data-i18n="card-link-visit"
                     >Visit →</a
                   >
                 </div>
@@ -222,7 +239,11 @@
       <!-- ── Client Work ────────────────────────────── -->
       <section id="client-work">
         <div class="section-inner">
-          <h2 class="section-title appear" style="--appear-y: 14px">
+          <h2
+            class="section-title appear"
+            style="--appear-y: 14px"
+            data-i18n="section-client-work"
+          >
             Client Work
           </h2>
           <div class="project-grid">
@@ -230,11 +251,11 @@
               <div class="card-image card-image--icon">
                 <picture>
                   <source
-                    srcset="/images/txeexpress-dark-mode-logo.svg"
+                    srcset="/images/txeexpress-dark-mode-icon.webp"
                     media="(prefers-color-scheme: dark)"
                   />
                   <img
-                    src="/images/txeexpress-logo.svg"
+                    src="/images/txeexpress-icon.webp"
                     alt="TXE Express logo"
                     onerror="
                       this.onerror = null;
@@ -250,10 +271,10 @@
               </div>
               <div class="card-body">
                 <div class="card-meta">
-                  <span class="card-tag">Logistics PWA</span>
+                  <span class="card-tag" data-i18n="tag-logistics-pwa">Logistics PWA</span>
                 </div>
                 <h3 class="card-title">TXE Express</h3>
-                <p class="card-desc">
+                <p class="card-desc" data-i18n="txe-desc">
                   Operations app for TXE Express, a courier and delivery
                   company.
                 </p>
@@ -263,6 +284,7 @@
                     class="card-link"
                     target="_blank"
                     rel="noopener"
+                    data-i18n="card-link-visit-site"
                     >Visit site →</a
                   >
                 </div>
@@ -302,16 +324,16 @@
               </div>
               <div class="card-body">
                 <div class="card-meta">
-                  <span class="card-tag">Mobile</span>
+                  <span class="card-tag" data-i18n="tag-mobile">Mobile</span>
                 </div>
                 <h3 class="card-title">PolindoHC</h3>
-                <p class="card-desc">
+                <p class="card-desc" data-i18n="polindo-desc">
                   Internal mobile app for PT Polindo Utama — employees browse,
                   register for, and track upcoming company activities and
                   events.
                 </p>
                 <div class="card-actions">
-                  <a href="/polindohc/" class="card-link">Learn more →</a>
+                  <a href="/polindohc/" class="card-link" data-i18n="card-link-learn-more">Learn more →</a>
                 </div>
               </div>
             </article>
@@ -349,19 +371,21 @@
               </div>
               <div class="card-body">
                 <div class="card-meta">
-                  <span class="card-tag">Mobile</span>
-                  <span class="card-badge card-badge--progress"
+                  <span class="card-tag" data-i18n="tag-mobile">Mobile</span>
+                  <span
+                    class="card-badge card-badge--progress"
+                    data-i18n="badge-in-progress"
                     >In Progress</span
                   >
                 </div>
                 <h3 class="card-title">POP App</h3>
-                <p class="card-desc">
+                <p class="card-desc" data-i18n="pop-desc">
                   Paper-to-digital operations platform for Prevented Ocean
                   Plastic — covering intake, production, sampling, QC, and
                   shipment across all roles.
                 </p>
                 <div class="card-actions">
-                  <a href="/prevented-ocean-plastic/" class="card-link"
+                  <a href="/prevented-ocean-plastic/" class="card-link" data-i18n="card-link-learn-more"
                     >Learn more →</a
                   >
                 </div>
@@ -392,15 +416,15 @@
               </div>
               <div class="card-body">
                 <div class="card-meta">
-                  <span class="card-tag">Web</span>
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
                 </div>
                 <h3 class="card-title">Itinerary Generator</h3>
-                <p class="card-desc">
+                <p class="card-desc" data-i18n="itinerary-gen-desc">
                   Web app for building and sharing travel itineraries, made for
                   a private client.
                 </p>
                 <div class="card-actions">
-                  <a href="/itinerary-generator/" class="card-link"
+                  <a href="/itinerary-generator/" class="card-link" data-i18n="card-link-learn-more"
                     >Learn more →</a
                   >
                 </div>
@@ -413,15 +437,21 @@
       <!-- ── School ─────────────────────────────────── -->
       <section id="school">
         <div class="section-inner">
-          <h2 class="section-title appear" style="--appear-y: 14px">School</h2>
+          <h2
+            class="section-title appear"
+            style="--appear-y: 14px"
+            data-i18n="section-school"
+          >
+            School
+          </h2>
           <div class="project-grid project-grid--slim">
             <article class="project-card">
               <div class="card-body">
                 <div class="card-meta">
-                  <span class="card-tag">Web</span>
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
                 </div>
                 <h3 class="card-title">Learn!</h3>
-                <p class="card-desc">
+                <p class="card-desc" data-i18n="learn-desc">
                   Kids learning site with video lessons and quizzes, with
                   streaks and rewards to keep them coming back.
                 </p>
@@ -431,6 +461,7 @@
                     class="card-link"
                     target="_blank"
                     rel="noopener"
+                    data-i18n="card-link-visit"
                     >Visit →</a
                   >
                 </div>
@@ -440,10 +471,10 @@
             <article class="project-card">
               <div class="card-body">
                 <div class="card-meta">
-                  <span class="card-tag">Web</span>
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
                 </div>
                 <h3 class="card-title">Last Minute</h3>
-                <p class="card-desc">
+                <p class="card-desc" data-i18n="last-minute-desc">
                   Online course platform where students can attend classes and
                   peer-to-peer video call.
                 </p>
@@ -462,10 +493,10 @@
             <article class="project-card">
               <div class="card-body">
                 <div class="card-meta">
-                  <span class="card-tag">Game</span>
+                  <span class="card-tag" data-i18n="tag-game">Game</span>
                 </div>
                 <h3 class="card-title">Let Me Rest</h3>
-                <p class="card-desc">
+                <p class="card-desc" data-i18n="let-me-rest-desc">
                   Pixel-art browser minigame, also packaged for mobile.
                 </p>
                 <div class="card-actions">
@@ -474,6 +505,7 @@
                     class="card-link"
                     target="_blank"
                     rel="noopener"
+                    data-i18n="card-link-play"
                     >Play →</a
                   >
                 </div>
@@ -486,7 +518,7 @@
                   <span class="card-tag">ML</span>
                 </div>
                 <h3 class="card-title">Sporocarp Classifier</h3>
-                <p class="card-desc">
+                <p class="card-desc" data-i18n="sporocarp-desc">
                   Image classifier that tells edible mushrooms from poisonous
                   ones, with a live demo on Hugging Face.
                 </p>
@@ -496,6 +528,7 @@
                     class="card-link"
                     target="_blank"
                     rel="noopener"
+                    data-i18n="card-link-live-demo"
                     >Live demo →</a
                   >
                   <a
@@ -515,7 +548,11 @@
       <!-- ── Research ───────────────────────────────── -->
       <section id="research">
         <div class="section-inner">
-          <h2 class="section-title appear" style="--appear-y: 14px">
+          <h2
+            class="section-title appear"
+            style="--appear-y: 14px"
+            data-i18n="section-research"
+          >
             Research
           </h2>
           <div class="pub appear" style="--appear-y: 16px">
@@ -535,6 +572,7 @@
               class="card-link"
               target="_blank"
               rel="noopener"
+              data-i18n="research-link"
               >Read on IEEE Xplore →</a
             >
           </div>

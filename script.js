@@ -1,3 +1,8 @@
+const LANG = (() => {
+  const l = (navigator.language || "").split("-")[0].toLowerCase();
+  return l === "ja" || l === "id" ? l : null;
+})();
+
 const loadingOverlay = document.getElementById("loading-overlay");
 const loadingText = document.getElementById("loading-text");
 const dotStates = ["Loading", "Loading.", "Loading..", "Loading..."];
@@ -66,6 +71,8 @@ window.addEventListener("load", () => {
       );
     }, 300);
   }
+  const localeReady = LANG ? import(`/locales/${LANG}.js`) : null;
+
   const loadTime = Date.now();
   // Hero sequence ends at ~100ms settle + 280ms last element + 900ms animation
   const HERO_DONE = 550;
@@ -366,6 +373,11 @@ window.addEventListener("load", () => {
         () => document.querySelector(".hero-links").classList.add("visible"),
         310,
       );
+      setTimeout(async () => {
+        if (!localeReady) return;
+        const { default: apply } = await localeReady;
+        apply();
+      }, 310 + 950);
 
       // Section titles — already have appear in HTML, just observe
       document.querySelectorAll(".section-title").forEach((el) => appear(el));
