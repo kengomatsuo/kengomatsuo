@@ -1,17 +1,24 @@
 function scrambleEl(el, target, pool, isScramblable) {
   const duration = Math.min(900, Math.max(500, target.length * 5));
   const start = performance.now();
+  const current = Array.from(target).map((ch) =>
+    isScramblable(ch) ? pool[Math.floor(Math.random() * pool.length)] : ch
+  );
 
   function frame(now) {
     const t = Math.min(1, (now - start) / duration);
     const eased = 1 - (1 - t) * (1 - t);
-    const resolved = Math.floor(eased * target.length);
+    const lockProgress = eased * target.length;
+    const resolved = Math.floor(lockProgress);
     let out = "";
     for (let i = 0; i < target.length; i++) {
       if (i < resolved) {
         out += target[i];
       } else if (isScramblable(target[i])) {
-        out += pool[Math.floor(Math.random() * pool.length)];
+        const spinProb = Math.min(1, (i - lockProgress) / 2);
+        if (Math.random() < spinProb)
+          current[i] = pool[Math.floor(Math.random() * pool.length)];
+        out += current[i];
       } else {
         out += target[i];
       }
@@ -86,6 +93,6 @@ export default function () {
 
   Array.from(document.querySelectorAll("[data-i18n]")).forEach((el, i) => {
     const target = STRINGS[el.dataset.i18n];
-    if (target) setTimeout(() => scrambleEl(el, target, POOL, isScramblable), i * 35);
+    if (target && target !== el.textContent) setTimeout(() => scrambleEl(el, target, POOL, isScramblable), i * 35);
   });
 }
