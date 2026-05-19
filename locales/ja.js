@@ -1,31 +1,56 @@
-function scrambleEl(el, target, pool, isScramblable) {
-  const duration = Math.min(900, Math.max(500, target.length * 5));
-  const start = performance.now();
-  const current = Array.from(target).map((ch) =>
-    isScramblable(ch) ? pool[Math.floor(Math.random() * pool.length)] : ch
+function scrambleEl(el, target, isScramblable) {
+  const phase1Start = performance.now();
+  const source = el.textContent.trim();
+  const pool = [...new Set(target)];
+  const phase1Duration = Math.min(500, Math.max(250, source.length * 8));
+  const phase2StartTime = phase1Start + phase1Duration * -0.2;
+  const phase2Duration = Math.min(900, Math.max(500, target.length * 5));
+  const noise = Array.from(
+    { length: Math.max(source.length, target.length) },
+    () => pool[Math.floor(Math.random() * pool.length)],
   );
 
   function frame(now) {
-    const t = Math.min(1, (now - start) / duration);
-    const eased = 1 - (1 - t) * (1 - t);
-    const lockProgress = eased * target.length;
-    const resolved = Math.floor(lockProgress);
+    const t1 = Math.min(1, (now - phase1Start) / phase1Duration);
+    const noiseProgress = (1 - (1 - t1) * (1 - t1)) * source.length;
     let out = "";
-    for (let i = 0; i < target.length; i++) {
-      if (i < resolved) {
-        out += target[i];
-      } else if (isScramblable(target[i])) {
-        const spinProb = Math.min(1, (i - lockProgress) / 2);
-        if (Math.random() < spinProb)
-          current[i] = pool[Math.floor(Math.random() * pool.length)];
-        out += current[i];
-      } else {
-        out += target[i];
+
+    if (now < phase2StartTime) {
+      for (let i = 0; i < source.length; i++) {
+        if (i < noiseProgress) {
+          noise[i] = pool[Math.floor(Math.random() * pool.length)];
+          out += noise[i];
+        } else {
+          out += source[i];
+        }
       }
+      el.textContent = out;
+      requestAnimationFrame(frame);
+    } else {
+      const t = Math.min(1, (now - phase2StartTime) / phase2Duration);
+      const eased = 1 - (1 - t) * (1 - t);
+      const lockProgress = eased * target.length;
+      const resolved = Math.floor(lockProgress);
+      const currentLength = Math.max(
+        resolved,
+        Math.round(source.length + (target.length - source.length) * eased),
+      );
+      for (let i = 0; i < currentLength; i++) {
+        if (i < resolved) {
+          out += target[i];
+        } else if (i < noiseProgress) {
+          const spinProb = Math.min(1, (i - lockProgress) / 2);
+          if (Math.random() < spinProb)
+            noise[i] = pool[Math.floor(Math.random() * pool.length)];
+          out += noise[i];
+        } else {
+          out += i < source.length ? source[i] : noise[i];
+        }
+      }
+      el.textContent = out;
+      if (t < 1) requestAnimationFrame(frame);
+      else el.textContent = target;
     }
-    el.textContent = out;
-    if (t < 1) requestAnimationFrame(frame);
-    else el.textContent = target;
   }
 
   requestAnimationFrame(frame);
@@ -66,7 +91,8 @@ const STRINGS = {
   "card-link-learn-more": "詳細を見る →",
   "pop-desc":
     "Prevented Ocean Plasticの業務をデジタル化するプラットフォーム。受入・生産・サンプリング・品質管理・出荷を全役職にわたってカバー。",
-  "itinerary-gen-desc": "旅程の作成と共有ができるWebアプリ。個人クライアント向けに制作。",
+  "itinerary-gen-desc":
+    "旅程の作成と共有ができるWebアプリ。個人クライアント向けに制作。",
   "learn-desc":
     "動画レッスンとクイズを備えた子ども向け学習サイト。ストリークと報酬で継続を促進。",
   "card-link-play": "プレイ →",
@@ -79,20 +105,28 @@ const STRINGS = {
   "research-link": "IEEE Xploreで読む →",
 };
 
-const POOL = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん";
 const isScramblable = (ch) => /[぀-ヿ一-鿿]/.test(ch);
 
 export default function () {
   document.documentElement.lang = "ja";
 
-  const appStore = document.querySelector('a[href*="apps.apple.com/app/cutling"]');
-  if (appStore) appStore.href = "https://apps.apple.com/jp/app/cutling/id6759476314";
+  const appStore = document.querySelector(
+    'a[href*="apps.apple.com/app/cutling"]',
+  );
+  if (appStore)
+    appStore.href = "https://apps.apple.com/jp/app/cutling/id6759476314";
 
-  const cutlingSite = document.querySelector('a[href*="kengomatsuo.github.io/Cutling"]');
-  if (cutlingSite) cutlingSite.href = "https://kengomatsuo.github.io/Cutling/ja/";
+  const cutlingSite = document.querySelector(
+    'a[href*="kengomatsuo.github.io/Cutling"]',
+  );
+  if (cutlingSite)
+    cutlingSite.href = "https://kengomatsuo.github.io/Cutling/ja/";
 
-  Array.from(document.querySelectorAll("[data-i18n]")).forEach((el, i) => {
-    const target = STRINGS[el.dataset.i18n];
-    if (target && target !== el.textContent) setTimeout(() => scrambleEl(el, target, POOL, isScramblable), i * 35);
+  const els = Array.from(document.querySelectorAll("[data-i18n]"))
+    .map((el, i) => ({ el, i, target: STRINGS[el.dataset.i18n] }))
+    .filter(({ el, target }) => target && target !== el.textContent);
+
+  els.forEach(({ el, i, target }) => {
+    setTimeout(() => scrambleEl(el, target, isScramblable), i * 35);
   });
 }
