@@ -44,3 +44,7 @@ All scroll-in animations use a single `IntersectionObserver` (`appearObserver`).
 Card hover effects (light angle sweep + 3D tilt) run on `requestAnimationFrame` loops that stop when motion settles. The tilt is skipped on touch/mobile devices via `window.matchMedia("(hover: none)")`.
 
 Hero buttons have a separate shimmer-angle animation driven by `mousemove`.
+
+## Localisation / IME animations
+
+`locales/ja.js` handles Japanese translation. Strings with IME frame sequences (nav, section headers, hero text) simulate macOS Live Conversion keystroke-by-keystroke. See `locales/IME_GUIDE.md` for the frame format, timing constants, and how to add new strings.

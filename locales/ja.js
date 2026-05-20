@@ -1,10 +1,39 @@
+import {
+  KOJIN_IME,
+  SHIGOTO_IME,
+  GAKKOU_IME,
+  KENKYUU_IME,
+  RENRAKU_IME,
+  CLIENT_WORK_IME,
+  MATSUO_KENGO_IME,
+  HERO_SUB_IME,
+} from "./ja-ime.js";
+
 const CURSOR = "|";
 const DELETE_MIN = 280;
 const DELETE_MAX = 320;
 const TYPE_MIN = 500;
 const TYPE_MAX = 1000;
+const IME_KEYSTROKE_MS = 35; // base ms per keypress
+const IME_MORA_MS = 28; // completing a mora (fast burst)
+const IME_CANDIDATE_MS = 70; // pause while kanji candidate shows
+const IME_BOUNDARY_MS = 30; // gap between confirmed words
 
-function scrambleEl(el, target) {
+const IME_MAP = {
+  "nav-personal": KOJIN_IME,
+  "nav-work": SHIGOTO_IME,
+  "nav-school": GAKKOU_IME,
+  "nav-research": KENKYUU_IME,
+  "nav-contact": RENRAKU_IME,
+  "section-personal": KOJIN_IME,
+  "section-client-work": CLIENT_WORK_IME,
+  "section-school": GAKKOU_IME,
+  "section-research": KENKYUU_IME,
+  "hero-alias": MATSUO_KENGO_IME,
+  "hero-sub": HERO_SUB_IME,
+};
+
+function scrambleEl(el, target, imeFrames) {
   const source = el.textContent.trim();
   const DELETE_MS =
     (DELETE_MIN + Math.random() * (DELETE_MAX - DELETE_MIN)) /
@@ -19,24 +48,56 @@ function scrambleEl(el, target) {
   cur.style.cssText = "position:absolute;user-select:none;pointer-events:none";
   cur.textContent = CURSOR;
 
-  function show(text) {
-    el.textContent = text;
+  function show(done, composing) {
+    el.textContent = done;
+    if (composing) {
+      const span = document.createElement("span");
+      span.style.cssText =
+        "text-decoration:underline;text-underline-offset:3px";
+      span.textContent = composing;
+      el.appendChild(span);
+    }
     el.appendChild(cur);
   }
 
-  let remaining = [...source];
+  function startTyping() {
+    if (imeFrames) {
+      const hasKanji = (s) => /[一-鿿゠-ヿ]/.test(s);
+      const endsRomaji = (s) => /[a-z]$/.test(s);
 
-  function del() {
-    if (remaining.length > 0) {
-      remaining.pop();
-      show(remaining.join(""));
-      setTimeout(del, DELETE_MS);
+      function imeDelay(i) {
+        const [, comp] = imeFrames[i];
+        const nextComp = i + 1 < imeFrames.length ? imeFrames[i + 1][1] : "";
+        // Kanji/katakana candidate visible — user glances to verify
+        if (hasKanji(comp))
+          return IME_CANDIDATE_MS + Math.random() * IME_CANDIDATE_MS;
+        // Word boundary — brief pause before starting next word
+        if (comp === "" && nextComp !== "")
+          return IME_BOUNDARY_MS + Math.random() * IME_BOUNDARY_MS;
+        // Completing a mora (ends in kana) — fast muscle-memory burst
+        if (!endsRomaji(comp) && comp !== "")
+          return IME_MORA_MS + Math.random() * IME_MORA_MS;
+        // Partial romaji mid-sequence
+        return IME_KEYSTROKE_MS + Math.random() * IME_KEYSTROKE_MS;
+      }
+
+      let fi = 0;
+      function imeStep() {
+        if (fi >= imeFrames.length) {
+          el.textContent = target;
+          return;
+        }
+        const [done, composing] = imeFrames[fi];
+        show(done, composing);
+        setTimeout(imeStep, imeDelay(fi++));
+      }
+      imeStep();
     } else {
       let typed = [];
       function type() {
         if (typed.length < target.length) {
           typed.push(target[typed.length]);
-          show(typed.join(""));
+          show(typed.join(""), "");
           setTimeout(type, TYPE_MS * (0.3 + Math.random() * 1.2));
         } else {
           el.textContent = target;
@@ -46,7 +107,19 @@ function scrambleEl(el, target) {
     }
   }
 
-  show(source);
+  let remaining = [...source];
+
+  function del() {
+    if (remaining.length > 0) {
+      remaining.pop();
+      show(remaining.join(""), "");
+      setTimeout(del, DELETE_MS);
+    } else {
+      startTyping();
+    }
+  }
+
+  show(source, "");
   setTimeout(del, DELETE_MS);
 }
 
@@ -119,6 +192,7 @@ export default function () {
     .filter(({ el, target }) => target && target !== el.textContent);
 
   els.forEach(({ el, i, target }) => {
-    setTimeout(() => scrambleEl(el, target), i * 35);
+    const imeFrames = IME_MAP[el.dataset.i18n] ?? null;
+    setTimeout(() => scrambleEl(el, target, imeFrames), i * 35);
   });
 }
