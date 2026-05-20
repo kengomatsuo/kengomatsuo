@@ -1,6 +1,6 @@
 const LANG = (() => {
   const l = (navigator.language || "").split("-")[0].toLowerCase();
-  return l === "ja" || l === "id" ? l : null;
+  return ["ja", "id", "ko"].includes(l) ? l : null;
 })();
 
 const loadingOverlay = document.getElementById("loading-overlay");
