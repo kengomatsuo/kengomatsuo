@@ -62,15 +62,19 @@ function scrambleEl(el, target, imeFrames) {
 
   function startTyping() {
     if (imeFrames) {
-      const hasKanji = (s) => /[一-鿿゠-ヿ]/.test(s);
+      const hasKanji = (s) => /[一-鿿]/.test(s);
+      const hasKatakana = (s) => /[゠-ヿ]/.test(s);
       const endsRomaji = (s) => /[a-z]$/.test(s);
 
       function imeDelay(i) {
         const [, comp] = imeFrames[i];
         const nextComp = i + 1 < imeFrames.length ? imeFrames[i + 1][1] : "";
-        // Kanji/katakana candidate visible — user glances to verify
+        // Kanji candidate — user reads before confirming
         if (hasKanji(comp))
           return IME_CANDIDATE_MS + Math.random() * IME_CANDIDATE_MS;
+        // Katakana candidate — familiar loanword, confirm faster
+        if (hasKatakana(comp))
+          return IME_CANDIDATE_MS * 0.6 + Math.random() * IME_CANDIDATE_MS * 0.4;
         // Word boundary — brief pause before starting next word
         if (comp === "" && nextComp !== "")
           return IME_BOUNDARY_MS + Math.random() * IME_BOUNDARY_MS;

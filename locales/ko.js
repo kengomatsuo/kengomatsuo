@@ -14,8 +14,9 @@ const DELETE_MIN = 280;
 const DELETE_MAX = 320;
 const TYPE_MIN = 500;
 const TYPE_MAX = 1000;
-const HANGUL_KEYSTROKE_MS = 35;   // base ms per jamo keypress
-const HANGUL_BOUNDARY_MS = 30;    // pause between words
+const HANGUL_KEYSTROKE_MS = 30;   // base ms per jamo keypress
+const HANGUL_SYLLABLE_MS = 8;     // automatic syllable commit (no user pause)
+const HANGUL_WORD_MS = 50;        // spacebar between words
 
 const IME_MAP = {
   "nav-personal": GAEIN_IME,
@@ -59,11 +60,16 @@ function scrambleEl(el, target, imeFrames) {
   }
 
   function hangulDelay(i) {
-    const [, comp] = imeFrames[i];
-    const nextComp = i + 1 < imeFrames.length ? imeFrames[i + 1][1] : "";
-    // Word/syllable boundary — brief natural pause before next block
+    const [curDone, comp] = imeFrames[i];
+    const next = i + 1 < imeFrames.length ? imeFrames[i + 1] : null;
+    const nextDone = next ? next[0] : curDone;
+    const nextComp = next ? next[1] : "";
+    // Word boundary — next frame adds a space to confirmed text
+    if (comp === "" && nextDone.length > curDone.length && nextDone[curDone.length] === " ")
+      return HANGUL_WORD_MS + Math.random() * HANGUL_WORD_MS;
+    // Syllable boundary — automatic IME commit, nearly instant
     if (comp === "" && nextComp !== "")
-      return HANGUL_BOUNDARY_MS + Math.random() * HANGUL_BOUNDARY_MS;
+      return HANGUL_SYLLABLE_MS + Math.random() * HANGUL_SYLLABLE_MS;
     // Regular jamo keystroke
     return HANGUL_KEYSTROKE_MS + Math.random() * HANGUL_KEYSTROKE_MS;
   }

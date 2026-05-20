@@ -1,10 +1,24 @@
+const PHASE1_MIN = 250;
+const PHASE1_MAX = 500;
+const PHASE1_CHAR_MS = 8;
+const PHASE2_OVERLAP = 1;
+const PHASE2_MIN = 500;
+const PHASE2_MAX = 900;
+const PHASE2_CHAR_MS = 5;
+
 function scrambleEl(el, target, isScramblable) {
   const phase1Start = performance.now();
   const source = el.textContent.trim();
   const pool = [...new Set(target)];
-  const phase1Duration = Math.min(500, Math.max(250, source.length * 8));
-  const phase2StartTime = phase1Start + phase1Duration * 0.02;
-  const phase2Duration = Math.min(900, Math.max(500, target.length * 5));
+  const phase1Duration = Math.min(
+    PHASE1_MAX,
+    Math.max(PHASE1_MIN, source.length * PHASE1_CHAR_MS),
+  );
+  const phase2StartTime = phase1Start + phase1Duration * PHASE2_OVERLAP;
+  const phase2Duration = Math.min(
+    PHASE2_MAX,
+    Math.max(PHASE2_MIN, target.length * PHASE2_CHAR_MS),
+  );
   const noise = Array.from(
     { length: Math.max(source.length, target.length) },
     () => pool[Math.floor(Math.random() * pool.length)],
