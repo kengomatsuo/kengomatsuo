@@ -1,59 +1,53 @@
-function scrambleEl(el, target, isScramblable) {
-  const phase1Start = performance.now();
+const CURSOR = "|";
+const DELETE_MIN = 280;
+const DELETE_MAX = 320;
+const TYPE_MIN = 500;
+const TYPE_MAX = 1000;
+
+function scrambleEl(el, target) {
   const source = el.textContent.trim();
-  const pool = [...new Set(target)];
-  const phase1Duration = Math.min(500, Math.max(250, source.length * 8));
-  const phase2StartTime = phase1Start + phase1Duration * -0.2;
-  const phase2Duration = Math.min(900, Math.max(500, target.length * 5));
-  const noise = Array.from(
-    { length: Math.max(source.length, target.length) },
-    () => pool[Math.floor(Math.random() * pool.length)],
-  );
+  const DELETE_MS =
+    (DELETE_MIN + Math.random() * (DELETE_MAX - DELETE_MIN)) /
+    Math.max(1, source.length);
+  const TYPE_MS =
+    (TYPE_MIN + Math.random() * (TYPE_MAX - TYPE_MIN)) /
+    Math.max(1, target.length);
 
-  function frame(now) {
-    const t1 = Math.min(1, (now - phase1Start) / phase1Duration);
-    const noiseProgress = (1 - (1 - t1) * (1 - t1)) * source.length;
-    let out = "";
+  el.style.position = "relative";
+  const cur = document.createElement("span");
+  cur.setAttribute("aria-hidden", "true");
+  cur.style.cssText = "position:absolute;user-select:none;pointer-events:none";
+  cur.textContent = CURSOR;
 
-    if (now < phase2StartTime) {
-      for (let i = 0; i < source.length; i++) {
-        if (i < noiseProgress) {
-          noise[i] = pool[Math.floor(Math.random() * pool.length)];
-          out += noise[i];
-        } else {
-          out += source[i];
-        }
-      }
-      el.textContent = out;
-      requestAnimationFrame(frame);
+  function show(text) {
+    el.textContent = text;
+    el.appendChild(cur);
+  }
+
+  let remaining = [...source];
+
+  function del() {
+    if (remaining.length > 0) {
+      remaining.pop();
+      show(remaining.join(""));
+      setTimeout(del, DELETE_MS);
     } else {
-      const t = Math.min(1, (now - phase2StartTime) / phase2Duration);
-      const eased = 1 - (1 - t) * (1 - t);
-      const lockProgress = eased * target.length;
-      const resolved = Math.floor(lockProgress);
-      const currentLength = Math.max(
-        resolved,
-        Math.round(source.length + (target.length - source.length) * eased),
-      );
-      for (let i = 0; i < currentLength; i++) {
-        if (i < resolved) {
-          out += target[i];
-        } else if (i < noiseProgress) {
-          const spinProb = Math.min(1, (i - lockProgress) / 2);
-          if (Math.random() < spinProb)
-            noise[i] = pool[Math.floor(Math.random() * pool.length)];
-          out += noise[i];
+      let typed = [];
+      function type() {
+        if (typed.length < target.length) {
+          typed.push(target[typed.length]);
+          show(typed.join(""));
+          setTimeout(type, TYPE_MS * (0.3 + Math.random() * 1.2));
         } else {
-          out += i < source.length ? source[i] : noise[i];
+          el.textContent = target;
         }
       }
-      el.textContent = out;
-      if (t < 1) requestAnimationFrame(frame);
-      else el.textContent = target;
+      type();
     }
   }
 
-  requestAnimationFrame(frame);
+  show(source);
+  setTimeout(del, DELETE_MS);
 }
 
 const STRINGS = {
@@ -105,8 +99,6 @@ const STRINGS = {
   "research-link": "IEEE Xploreで読む →",
 };
 
-const isScramblable = (ch) => /[぀-ヿ一-鿿]/.test(ch);
-
 export default function () {
   document.documentElement.lang = "ja";
 
@@ -127,6 +119,6 @@ export default function () {
     .filter(({ el, target }) => target && target !== el.textContent);
 
   els.forEach(({ el, i, target }) => {
-    setTimeout(() => scrambleEl(el, target, isScramblable), i * 35);
+    setTimeout(() => scrambleEl(el, target), i * 35);
   });
 }
