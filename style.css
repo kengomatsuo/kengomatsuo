@@ -704,10 +704,10 @@ footer {
 
 #back-to-top {
   position: fixed;
-  bottom: 2rem;
+  bottom: 4rem;
   right: var(--pad-x);
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 50%;
   border: 1px solid var(--border);
   background: var(--bg);

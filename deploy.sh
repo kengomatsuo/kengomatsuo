@@ -30,7 +30,7 @@ rm -f /tmp/_min.css /tmp/_min.js
 
 # Copy remaining assets
 cp favicon.svg CNAME robots.txt "$DIST/"
-cp -r images itinerary-generator polindohc prevented-ocean-plastic "$DIST/"
+cp -r images itinerary-generator polindohc prevented-ocean-plastic locales "$DIST/"
 
 # Resize images to max 512px height (never upscale)
 find "$DIST" -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" | while IFS= read -r f; do

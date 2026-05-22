@@ -1,5 +1,16 @@
 const LANG = (() => {
-  const l = (navigator.language || "").split("-")[0].toLowerCase();
+  const l = (
+    Intl.DateTimeFormat().resolvedOptions().locale ||
+    navigator?.languages[0] ||
+    navigator.language ||
+    ""
+  )
+    .split("-")[0]
+    .toLowerCase();
+  // alert("Datetime:" + Intl.DateTimeFormat().resolvedOptions().locale);
+  // alert("Languages:" + navigator.languages);
+  // alert("Language:" + navigator.language);
+  // alert("Language (split):" + l);
   return ["ja", "id", "ko"].includes(l) ? l : null;
 })();
 
@@ -72,6 +83,7 @@ window.addEventListener("load", () => {
     }, 300);
   }
   const localeReady = LANG ? import(`/locales/${LANG}.js`) : null;
+  // alert("Locale ready:" + localeReady);
 
   const loadTime = Date.now();
   // Hero sequence ends at ~100ms settle + 280ms last element + 900ms animation

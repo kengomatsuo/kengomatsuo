@@ -17,7 +17,7 @@ python3 -m http.server   # serve locally
 Deploy via `deploy.sh`, which does the following before pushing to `gh-pages`:
 
 1. Minifies `style.css` (via `lightningcss`) and `script.js` (via `terser`) and inlines both into `index.html`
-2. Copies all static assets (`images/`, `itinerary-generator/`, `polindohc/`, `prevented-ocean-plastic/`, `favicon.svg`, `CNAME`, `robots.txt`)
+2. Copies all static assets (`images/`, `itinerary-generator/`, `polindohc/`, `prevented-ocean-plastic/`, `locales/`, `favicon.svg`, `CNAME`, `robots.txt`)
 3. Converts PNGs to WebP with `cwebp -q 85`, keeping the WebP only if it's smaller than the PNG
 4. Minifies SVGs with `svgo`
 5. Force-pushes the result to `origin/gh-pages`
