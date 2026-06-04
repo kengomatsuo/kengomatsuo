@@ -32,6 +32,10 @@ rm -f /tmp/_min.css /tmp/_min.js
 cp favicon.svg CNAME robots.txt "$DIST/"
 cp -r images itinerary-generator polindohc prevented-ocean-plastic locales "$DIST/"
 
+# Self-hosted webfonts: subset + convert to woff2 fresh from source (build-fonts.sh),
+# so the deployed fonts always match the current locales/ glyph set.
+MK_FONTS_OUT="$DIST/fonts" bash build-fonts.sh
+
 # Resize images to max 512px height (never upscale)
 find "$DIST" -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" | while IFS= read -r f; do
   magick "$f" -resize 'x512>' "$f"

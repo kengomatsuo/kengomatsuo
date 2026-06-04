@@ -1,13 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <text
-    x="16"
-    y="16"
-    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
-    font-size="13"
-    font-weight="700"
-    fill="#00a068"
-    text-anchor="middle"
-    dominant-baseline="central"
-    letter-spacing="0.5"
-  >MK</text>
+  <!-- "MK" wordmark as outlines from Plus Jakarta Sans Bold (700) so it
+       renders identically without a webfont. Regenerate via build-fonts.sh. -->
+  <path fill="#00a068" d="M2 24.42V7.58H4.94L11.25 16.15H9.84L16.01 7.58H18.95V24.42H15.87V11.09L17.06 11.39L10.65 19.9H10.29L4.06 11.39L5.08 11.09V24.42ZM16.53 24.42V7.58H19.61V16.36L18.78 16.06L25.94 7.58H29.8L23.1 15.55L23.27 13.36L30 24.42H26.39L21.87 17.01L19.61 19.69V24.42Z"/>
 </svg>

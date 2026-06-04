@@ -1,0 +1,217 @@
+/* ============================================================
+   Matsuo Kengo (matsuokengo.com) — Colors & Type
+   "Mango's not-so-minimal" — a monochrome system with one
+   green accent, Plus Jakarta Sans + IBM Plex CJK type, dark mode.
+   Source of truth: kengomatsuo/kengomatsuo style.css
+   ============================================================ */
+
+/* Brand type — fully SELF-HOSTED from fonts/. Plus Jakarta Sans (Latin,
+   variable) + IBM Plex Sans JP (Japanese) + IBM Plex Sans KR (Korean),
+   in one font-family chain that resolves per character. No CDN — every
+   face ships from the project, so the system works fully offline. */
+
+/* Plus Jakarta Sans (variable, weight 200–800) */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* IBM Plex Sans JP (static weights — 400 / 500 / 700 used) */
+@font-face {
+  font-family: "IBM Plex Sans JP";
+  src: url("fonts/IBMPlexSansJP-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans JP";
+  src: url("fonts/IBMPlexSansJP-Medium.ttf") format("truetype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans JP";
+  src: url("fonts/IBMPlexSansJP-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* IBM Plex Sans KR (static weights — 400 / 500 / 700 used) */
+@font-face {
+  font-family: "IBM Plex Sans KR";
+  src: url("fonts/IBMPlexSansKR-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans KR";
+  src: url("fonts/IBMPlexSansKR-Medium.ttf") format("truetype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans KR";
+  src: url("fonts/IBMPlexSansKR-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+@property --card-glow {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+:root {
+  /* ---- Surfaces (light) ---- */
+  --bg:           #ffffff;  /* page background */
+  --bg-alt:       #f7f7f7;  /* alternating section bands */
+  --surface:      #f0f0f0;  /* icon tiles, chips */
+  --placeholder:  #d8d8d8;  /* "Coming Soon" image fills */
+  --border:       #e6e6e6;  /* hairline dividers, tag borders */
+
+  /* ---- Text (light) ---- */
+  --text:         #111111;  /* primary ink */
+  --muted:        #737373;  /* secondary / captions / nav */
+
+  /* ---- Accent ---- */
+  --accent:       #008760;  /* the single brand green */
+
+  /* ---- Glow border system (light) ---- */
+  --glow-border:    #e0e0e0; /* resting conic border tone */
+  --glow-highlight: #b6b6b6; /* travelling light highlight */
+
+  /* ---- Status ---- */
+  --badge-progress-bg:   #fef3c7;
+  --badge-progress-text: #92400e;
+
+  /* ---- Geometry ---- */
+  --radius:  24px;          /* cards, buttons, large surfaces */
+  --radius-sm: 4px;         /* tags + badges */
+  --nav-h:   54px;
+  --max-w:   960px;
+  --pad-x:   clamp(1.25rem, 5vw, 2.5rem);
+
+  /* ============================================================
+     TYPE — base tokens
+     Brand type: Plus Jakarta Sans (Latin) + IBM Plex Sans JP / KR.
+     One font-family chain resolves per character — Latin uses Plus
+     Jakarta Sans, Japanese uses Plex Sans JP, Korean uses Plex Sans KR,
+     automatically. Loaded via @import above; the native UI stack is the
+     graceful fallback before the webfonts arrive.
+     ============================================================ */
+  --font-sans: "Plus Jakarta Sans", "IBM Plex Sans JP", "IBM Plex Sans KR",
+               -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+               Consolas, "Liberation Mono", monospace;
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+
+  /* line-heights */
+  --lh-tight:  1.08;  /* display headlines */
+  --lh-snug:   1.5;
+  --lh-body:   1.6;   /* default body */
+
+  /* tracking */
+  --track-display: -0.03em;  /* big headlines tighten */
+  --track-title:   -0.02em;
+  --track-tag:      0.07em;   /* uppercase micro-labels open up */
+  --track-logo:     0.05em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #0d0d0d;
+    --bg-alt:       #141414;
+    --surface:      #1c1c1c;
+    --placeholder:  #2a2a2a;
+    --border:       #252525;
+    --text:         #ebebeb;
+    --muted:        #808080;
+    --accent:       #00a068;
+    --glow-border:    #3d3d3d;
+    --glow-highlight: #a6a6a6;
+    --badge-progress-bg:   #3b1f00;
+    --badge-progress-text: #fcd34d;
+  }
+}
+
+/* ============================================================
+   TYPE — semantic styles
+   Apply directly, e.g. <h1 class="mk-display">, or copy the
+   declarations. Sizes are fluid (clamp) to match the site.
+   ============================================================ */
+
+.mk-display {            /* hero H1 */
+  font-family: var(--font-sans);
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-tight);
+}
+
+.mk-alias {              /* the green sub-headline under the name */
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+
+.mk-lead {               /* hero sub / intro paragraph */
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.mk-h2 {                 /* section titles */
+  font-size: 1.25rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--track-title);
+}
+
+.mk-h3 {                 /* card titles, publication titles */
+  font-size: 0.9375rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+}
+
+.mk-body {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.mk-eyebrow,             /* uppercase micro-label / detail headings */
+.mk-tag {
+  font-size: 0.6875rem;
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--track-tag);
+  color: var(--muted);
+}
+
+.mk-logo {               /* the "MK" wordmark / nav logo */
+  font-weight: var(--weight-bold);
+  font-size: 0.9375rem;
+  letter-spacing: var(--track-logo);
+  color: var(--text);
+}
+
+.mk-link {               /* accent action links: "Visit →" */
+  font-size: 0.8rem;
+  font-weight: var(--weight-medium);
+  color: var(--accent);
+}
+
+/* ============================================================
+   SELECTION — accent green ground, white ink
+   ============================================================ */
+::selection { background: var(--accent); color: #ffffff; }

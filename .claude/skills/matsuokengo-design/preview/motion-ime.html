@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="stylesheet" href="card.css">
+<style>.u{text-decoration:underline;text-underline-offset:3px}</style></head>
+<body><div class="card">
+  <div class="row" style="align-items:center;gap:24px">
+    <div class="col" style="gap:6px">
+      <span class="eyebrow">The IME signature · macOS Live Conversion</span>
+      <div style="font-size:30px;font-weight:600;letter-spacing:-0.01em;min-width:300px"><span id="ime"></span><span id="cur" style="color:#737373">|</span></div>
+    </div>
+    <div class="col" style="gap:3px;margin-left:auto;max-width:230px;text-align:right">
+      <span style="font-size:12px;color:#737373;line-height:1.5">On locale switch, every string deletes &amp; retypes — romaji → hiragana → kanji auto-convert → confirm. The brand's most distinctive moment.</span>
+    </div>
+  </div>
+</div>
+<script>
+const frames=[["",""],["","m"],["","ま"],["","まつ"],["","まつお"],["","松尾"],["松尾",""],["松尾","k"],["松尾","け"],["松尾","けん"],["松尾","けんご"],["松尾","賢吾"],["松尾賢吾",""]];
+const done=document.getElementById("ime");let i=0;
+function step(){const [c,comp]=frames[i];done.innerHTML=c+(comp?'<span class="u">'+comp+'</span>':'');
+  const k=/[一-鿿]/.test(comp);i++;
+  if(i>=frames.length){setTimeout(()=>{i=0;step();},1400);return;}
+  setTimeout(step,k?260:(comp?80:120));}
+step();
+</script>
+</body></html>

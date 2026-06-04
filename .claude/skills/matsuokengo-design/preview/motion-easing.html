@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><link rel="stylesheet" href="card.css">
+<style>
+  .track{position:relative;height:34px;background:#f7f7f7;border-radius:8px;overflow:hidden}
+  .dot{position:absolute;top:6px;left:6px;width:22px;height:22px;border-radius:50%;background:#008760}
+  @keyframes e1{0%,12%{left:6px}88%,100%{left:calc(100% - 28px)}}
+  @keyframes e2{0%,12%{left:6px}88%,100%{left:calc(100% - 28px)}}
+  .e1{animation:e1 2.4s cubic-bezier(0.16,1,0.3,1) infinite alternate}
+  .e2{animation:e2 2.4s cubic-bezier(0.25,0.46,0.45,0.94) infinite alternate}
+</style></head>
+<body><div class="card">
+  <span class="eyebrow">Easing vocabulary — no bounce, no spring, no idle loops</span>
+  <div class="col" style="gap:4px"><div class="track"><div class="dot e1"></div></div><span class="hex mono">entrances · cubic-bezier(0.16, 1, 0.3, 1) · 0.9s</span></div>
+  <div class="col" style="gap:4px"><div class="track"><div class="dot e2" style="background:#737373"></div></div><span class="hex mono">image / tag · cubic-bezier(0.25, 0.46, 0.45, 0.94) · 0.4s</span></div>
+  <span style="font-size:12px;color:#737373;line-height:1.45">Everything rises in (opacity 0 + translateY) on a single observer; micro color/opacity transitions use plain ease, 0.15s. Respects reduced-motion.</span>
+</div></body></html>

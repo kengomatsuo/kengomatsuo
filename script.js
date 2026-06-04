@@ -73,14 +73,20 @@ window.addEventListener("load", () => {
       fill.style.transition = "width 0.3s ease";
       fill.style.width = "100%";
     }
-    setTimeout(() => {
-      loadingOverlay.classList.add("done");
-      loadingOverlay.addEventListener(
-        "transitionend",
-        () => loadingOverlay.remove(),
-        { once: true },
-      );
-    }, 300);
+    // Don't lift the overlay until the webfonts are parsed and ready, so no
+    // text is ever painted in a fallback font first.
+    const fontsReady =
+      (document.fonts && document.fonts.ready) || Promise.resolve();
+    fontsReady.then(() => {
+      setTimeout(() => {
+        loadingOverlay.classList.add("done");
+        loadingOverlay.addEventListener(
+          "transitionend",
+          () => loadingOverlay.remove(),
+          { once: true },
+        );
+      }, 300);
+    });
   }
   const localeReady = LANG ? import(`/locales/${LANG}.js`) : null;
   // alert("Locale ready:" + localeReady);
