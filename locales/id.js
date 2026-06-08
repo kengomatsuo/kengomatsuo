@@ -88,6 +88,7 @@ const STRINGS = {
   "tag-mobile": "Mobile",
   "tag-game": "Game",
   "tag-logistics-pwa": "PWA Logistik",
+  "tag-desktop": "Desktop",
   "card-title-cutling": "Cutling",
   "cutling-desc":
     "Manajer clipboard native untuk iOS dan macOS yang menyimpan cuplikan dan gambar yang sering digunakan, lalu memungkinkan penempelan ke aplikasi mana pun lewat keyboard bawaan. Tanpa akun.",
@@ -99,6 +100,8 @@ const STRINGS = {
   "img-coming-soon": "Segera Hadir",
   "itinerary-id-desc":
     "Perencana itinerari perjalanan yang dibuat untuk wisatawan Indonesia.",
+  "saf-desc":
+    "Alat AI lokal yang mengubah slide kuliah, PDF, dan dokumen menjadi ringkasan yang akurat serta kartu Anki yang dapat diekspor — berjalan sepenuhnya di perangkat Anda, tanpa internet atau API key.",
   "card-link-visit": "Kunjungi →",
   "txe-desc":
     "Aplikasi operasional untuk TXE Express, perusahaan kurir dan pengiriman.",

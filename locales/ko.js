@@ -135,6 +135,7 @@ const STRINGS = {
   "tag-mobile": "모바일",
   "tag-game": "게임",
   "tag-logistics-pwa": "물류 PWA",
+  "tag-desktop": "데스크톱",
   "card-title-cutling": "컷링",
   "cutling-desc":
     "iOS와 macOS용 네이티브 클립보드 매니저. 자주 쓰는 스니펫과 이미지를 저장하고, 내장 키보드에서 어느 앱에나 붙여넣기 가능. 계정 불필요.",
@@ -145,6 +146,8 @@ const STRINGS = {
   "badge-coming-soon": "출시 예정",
   "img-coming-soon": "출시 예정",
   "itinerary-id-desc": "인도네시아 여행자를 위한 여행 일정 플래너.",
+  "saf-desc":
+    "강의 슬라이드, PDF, 문서를 충실한 요약과 내보내기 가능한 Anki 플래시카드로 변환하는 로컬 AI 도구. 인터넷이나 API 키 없이 모든 작업이 사용자 기기에서 실행됨.",
   "card-link-visit": "사이트 방문 →",
   "txe-desc": "배송 회사 TXE Express를 위한 업무 앱.",
   "card-link-visit-site": "사이트 방문 →",

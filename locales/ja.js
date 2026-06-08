@@ -144,6 +144,7 @@ const STRINGS = {
   "tag-mobile": "モバイル",
   "tag-game": "ゲーム",
   "tag-logistics-pwa": "物流PWA",
+  "tag-desktop": "デスクトップ",
   "card-title-cutling": "カットリング",
   "cutling-desc":
     "iOSとmacOS向けのネイティブクリップボードマネージャー。よく使うスニペットや画像を保存し、内蔵キーボードからどのアプリにでも貼り付け可能。アカウント不要。",
@@ -154,6 +155,8 @@ const STRINGS = {
   "badge-coming-soon": "近日公開",
   "img-coming-soon": "近日公開",
   "itinerary-id-desc": "インドネシア旅行者向けに作られた旅程プランナー。",
+  "saf-desc":
+    "講義スライドやPDF、ドキュメントを忠実な要約とエクスポート可能なAnkiフラッシュカードに変換するローカルAIツール。インターネットやAPIキー不要で、すべて自分のマシン上で動作。",
   "card-link-visit": "サイトへ →",
   "txe-desc": "宅配・配送会社TXE Express向けの業務アプリ。",
   "card-link-visit-site": "サイトへ →",
