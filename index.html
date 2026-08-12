@@ -262,6 +262,56 @@
                 </div>
               </div>
             </article>
+
+            <article class="project-card">
+              <div class="card-image card-image--icon">
+                <picture>
+                  <source
+                    srcset="/images/solute-dark-mode-icon.svg"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img
+                    src="/images/solute-icon.svg"
+                    alt="Solute mark"
+                    onerror="
+                      this.onerror = null;
+                      this.parentElement.parentElement.className =
+                        'card-image card-image--text';
+                      this.parentElement.parentElement.textContent = 'Solute';
+                      this.parentElement.parentElement.style.cssText =
+                        'background:#2c5fb7;color:#ffffff';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-pos">POS Platform</span>
+                  <span
+                    class="card-badge card-badge--progress"
+                    data-i18n="badge-in-progress"
+                    >In Progress</span
+                  >
+                </div>
+                <h3 class="card-title">Solute</h3>
+                <p class="card-desc" data-i18n="solute-desc">
+                  White-label POS platform for cafés and restaurants — QR
+                  self-ordering, register, kitchen display, and queue TV in one
+                  real-time system, each venue themed to its own brand on its
+                  own subdomain.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://solute.id"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-visit-site"
+                    >Visit site →</a
+                  >
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>

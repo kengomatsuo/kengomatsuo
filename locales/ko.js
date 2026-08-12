@@ -136,6 +136,7 @@ const STRINGS = {
   "tag-game": "게임",
   "tag-logistics-pwa": "물류 PWA",
   "tag-desktop": "데스크톱",
+  "tag-pos": "POS 플랫폼",
   "card-title-cutling": "컷링",
   "cutling-desc":
     "iPhone, iPad, Mac용 네이티브 클립보드 매니저. 자주 쓰는 스니펫과 이미지를 저장하고, iOS에서는 맞춤 키보드, Mac에서는 메뉴 바 단축키로 어느 앱에나 붙여넣기 가능. 계정 불필요, 추적 없음, Mac 버전은 무료.",
@@ -148,6 +149,8 @@ const STRINGS = {
   "itinerary-id-desc": "인도네시아 여행자를 위한 여행 일정 플래너.",
   "saf-desc":
     "강의 슬라이드, PDF, 문서를 충실한 요약과 내보내기 가능한 Anki 플래시카드로 변환하는 로컬 AI 도구. 인터넷이나 API 키 없이 모든 작업이 사용자 기기에서 실행됨.",
+  "solute-desc":
+    "카페와 레스토랑을 위한 화이트라벨 POS 플랫폼. QR 셀프 주문, 계산대, 주방 디스플레이, 대기번호 TV를 하나의 실시간 시스템으로 묶고, 매장마다 전용 서브도메인에서 브랜드에 맞춘 화면을 제공.",
   "card-link-visit": "사이트 방문 →",
   "txe-desc": "배송 회사 TXE Express를 위한 업무 앱.",
   "card-link-visit-site": "사이트 방문 →",

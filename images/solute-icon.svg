@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Solute brand mark, colour cut. Source: solute/assets/brand/solute-mark-color.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.86 95.52">
+  <defs>
+    <linearGradient id="solute-stroke" x1="13.47" y1="48.17" x2="57.76" y2="48.17" gradientUnits="userSpaceOnUse">
+      <stop offset=".2" stop-color="#4af4ef"/>
+      <stop offset=".8" stop-color="#2c5fb7"/>
+    </linearGradient>
+  </defs>
+  <line x1="14.89" y1="27.44" x2="56.34" y2="68.9" fill="none" stroke="url(#solute-stroke)" stroke-miterlimit="10" stroke-width="4"/>
+  <path fill="#4af4ef" d="M0,35.4L35.39,0l35.36,35.36-.71.71c-1.28,1.28-2.97,1.98-4.78,1.98s-3.5-.7-4.78-1.98l-25.09-25.09-24.42,24.42,25.09,25.09c1.28,1.28,1.98,2.97,1.98,4.78s-.7,3.5-1.98,4.78l-.71.71L0,35.4Z"/>
+  <path fill="#2c5fb7" d="M0,60.34l.7-.71c1.28-1.29,2.99-2,4.81-2s3.48.69,4.76,1.96l25.22,24.96,24.29-24.54-25.22-24.96c-2.65-2.62-2.67-6.91-.05-9.56l.7-.71,34.79,34.43.85.64-.1.1.11.11-.85.64-4.72,4.77-29.74,30.05L0,60.34Z"/>
+</svg>

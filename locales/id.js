@@ -89,6 +89,7 @@ const STRINGS = {
   "tag-game": "Game",
   "tag-logistics-pwa": "PWA Logistik",
   "tag-desktop": "Desktop",
+  "tag-pos": "Platform Kasir",
   "card-title-cutling": "Cutling",
   "cutling-desc":
     "Manajer clipboard native untuk iPhone, iPad, dan Mac. Simpan cuplikan dan gambar yang sering digunakan, lalu tempel ke aplikasi mana pun — lewat keyboard khusus di iOS atau hotkey menu bar di Mac. Tanpa akun, tanpa pelacakan, dan gratis di Mac.",
@@ -102,6 +103,8 @@ const STRINGS = {
     "Perencana itinerari perjalanan yang dibuat untuk wisatawan Indonesia.",
   "saf-desc":
     "Alat AI lokal yang mengubah slide kuliah, PDF, dan dokumen menjadi ringkasan yang akurat serta kartu Anki yang dapat diekspor — berjalan sepenuhnya di perangkat Anda, tanpa internet atau API key.",
+  "solute-desc":
+    "Platform kasir white-label untuk kafe dan restoran — pemesanan mandiri lewat QR, aplikasi kasir, layar dapur, dan papan antrian TV dalam satu sistem real-time, dengan tampilan mengikuti brand tiap outlet di subdomainnya sendiri.",
   "card-link-visit": "Kunjungi →",
   "txe-desc":
     "Aplikasi operasional untuk TXE Express, perusahaan kurir dan pengiriman.",

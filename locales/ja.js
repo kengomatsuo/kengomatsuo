@@ -145,6 +145,7 @@ const STRINGS = {
   "tag-game": "ゲーム",
   "tag-logistics-pwa": "物流PWA",
   "tag-desktop": "デスクトップ",
+  "tag-pos": "POSプラットフォーム",
   "card-title-cutling": "カットリング",
   "cutling-desc":
     "iPhone、iPad、Mac向けのネイティブクリップボードマネージャー。よく使うスニペットや画像を保存し、iOSではカスタムキーボード、Macではメニューバーのホットキーからどのアプリにも貼り付け可能。アカウント不要、追跡なし、Mac版は無料。",
@@ -157,6 +158,8 @@ const STRINGS = {
   "itinerary-id-desc": "インドネシア旅行者向けに作られた旅程プランナー。",
   "saf-desc":
     "講義スライドやPDF、ドキュメントを忠実な要約とエクスポート可能なAnkiフラッシュカードに変換するローカルAIツール。インターネットやAPIキー不要で、すべて自分のマシン上で動作。",
+  "solute-desc":
+    "カフェやレストラン向けのホワイトラベルPOSプラットフォーム。QRセルフオーダー、レジ、キッチンディスプレイ、番号表示テレビをひとつのリアルタイムシステムにまとめ、店舗ごとに専用サブドメインでブランドに合わせた見た目になる。",
   "card-link-visit": "サイトへ →",
   "txe-desc": "宅配・配送会社TXE Express向けの業務アプリ。",
   "card-link-visit-site": "サイトへ →",
