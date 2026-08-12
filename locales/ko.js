@@ -138,7 +138,7 @@ const STRINGS = {
   "tag-desktop": "데스크톱",
   "card-title-cutling": "컷링",
   "cutling-desc":
-    "iOS와 macOS용 네이티브 클립보드 매니저. 자주 쓰는 스니펫과 이미지를 저장하고, 내장 키보드에서 어느 앱에나 붙여넣기 가능. 계정 불필요.",
+    "iPhone, iPad, Mac용 네이티브 클립보드 매니저. 자주 쓰는 스니펫과 이미지를 저장하고, iOS에서는 맞춤 키보드, Mac에서는 메뉴 바 단축키로 어느 앱에나 붙여넣기 가능. 계정 불필요, 추적 없음, Mac 버전은 무료.",
   "card-link-website": "웹사이트 →",
   "what-desc":
     "화면 스트리밍 영상에 텍스트 번역을 실시간으로 덮어씌우는 iOS 앱. 완전 오프라인 지원.",

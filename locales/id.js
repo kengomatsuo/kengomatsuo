@@ -91,7 +91,7 @@ const STRINGS = {
   "tag-desktop": "Desktop",
   "card-title-cutling": "Cutling",
   "cutling-desc":
-    "Manajer clipboard native untuk iOS dan macOS yang menyimpan cuplikan dan gambar yang sering digunakan, lalu memungkinkan penempelan ke aplikasi mana pun lewat keyboard bawaan. Tanpa akun.",
+    "Manajer clipboard native untuk iPhone, iPad, dan Mac. Simpan cuplikan dan gambar yang sering digunakan, lalu tempel ke aplikasi mana pun — lewat keyboard khusus di iOS atau hotkey menu bar di Mac. Tanpa akun, tanpa pelacakan, dan gratis di Mac.",
   "card-link-website": "Situs web →",
   "what-desc":
     "Aplikasi iOS yang melakukan streaming layar dan menampilkan terjemahan di atas teks asli secara real-time, sepenuhnya offline.",
