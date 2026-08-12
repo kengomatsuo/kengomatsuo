@@ -116,6 +116,8 @@ const STRINGS = {
     "Platform operasional untuk Prevented Ocean Plastic — mencakup penerimaan, produksi, pengambilan sampel, QC, dan pengiriman untuk semua peran.",
   "itinerary-gen-desc":
     "Aplikasi web untuk membuat dan berbagi itinerari perjalanan, dibuat untuk klien pribadi.",
+  "warehouse-ops-desc":
+    "Aplikasi gudang untuk penjual sparepart sepeda online — PDF label pengiriman diubah menjadi daftar pengambilan langsung di browser, dan setiap perubahan stok menjadi entri ledger yang disetujui dan tidak dapat diubah.",
   "learn-desc":
     "Situs belajar anak-anak dengan pelajaran video dan kuis, dilengkapi streak dan hadiah untuk mendorong kembali.",
   "card-link-play": "Mainkan →",

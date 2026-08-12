@@ -30,7 +30,7 @@ rm -f /tmp/_min.css /tmp/_min.js
 
 # Copy remaining assets
 cp favicon.svg CNAME robots.txt "$DIST/"
-cp -r images itinerary-generator polindohc prevented-ocean-plastic locales "$DIST/"
+cp -r images itinerary-generator polindohc prevented-ocean-plastic warehouse-ops locales "$DIST/"
 
 # Self-hosted webfonts: subset + convert to woff2 fresh from source (build-fonts.sh),
 # so the deployed fonts always match the current locales/ glyph set.
