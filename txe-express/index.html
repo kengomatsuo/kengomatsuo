@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TXE Express — logistics operations PWA for a courier company, by Kenneth Fang."
+    />
+    <title>TXE Express · Kenneth Fang</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="nav-logo">KF</a>
+      <ul class="nav-links">
+        <li><a href="/#client-work">← Work</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="hero" class="project-hero">
+        <div class="hero-inner">
+          <div class="card-meta">
+            <span class="card-tag">Logistics PWA</span>
+          </div>
+          <h1>TXE Express</h1>
+          <p class="hero-sub">
+            Operations platform for a courier and delivery company — shipment
+            tracking, route and delivery management, dashboards, and one-tap
+            manifest export, built end to end as the sole developer.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner prose">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h2>The Client</h2>
+              <p>
+                TXE Express is an Indonesian courier and delivery company moving
+                cargo between cities by road, air, and sea. The work of running
+                it — quoting a shipment, tracking where it is, chasing what has
+                not been paid, and closing the month — sat across spreadsheets
+                and messages. This is the system that replaced that.
+              </p>
+            </div>
+
+            <div class="detail-block">
+              <h2>What It Does</h2>
+              <p>
+                Three tiers share one application. The public site takes
+                enquiries and lets anyone track a shipment by its number.
+                Customers see their own transactions and place orders. Staff run
+                the operation: operators manage shipments and their status,
+                while the owner also gets the financial dashboard, expenses, the
+                partner ledger, reporting, and the audit log.
+              </p>
+            </div>
+
+            <div class="detail-block">
+              <h2>Features</h2>
+              <ul>
+                <li>Shipment tracking with map-based origin and destination</li>
+                <li>Route and delivery status management with a full history</li>
+                <li>Financial dashboard: revenue, expenses, net, and receivables</li>
+                <li>Reports exported to Excel and PDF in one tap</li>
+                <li>
+                  Partner franchise ledger, reconciled against the courier
+                  partner's own books
+                </li>
+                <li>Role-gated access for owner, operator, and customer</li>
+                <li>Installable PWA, built for a warehouse and a phone alike</li>
+                <li>Five languages through i18next</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h2>Tech Stack</h2>
+              <ul>
+                <li>React, TypeScript, Vite</li>
+                <li>Supabase (Postgres, row-level security, edge functions)</li>
+                <li>Leaflet and Google Maps for location and tracking</li>
+                <li>Recharts, jsPDF, and ExcelJS for reporting</li>
+                <li>vite-plugin-pwa for offline and install</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h2>Access</h2>
+              <p>
+                Internal system holding live operational data, so the
+                screenshots below were captured from a local development stack
+                seeded with invented shipments — every tracking number, customer
+                and amount shown is fake.
+              </p>
+              <p>
+                <a href="https://txeexpress.com" target="_blank" rel="noopener"
+                  >txeexpress.com →</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="placeholder-screenshots placeholder-screenshots--wide">
+            <img
+              src="./Preview-1.png"
+              alt="TXE Express owner dashboard with revenue, expense, and net profit figures over a thirty-day trend chart"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-2.png"
+              alt="TXE Express shipment management list, each entry showing tracking number, destination, amount, and payment state"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-3.png"
+              alt="TXE Express reporting screen with Excel and PDF export, revenue by service category, and shipment status breakdown"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-4.png"
+              alt="TXE Express shipment detail with status advancement, customer, service, and delivery information"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-inner">
+        <span class="footer-name">Kenneth Fang</span>
+        <div class="footer-links">
+          <a
+            href="https://github.com/kengomatsuo"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <a href="mailto:kenneth@matsuokengo.com">Email</a>
+        </div>
+        <span class="footer-copy">© 2026</span>
+      </div>
+    </footer>
+  </body>
+</html>

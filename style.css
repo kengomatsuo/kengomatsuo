@@ -704,6 +704,12 @@ section {
   border-radius: var(--radius);
 }
 
+/* Desktop captures are landscape, so the 9:16 phone column squashes them to
+   thumbnails. Same grid, wider minimum track. */
+.placeholder-screenshots--wide {
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
 /* ── Footer ────────────────────────────────────────── */
 
 footer {

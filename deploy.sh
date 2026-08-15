@@ -30,14 +30,22 @@ rm -f /tmp/_min.css /tmp/_min.js
 
 # Copy remaining assets
 cp favicon.svg CNAME robots.txt "$DIST/"
-cp -r images itinerary-generator polindohc prevented-ocean-plastic warehouse-ops locales "$DIST/"
+cp -r images itinerary-generator polindohc prevented-ocean-plastic warehouse-ops \
+      solute cutling txe-express locales "$DIST/"
 
 # Self-hosted webfonts: subset + convert to woff2 fresh from source (build-fonts.sh),
 # so the deployed fonts always match the current locales/ glyph set.
 MK_FONTS_OUT="$DIST/fonts" bash build-fonts.sh
 
-# Resize images to max 512px height (never upscale)
-find "$DIST" -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" | while IFS= read -r f; do
+# Case-study screenshots are the content of those pages, so they get a bigger cap:
+# a dashboard or data table resized to 512px tall is unreadable. Long edge 1600px.
+find "$DIST" \( -name "Preview-*.png" -o -name "Screenshot-*.png" \) | while IFS= read -r f; do
+  magick "$f" -resize '1600x1600>' "$f"
+done
+
+# Everything else (logos, icons, card art) stays small: max 512px height, never upscale.
+find "$DIST" \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) \
+     ! -name "Preview-*" ! -name "Screenshot-*" | while IFS= read -r f; do
   magick "$f" -resize 'x512>' "$f"
 done
 

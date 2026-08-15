@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Solute — white-label point-of-sale platform for cafés and restaurants, by Kenneth Fang."
+    />
+    <title>Solute · Kenneth Fang</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="nav-logo">KF</a>
+      <ul class="nav-links">
+        <li><a href="/#personal">← Work</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="hero" class="project-hero">
+        <div class="hero-inner">
+          <div class="card-meta">
+            <span class="card-tag">POS Platform</span>
+            <span class="card-badge card-badge--progress">Pilot</span>
+          </div>
+          <h1>Solute</h1>
+          <p class="hero-sub">
+            White-label point-of-sale platform for cafés and restaurants — QR
+            self-ordering, register, kitchen display, and queue TV in one
+            real-time system, each venue themed to its own brand on its own
+            subdomain.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner prose">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h2>The Idea</h2>
+              <p>
+                Most small venues run their floor on a till that knows nothing
+                about the kitchen, and a kitchen that knows nothing about the
+                queue. Solute is one system behind all of it: a guest scans the
+                QR code on their table and orders from their own phone, the
+                register sees the ticket, the line sees it on the kitchen
+                display, and the customer watches their number move on the queue
+                board. Nobody refreshes anything.
+              </p>
+            </div>
+
+            <div class="detail-block">
+              <h2>White-Label</h2>
+              <p>
+                Every client is a tenant, not a copy. An organisation owns its
+                venues, and each venue gets its own subdomain themed to its own
+                brand — colours, logo, and heading font — from a single static
+                build. Theming is runtime, over CSS custom properties, so there
+                is no per-client build and no per-client branch. Owners pick
+                from guarded controls rather than writing CSS, and the contrast
+                pairs are derived rather than chosen, so a brand colour can
+                never produce unreadable text.
+              </p>
+            </div>
+
+            <div class="detail-block">
+              <h2>Surfaces</h2>
+              <ul>
+                <li>Guest ordering from a table QR code, no app install</li>
+                <li>Register with floor plan, tickets, split bills, and receipts</li>
+                <li>Tableside waiter pad for taking orders at the table</li>
+                <li>Kitchen display, routed by station, on a dark surface</li>
+                <li>Queue TV for customers waiting on a number</li>
+                <li>Self-service kiosk for seating and waitlist</li>
+                <li>Admin for menu, stock, staff, shifts, theme, and reporting</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h2>Engineering</h2>
+              <ul>
+                <li>Turborepo monorepo on Bun, one shared design system</li>
+                <li>Vite, React, and TypeScript across every app</li>
+                <li>
+                  Supabase with row-level multi-tenancy and realtime over
+                  broadcast-from-database
+                </li>
+                <li>Money as integer minor units throughout, never floats</li>
+                <li>Playwright end-to-end tests and a pgTAP suite on the database</li>
+                <li>
+                  A local demo mode that swaps only the transport, so the demo
+                  runs the real application against an in-memory database
+                </li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h2>Status</h2>
+              <p>
+                In pilot. The screenshots below come from the local demo mode,
+                running against invented menu and order data.
+              </p>
+              <p>
+                <a href="https://solute.id" target="_blank" rel="noopener"
+                  >solute.id →</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="placeholder-screenshots placeholder-screenshots--wide">
+            <img
+              src="./Preview-2.png"
+              alt="Solute register with the item grid on the left and an open table ticket, line items, and bill total on the right"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-3.png"
+              alt="Solute kitchen display showing four order tickets with per-item preparation state"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-4.png"
+              alt="Solute queue TV showing the order number being prepared and the one ready for collection"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-5.png"
+              alt="Solute admin summary with daily sales, sales chart, items needing attention, and best sellers"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+          </div>
+          <!-- Portrait, so it is constrained rather than stretched across a
+               landscape column. -->
+          <img
+            src="./Preview-1.png"
+            alt="Solute guest ordering screen on a phone, showing the venue's menu by category"
+            loading="lazy"
+            style="
+              width: 100%;
+              max-width: 260px;
+              border-radius: var(--radius);
+              display: block;
+              margin: 0.75rem auto 0;
+            "
+          />
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-inner">
+        <span class="footer-name">Kenneth Fang</span>
+        <div class="footer-links">
+          <a
+            href="https://github.com/kengomatsuo"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <a href="mailto:kenneth@matsuokengo.com">Email</a>
+        </div>
+        <span class="footer-copy">© 2026</span>
+      </div>
+    </footer>
+  </body>
+</html>
