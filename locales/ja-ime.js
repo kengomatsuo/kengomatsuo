@@ -50,6 +50,19 @@ export const KENKYUU_IME = [
   ["研究", ""],       // enter → confirm
 ];
 
+// 資格 — shikaku
+export const SHIKAKU_IME = [
+  ["", "s"],
+  ["", "sh"],     // sh
+  ["", "し"],     // shi
+  ["", "しk"],    // k
+  ["", "しか"],   // ka
+  ["", "しかk"],  // k
+  ["", "しかく"], // ku
+  ["", "資格"],   // live conversion → candidate
+  ["資格", ""],   // enter → confirm
+];
+
 // 連絡 — renraku
 export const RENRAKU_IME = [
   ["", "r"],

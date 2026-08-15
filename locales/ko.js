@@ -3,6 +3,7 @@ import {
   EOPMU_IME,
   HAKGYO_IME,
   YEONGU_IME,
+  JAGYEOK_IME,
   YEOLLAK_IME,
   CLIENT_WORK_KO_IME,
   MATSUO_KENGO_KO_IME,
@@ -23,11 +24,13 @@ const IME_MAP = {
   "nav-work": EOPMU_IME,
   "nav-school": HAKGYO_IME,
   "nav-research": YEONGU_IME,
+  "nav-certifications": JAGYEOK_IME,
   "nav-contact": YEOLLAK_IME,
   "section-personal": GAEIN_IME,
   "section-client-work": CLIENT_WORK_KO_IME,
   "section-school": HAKGYO_IME,
   "section-research": YEONGU_IME,
+  "section-certifications": JAGYEOK_IME,
   "hero-alias": MATSUO_KENGO_KO_IME,
   "hero-sub": HERO_SUB_KO_IME,
 };
@@ -123,6 +126,7 @@ const STRINGS = {
   "nav-work": "업무",
   "nav-school": "학교",
   "nav-research": "연구",
+  "nav-certifications": "자격",
   "nav-contact": "연락",
   "hero-alias": "마쓰오 겐고",
   "hero-sub": "앱, 툴, 읽을 가치가 있는 것들을 만드는 개발자 겸 연구자.",
@@ -131,6 +135,18 @@ const STRINGS = {
   "section-client-work": "클라이언트 작업",
   "section-school": "학교",
   "section-research": "연구",
+  "section-certifications": "자격",
+  "tag-cloud": "클라우드",
+  "tag-language": "어학",
+  "aca-cloud-engineer-desc":
+    "Alibaba Cloud 어소시에이트 등급 인증. 2025년 5월에 72점으로 합격했으며 2027년 5월까지 유효합니다.",
+  "aws-compute-desc":
+    "AWS Educate 트레이닝 배지. 컴퓨팅 서비스 기초 과정을 수료했습니다.",
+  "aws-cloud101-desc":
+    "AWS Educate 트레이닝 배지. 클라우드 컴퓨팅 입문 과정을 수료했습니다.",
+  "ielts-desc":
+    "아카데믹 모듈에서 오버올 밴드 스코어 8.0 (CEFR C1). 리스닝 8.0, 리딩 8.5, 라이팅 6.5, 스피킹 8.0.",
+  "card-link-credly": "Credly에서 확인 →",
   "tag-web": "웹",
   "tag-mobile": "모바일",
   "tag-game": "게임",
@@ -186,10 +202,10 @@ export default function () {
     appStore.href = "https://apps.apple.com/kr/app/cutling/id6759476314";
 
   const cutlingSite = document.querySelector(
-    'a[href*="kengomatsuo.github.io/Cutling"]',
+    'a[href*="cutling.matsuokengo.com"]',
   );
   if (cutlingSite)
-    cutlingSite.href = "https://kengomatsuo.github.io/Cutling/";
+    cutlingSite.href = "https://cutling.matsuokengo.com/";
 
   const els = Array.from(document.querySelectorAll("[data-i18n]"))
     .map((el, i) => ({ el, i, target: STRINGS[el.dataset.i18n] }))

@@ -3,6 +3,7 @@ import {
   SHIGOTO_IME,
   GAKKOU_IME,
   KENKYUU_IME,
+  SHIKAKU_IME,
   RENRAKU_IME,
   CLIENT_WORK_IME,
   MATSUO_KENGO_IME,
@@ -24,11 +25,13 @@ const IME_MAP = {
   "nav-work": SHIGOTO_IME,
   "nav-school": GAKKOU_IME,
   "nav-research": KENKYUU_IME,
+  "nav-certifications": SHIKAKU_IME,
   "nav-contact": RENRAKU_IME,
   "section-personal": KOJIN_IME,
   "section-client-work": CLIENT_WORK_IME,
   "section-school": GAKKOU_IME,
   "section-research": KENKYUU_IME,
+  "section-certifications": SHIKAKU_IME,
   "hero-alias": MATSUO_KENGO_IME,
   "hero-sub": HERO_SUB_IME,
 };
@@ -132,6 +135,7 @@ const STRINGS = {
   "nav-work": "仕事",
   "nav-school": "学校",
   "nav-research": "研究",
+  "nav-certifications": "資格",
   "nav-contact": "連絡",
   "hero-alias": "松尾賢吾",
   "hero-sub": "アプリやツール、読む価値のあるものを作るデベロッパー兼研究者。",
@@ -140,6 +144,18 @@ const STRINGS = {
   "section-client-work": "クライアント案件",
   "section-school": "学校",
   "section-research": "研究",
+  "section-certifications": "資格",
+  "tag-cloud": "クラウド",
+  "tag-language": "語学",
+  "aca-cloud-engineer-desc":
+    "Alibaba Cloudのアソシエイト級認定。2025年5月にスコア72で合格、2027年5月まで有効。",
+  "aws-compute-desc":
+    "AWS Educateのトレーニングバッジ。コンピューティングサービスの基礎コースを修了。",
+  "aws-cloud101-desc":
+    "AWS Educateのトレーニングバッジ。クラウドコンピューティングの入門コースを修了。",
+  "ielts-desc":
+    "アカデミック・モジュールでオーバーオールバンドスコア8.0（CEFR C1）。リスニング8.0、リーディング8.5、ライティング6.5、スピーキング8.0。",
+  "card-link-credly": "Credlyで確認 →",
   "tag-web": "ウェブ",
   "tag-mobile": "モバイル",
   "tag-game": "ゲーム",
@@ -195,10 +211,10 @@ export default function () {
     appStore.href = "https://apps.apple.com/jp/app/cutling/id6759476314";
 
   const cutlingSite = document.querySelector(
-    'a[href*="kengomatsuo.github.io/Cutling"]',
+    'a[href*="cutling.matsuokengo.com"]',
   );
   if (cutlingSite)
-    cutlingSite.href = "https://kengomatsuo.github.io/Cutling/ja/";
+    cutlingSite.href = "https://cutling.matsuokengo.com/ja/";
 
   const els = Array.from(document.querySelectorAll("[data-i18n]"))
     .map((el, i) => ({ el, i, target: STRINGS[el.dataset.i18n] }))

@@ -75,6 +75,7 @@ const STRINGS = {
   "nav-work": "Pekerjaan",
   "nav-school": "Akademik",
   "nav-research": "Riset",
+  "nav-certifications": "Sertifikasi",
   "nav-contact": "Kontak",
   "hero-alias": "Matsuo Kengo",
   "hero-sub":
@@ -84,6 +85,18 @@ const STRINGS = {
   "section-client-work": "Pekerjaan Klien",
   "section-school": "Akademik",
   "section-research": "Riset",
+  "section-certifications": "Sertifikasi",
+  "tag-cloud": "Cloud",
+  "tag-language": "Bahasa",
+  "aca-cloud-engineer-desc":
+    "Sertifikasi Alibaba Cloud tingkat associate. Lulus Mei 2025 dengan skor 72, berlaku hingga Mei 2027.",
+  "aws-compute-desc":
+    "Badge pelatihan AWS Educate untuk penyelesaian kursus dasar layanan komputasi.",
+  "aws-cloud101-desc":
+    "Badge pelatihan AWS Educate untuk penyelesaian kursus pengantar komputasi awan.",
+  "ielts-desc":
+    "Overall Band Score 8.0 (CEFR C1) pada modul Academic. Listening 8.0, Reading 8.5, Writing 6.5, Speaking 8.0.",
+  "card-link-credly": "Verifikasi di Credly →",
   "tag-web": "Web",
   "tag-mobile": "Mobile",
   "tag-game": "Game",
@@ -143,10 +156,10 @@ export default function () {
     appStore.href = "https://apps.apple.com/id/app/cutling/id6759476314";
 
   const cutlingSite = document.querySelector(
-    'a[href*="kengomatsuo.github.io/Cutling"]',
+    'a[href*="cutling.matsuokengo.com"]',
   );
   if (cutlingSite)
-    cutlingSite.href = "https://kengomatsuo.github.io/Cutling/id/";
+    cutlingSite.href = "https://cutling.matsuokengo.com/id/";
 
   const els = Array.from(document.querySelectorAll("[data-i18n]"))
     .map((el, i) => ({ el, i, target: STRINGS[el.dataset.i18n] }))

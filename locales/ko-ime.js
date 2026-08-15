@@ -43,6 +43,16 @@ export const YEONGU_IME = [
   ["연구", ""],
 ];
 
+// 자격 — jagyeok
+export const JAGYEOK_IME = [
+  ["", "ㅈ"],
+  ["", "자"],    // ㅏ
+  ["", "작"],    // ㄱ (batchim)
+  ["자", "겨"],  // ㅕ (ㄱ migrates to next syllable, 자 committed)
+  ["자", "격"],  // ㄱ (batchim)
+  ["자격", ""],
+];
+
 // 연락 — yeollak
 export const YEOLLAK_IME = [
   ["", "ㅇ"],
