@@ -144,6 +144,7 @@ const STRINGS = {
   "what-desc":
     "화면 스트리밍 영상에 텍스트 번역을 실시간으로 덮어씌우는 iOS 앱. 완전 오프라인 지원.",
   "badge-in-progress": "제작 중",
+  "badge-pilot": "파일럿",
   "badge-coming-soon": "출시 예정",
   "img-coming-soon": "출시 예정",
   "itinerary-id-desc": "인도네시아 여행자를 위한 여행 일정 플래너.",

@@ -97,6 +97,7 @@ const STRINGS = {
   "what-desc":
     "Aplikasi iOS yang melakukan streaming layar dan menampilkan terjemahan di atas teks asli secara real-time, sepenuhnya offline.",
   "badge-in-progress": "Sedang Dikerjakan",
+  "badge-pilot": "Pilot",
   "badge-coming-soon": "Segera Hadir",
   "img-coming-soon": "Segera Hadir",
   "itinerary-id-desc":

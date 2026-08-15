@@ -153,6 +153,7 @@ const STRINGS = {
   "what-desc":
     "画面のストリーミング映像にテキストの翻訳をリアルタイムで重ね合わせるiOSアプリ。完全オフライン対応。",
   "badge-in-progress": "制作中",
+  "badge-pilot": "パイロット版",
   "badge-coming-soon": "近日公開",
   "img-coming-soon": "近日公開",
   "itinerary-id-desc": "インドネシア旅行者向けに作られた旅程プランナー。",
