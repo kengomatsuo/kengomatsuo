@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kenneth Fang — developer and researcher."
+    />
+    <title>Portfolio | Kenneth</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="fonts/PlusJakartaSans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <style>@font-face{font-family:Plus Jakarta Sans;src:url(fonts/PlusJakartaSans.woff2)format("woff2");font-weight:500 800;font-style:normal;font-display:block}@font-face{font-family:IBM Plex Sans JP;src:url(fonts/IBMPlexSansJP-Regular.woff2)format("woff2");font-weight:400;font-style:normal;font-display:block}@font-face{font-family:IBM Plex Sans JP;src:url(fonts/IBMPlexSansJP-Medium.woff2)format("woff2");font-weight:500;font-style:normal;font-display:block}@font-face{font-family:IBM Plex Sans JP;src:url(fonts/IBMPlexSansJP-Bold.woff2)format("woff2");font-weight:700;font-style:normal;font-display:block}@font-face{font-family:IBM Plex Sans KR;src:url(fonts/IBMPlexSansKR-Regular.woff2)format("woff2");font-weight:400;font-style:normal;font-display:block}@font-face{font-family:IBM Plex Sans KR;src:url(fonts/IBMPlexSansKR-Medium.woff2)format("woff2");font-weight:500;font-style:normal;font-display:block}@font-face{font-family:IBM Plex Sans KR;src:url(fonts/IBMPlexSansKR-Bold.woff2)format("woff2");font-weight:700;font-style:normal;font-display:block}@property --card-glow{syntax:"<number>";inherits:false;initial-value:0}*,:before,:after{box-sizing:border-box;cursor:default;margin:0;padding:0}a,button,[role=button],label[for],summary{cursor:pointer}@media (hover:none) and (pointer:coarse){*{-webkit-user-select:none;user-select:none}}:root{--bg:#fff;--bg-alt:#f7f7f7;--surface:#f0f0f0;--placeholder:#d8d8d8;--border:#e6e6e6;--text:#111;--muted:#737373;--accent:#008760;--radius:24px;--nav-h:54px;--max-w:960px;--pad-x:clamp(1.25rem, 5vw, 2.5rem);--glow-border:#e0e0e0;--glow-highlight:#b6b6b6}@media (prefers-color-scheme:dark){:root{--bg:#0d0d0d;--bg-alt:#141414;--surface:#1c1c1c;--placeholder:#2a2a2a;--border:#252525;--text:#ebebeb;--muted:gray;--accent:#00a068;--glow-border:#3d3d3d;--glow-highlight:#a6a6a6}}html{scroll-behavior:smooth;background:var(--bg);color-scheme:light dark}body{background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-family:Plus Jakarta Sans,IBM Plex Sans JP,IBM Plex Sans KR,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}::selection{background:var(--accent);color:#fff}body.loading{overflow:hidden}body.loading .project-card{opacity:0!important}#loading-overlay{background:var(--bg);pointer-events:none;opacity:0;visibility:hidden;z-index:9999;justify-content:center;align-items:center;transition:opacity .6s,visibility 0s .6s;display:flex;position:fixed;inset:0}#loading-overlay.visible{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .6s}#loading-overlay.done{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .5s,visibility 0s .5s}.loading-content{flex-direction:column;align-items:center;gap:20px;display:flex}.loading-text{letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-size:.8125rem;font-weight:500}.loading-bar-track{background:var(--border);border-radius:1px;width:140px;height:2px;overflow:hidden}.loading-bar-fill{background:var(--muted);border-radius:1px;width:0%;height:100%}nav{z-index:100;height:var(--nav-h);padding:0 var(--pad-x);background:var(--bg);border-bottom:1px solid #0000;justify-content:space-between;align-items:center;transition:border-bottom-color .3s;display:flex;position:sticky;top:0}nav.scrolled{border-bottom-color:var(--border)}.nav-logo{letter-spacing:.05em;color:var(--text);font-size:.9375rem;font-weight:700}.nav-links{gap:1.75rem;list-style:none;display:flex}.nav-links a{color:var(--muted);font-size:.8125rem;transition:color .15s}.nav-links a:hover{color:var(--text)}@media (width<=480px){.nav-links{gap:1rem}.nav-links a{font-size:.75rem}}#hero{padding:clamp(4.5rem, 12vw, 8rem) var(--pad-x) clamp(3rem, 8vw, 5rem)}.hero-inner{max-width:var(--max-w);margin:0 auto}#hero h1{letter-spacing:-.03em;margin-bottom:1rem;font-size:clamp(2.25rem,6vw,3.75rem);font-weight:700;line-height:1.08}.hero-alias{color:var(--accent);letter-spacing:.02em;margin-bottom:1rem;font-size:clamp(.875rem,2vw,1rem);font-weight:500}.hero-sub{color:var(--muted);max-width:480px;margin-bottom:2rem;font-size:clamp(1rem,2.5vw,1.125rem);line-height:1.55}.hero-links{flex-wrap:wrap;gap:.625rem;display:flex}.hero-btn{border-radius:var(--radius);color:var(--text);background:linear-gradient(var(--bg), var(--bg)) padding-box, conic-gradient(from calc(var(--card-light-angle,315deg) - 90deg) at 50% 50%, var(--glow-border) 0deg, color-mix(in srgb, rgb(from var(--glow-highlight) r g b / .85) calc(var(--card-glow) * 100%), var(--glow-border)) 90deg, var(--glow-border) 180deg, var(--glow-border) 240deg, color-mix(in srgb, rgb(from var(--glow-highlight) r g b / .85) calc(var(--card-glow) * 100%), var(--glow-border)) 270deg, var(--glow-border) 300deg, var(--glow-border) 360deg) border-box;border:1px solid #0000;align-items:center;gap:.375rem;padding:.5rem 1rem;font-size:.8125rem;font-weight:500;transition:color .15s,--card-glow .7s;display:inline-flex}.hero-btn:hover{color:var(--accent)}section{padding:clamp(2.5rem, 7vw, 4.5rem) var(--pad-x)}#client-work,#research{background:var(--bg-alt)}.section-inner{max-width:var(--max-w);margin:0 auto}.section-title{letter-spacing:-.02em;margin-bottom:1.5rem;font-size:1.25rem;font-weight:700}.project-grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;display:grid}.project-grid--slim{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}.project-card{border-radius:var(--radius);background:linear-gradient(var(--bg), var(--bg)) padding-box, conic-gradient(from calc(var(--card-light-angle,315deg) - 90deg) at 50% 50%, var(--glow-border) 0deg, color-mix(in srgb, rgb(from var(--glow-highlight) r g b / .85) calc(var(--card-glow) * 100%), var(--glow-border)) 90deg, var(--glow-border) 180deg, var(--glow-border) 240deg, color-mix(in srgb, rgb(from var(--glow-highlight) r g b / .85) calc(var(--card-glow) * 100%), var(--glow-border)) 270deg, var(--glow-border) 300deg, var(--glow-border) 360deg) border-box;border:1px solid #0000;flex-direction:column;transition:box-shadow .18s,transform .18s,--card-glow .7s;display:flex;overflow:hidden}.project-card:hover{box-shadow:0 8px 24px #0000001a}@media (prefers-color-scheme:dark){.project-card{box-shadow:none;border-width:1px}.project-card:hover{box-shadow:0 4px 18px #00000059}}.card-image{aspect-ratio:16/9;width:100%;display:block;overflow:hidden}.card-image img{object-fit:cover;object-position:center top;-webkit-touch-callout:none;user-select:none;pointer-events:none;width:100%;height:100%;transition:transform .4s cubic-bezier(.25,.46,.45,.94);display:block}.project-card:hover .card-image img{transform:translateY(-1px)scale(1.05)}.card-image--text{letter-spacing:.02em;justify-content:center;align-items:center;font-size:.8125rem;font-weight:500;display:flex}.card-image--icon{background:var(--surface);justify-content:center;align-items:center;display:flex}.card-image picture{display:contents}.card-image--icon img{object-fit:contain;object-position:center center;padding:1.5rem}.placeholder{background:var(--placeholder)}@media (width>=580px){.project-card--featured{grid-column:span 2}.project-card--featured .card-image{aspect-ratio:21/9}}.card-body{flex-direction:column;flex:1;padding:1rem 1.125rem 1.25rem;display:flex}.card-meta{flex-wrap:wrap;align-items:center;gap:.375rem;margin-bottom:.5rem;display:flex}.card-tag{text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border:1px solid var(--border);background:0 0;border-radius:4px;padding:.15em .45em;font-size:.6875rem;font-weight:600;transition:background .4s cubic-bezier(.25,.46,.45,.94),border-color .4s cubic-bezier(.25,.46,.45,.94),color .4s cubic-bezier(.25,.46,.45,.94);display:inline-block}.project-card:hover .card-tag{background:var(--muted);color:var(--bg);border-color:#0000}.card-badge{border-radius:4px;padding:.15em .5em;font-size:.6875rem;font-weight:600;display:inline-block}.card-badge--progress{color:#92400e;background:#fef3c7}@media (prefers-color-scheme:dark){.card-badge--progress{color:#fcd34d;background:#3b1f00}}.card-title{letter-spacing:-.01em;margin-bottom:.375rem;font-size:.9375rem;font-weight:600}.card-desc{color:var(--muted);flex:1;margin-bottom:.875rem;font-size:.8125rem;line-height:1.55}.card-actions{flex-wrap:wrap;gap:1rem;display:flex}.card-link{color:var(--accent);font-size:.8rem;font-weight:500;transition:opacity .15s}.card-link--muted{color:var(--muted)}.card-link:hover{opacity:.7}#school .project-card{opacity:.8}#school .project-card:hover{opacity:1}.pub{border-left:2px solid var(--border);max-width:620px;padding-left:1.125rem}.pub-title{letter-spacing:-.01em;margin-bottom:.5rem;font-size:1rem;font-weight:600;line-height:1.5}.pub-authors{color:var(--muted);margin-bottom:.2rem;font-size:.8125rem}.pub-venue{color:var(--muted);margin-bottom:.875rem;font-size:.8rem}.project-hero{padding-bottom:clamp(2rem,5vw,3rem)}.project-hero h1{letter-spacing:-.025em;margin-bottom:.75rem;font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;line-height:1.1}.prose section{background:0 0;padding:0}.detail-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2rem 2.5rem;margin-bottom:2.5rem;display:grid}.detail-block h2{text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.625rem;font-size:.8125rem;font-weight:600}.detail-block p,.detail-block li{color:var(--text);font-size:.9rem;line-height:1.65}.detail-block p+p{margin-top:.5rem}.detail-block ul{flex-direction:column;gap:.3rem;padding:0;list-style:none;display:flex}.detail-block li:before{content:"— ";color:var(--muted)}.placeholder-screenshots{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;display:grid}.screenshot-placeholder{aspect-ratio:9/16;border-radius:var(--radius)}.placeholder-screenshots--wide{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}footer{border-top:1px solid var(--border);padding:1.75rem var(--pad-x);background:var(--bg)}.footer-inner{max-width:var(--max-w);color:var(--muted);flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem;margin:0 auto;font-size:.8125rem;display:flex}.footer-links{gap:1.25rem;display:flex}.footer-links a{color:var(--muted);transition:color .15s}.footer-links a:hover{color:var(--text)}.appear{opacity:0;transform:translateY(var(--appear-y,18px));transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1),border-bottom-color .3s;transition-delay:var(--appear-delay,0s)}.appear.visible{opacity:1;transform:none}@media (prefers-reduced-motion:reduce){.appear{transition:opacity .3s;transform:none}}#back-to-top{bottom:4rem;right:var(--pad-x);border:1px solid var(--border);background:var(--bg);width:2.75rem;height:2.75rem;color:var(--muted);cursor:pointer;z-index:99;opacity:0;pointer-events:none;border-radius:50%;justify-content:center;align-items:center;transition:opacity .3s,transform .3s,border-color .15s,color .15s;display:flex;position:fixed;transform:translateY(8px)}#back-to-top.visible{opacity:1;pointer-events:auto;transform:none}#back-to-top:hover{border-color:var(--text);color:var(--text)}</style>
+  </head>
+  <body class="loading">
+    <div id="loading-overlay">
+      <div class="loading-content">
+        <p class="loading-text" id="loading-text">Loading</p>
+        <div class="loading-bar-track">
+          <div class="loading-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+    <nav class="appear" style="--appear-y: -12px">
+      <a href="#" class="nav-logo">MK</a>
+      <ul class="nav-links">
+        <li><a href="#personal" data-i18n="nav-personal">Personal</a></li>
+        <li><a href="#client-work" data-i18n="nav-work">Work</a></li>
+        <li><a href="#school" data-i18n="nav-school">School</a></li>
+        <li><a href="#research" data-i18n="nav-research">Research</a></li>
+        <li>
+          <a href="#certifications" data-i18n="nav-certifications"
+            >Certifications</a
+          >
+        </li>
+        <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="hero">
+        <div class="hero-inner">
+          <h1 class="appear" style="--appear-y: 36px">Kenneth Johannes Fang</h1>
+          <p class="hero-alias appear" style="--appear-y: 24px" data-i18n="hero-alias">Matsuo Kengo</p>
+          <p
+            class="hero-sub appear"
+            style="--appear-y: 20px"
+            data-i18n="hero-sub"
+          >
+            Developer &amp; researcher building apps, tools, and things worth
+            reading.
+          </p>
+          <div class="hero-links appear" style="--appear-y: 16px">
+            <a
+              href="https://github.com/kengomatsuo"
+              class="hero-btn"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                  0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                  -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2
+                  -3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82
+                  .64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08
+                  2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
+                  1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                />
+              </svg>
+              GitHub
+            </a>
+            <a href="mailto:kenneth@matsuokengo.com" class="hero-btn">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1
+                  a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15
+                  11.105V5.383zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2
+                  13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"
+                />
+              </svg>
+              <span data-i18n="hero-btn-email">Email</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Personal ───────────────────────────────── -->
+      <section id="personal">
+        <div class="section-inner">
+          <h2
+            class="section-title appear"
+            style="--appear-y: 14px"
+            data-i18n="section-personal"
+          >
+            Personal
+          </h2>
+          <div class="project-grid">
+            <article class="project-card project-card--featured">
+              <div class="card-image card-image--icon">
+                <picture>
+                  <source
+                    srcset="/images/cutling-dark-mode-icon.webp"
+                    media="(prefers-color-scheme: dark)"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="/images/cutling-icon.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="/images/cutling-dark-mode-icon.png"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img
+                    src="/images/cutling-icon.png"
+                    alt="Cutling app icon"
+                    onerror="
+                      this.onerror = null;
+                      this.parentElement.parentElement.className =
+                        'card-image card-image--text';
+                      this.parentElement.parentElement.textContent = 'Cutling';
+                      this.parentElement.parentElement.style.cssText =
+                        'background:#4ECBA3;color:#1a1a1a';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag">iOS &amp; macOS</span>
+                </div>
+                <h3 class="card-title" data-i18n="card-title-cutling">Cutling</h3>
+                <p class="card-desc" data-i18n="cutling-desc">
+                  Native clipboard manager for iPhone, iPad, and Mac. Save your
+                  most-used snippets and images, then paste them into any app —
+                  through a custom keyboard on iOS or a menu-bar hotkey on Mac.
+                  No account, no tracking, and free on Mac.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="/cutling/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                  <a
+                    href="https://cutling.matsuokengo.com/"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-website"
+                    >Website →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image card-image--text placeholder" data-i18n="img-coming-soon">
+                Coming Soon
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag">iOS</span>
+                  <span
+                    class="card-badge card-badge--progress"
+                    data-i18n="badge-in-progress"
+                    >In Progress</span
+                  >
+                </div>
+                <h3 class="card-title">What?</h3>
+                <p class="card-desc" data-i18n="what-desc">
+                  iOS app that streams your screen and overlays translations on
+                  top of the original text, fully offline.
+                </p>
+                <div class="card-actions">
+                  <span
+                    class="card-link card-link--muted"
+                    data-i18n="badge-coming-soon"
+                    >Coming soon</span
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image card-image--icon">
+                <picture>
+                  <source
+                    srcset="/images/itinerary-id-dark-mode-icon.png"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img
+                    src="/images/itinerary-id-icon.webp"
+                    alt="Itinerary.id icon"
+                    onerror="
+                      this.onerror = null;
+                      this.parentElement.parentElement.className =
+                        'card-image card-image--text';
+                      this.parentElement.parentElement.textContent =
+                        'Itinerary.id';
+                      this.parentElement.parentElement.style.cssText =
+                        'background:#3D5A6C;color:#ffffff';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
+                </div>
+                <h3 class="card-title">Itinerary.id</h3>
+                <p class="card-desc" data-i18n="itinerary-id-desc">
+                  Travel itinerary planner built for Indonesian travelers.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://itinerary.id"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-visit"
+                    >Visit →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div
+                class="card-image card-image--text"
+                style="background: #6b5b95; color: #ffffff"
+              >
+                Summaries &amp; Flashcards
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-desktop">Desktop</span>
+                </div>
+                <h3 class="card-title">Summaries &amp; Flashcards</h3>
+                <p class="card-desc" data-i18n="saf-desc">
+                  Local AI tool that turns lecture slides, PDFs, and docs into
+                  faithful summaries and exportable Anki flashcards — runs
+                  entirely on your machine, no internet or API keys.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://github.com/kengomatsuo/summaries-and-flashcards"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image card-image--icon">
+                <picture>
+                  <source
+                    srcset="/images/solute-dark-mode-icon.svg"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img
+                    src="/images/solute-icon.svg"
+                    alt="Solute mark"
+                    onerror="
+                      this.onerror = null;
+                      this.parentElement.parentElement.className =
+                        'card-image card-image--text';
+                      this.parentElement.parentElement.textContent = 'Solute';
+                      this.parentElement.parentElement.style.cssText =
+                        'background:#2c5fb7;color:#ffffff';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-pos">POS Platform</span>
+                  <span
+                    class="card-badge card-badge--progress"
+                    data-i18n="badge-pilot"
+                    >Pilot</span
+                  >
+                </div>
+                <h3 class="card-title">Solute</h3>
+                <p class="card-desc" data-i18n="solute-desc">
+                  White-label POS platform for cafés and restaurants — QR
+                  self-ordering, register, kitchen display, and queue TV in one
+                  real-time system, each venue themed to its own brand on its
+                  own subdomain.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="/solute/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                  <a
+                    href="https://solute.id"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-visit-site"
+                    >Visit site →</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Client Work ────────────────────────────── -->
+      <section id="client-work">
+        <div class="section-inner">
+          <h2
+            class="section-title appear"
+            style="--appear-y: 14px"
+            data-i18n="section-client-work"
+          >
+            Client Work
+          </h2>
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="card-image card-image--icon">
+                <picture>
+                  <source
+                    srcset="/images/txeexpress-dark-mode-icon.webp"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img
+                    src="/images/txeexpress-icon.webp"
+                    alt="TXE Express logo"
+                    onerror="
+                      this.onerror = null;
+                      this.parentElement.parentElement.className =
+                        'card-image card-image--text';
+                      this.parentElement.parentElement.textContent =
+                        'TXE Express';
+                      this.parentElement.parentElement.style.cssText =
+                        'background:#023B72;color:#ffffff';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-logistics-pwa">Logistics PWA</span>
+                </div>
+                <h3 class="card-title">TXE Express</h3>
+                <p class="card-desc" data-i18n="txe-desc">
+                  Operations app for TXE Express, a courier and delivery
+                  company.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="/txe-express/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                  <a
+                    href="https://txeexpress.com"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-visit-site"
+                    >Visit site →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image card-image--icon">
+                <picture>
+                  <source
+                    srcset="/images/polindo-dark-mode-logo.webp"
+                    media="(prefers-color-scheme: dark)"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="/images/polindo-logo.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="/images/polindo-dark-mode-logo.png"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img
+                    src="/images/polindo-logo.png"
+                    alt="PT Polindo Utama logo"
+                    onerror="
+                      this.onerror = null;
+                      this.parentElement.parentElement.className =
+                        'card-image card-image--text';
+                      this.parentElement.parentElement.textContent =
+                        'PolindoHC';
+                      this.parentElement.parentElement.style.cssText =
+                        'background:#214384;color:#f3b335';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-mobile">Mobile</span>
+                </div>
+                <h3 class="card-title">PolindoHC</h3>
+                <p class="card-desc" data-i18n="polindo-desc">
+                  Internal mobile app for PT Polindo Utama — employees browse,
+                  register for, and track upcoming company activities and
+                  events.
+                </p>
+                <div class="card-actions">
+                  <a href="/polindohc/" class="card-link" data-i18n="card-link-learn-more">Learn more →</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image card-image--icon">
+                <picture>
+                  <source
+                    srcset="/images/prevented-ocean-plastic-dark-mode-logo.webp"
+                    media="(prefers-color-scheme: dark)"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="/images/prevented-ocean-plastic-logo.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="/images/prevented-ocean-plastic-dark-mode-logo.png"
+                    media="(prefers-color-scheme: dark)"
+                  />
+                  <img
+                    src="/images/prevented-ocean-plastic-logo.png"
+                    alt="Prevented Ocean Plastic certification mark"
+                    onerror="
+                      this.onerror = null;
+                      this.parentElement.parentElement.className =
+                        'card-image card-image--text';
+                      this.parentElement.parentElement.textContent =
+                        'Prevented Ocean Plastic';
+                      this.parentElement.parentElement.style.cssText =
+                        'background:#00B4D8;color:#ffffff';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-mobile">Mobile</span>
+                  <span
+                    class="card-badge card-badge--progress"
+                    data-i18n="badge-in-progress"
+                    >In Progress</span
+                  >
+                </div>
+                <h3 class="card-title">POP App</h3>
+                <p class="card-desc" data-i18n="pop-desc">
+                  Paper-to-digital operations platform for Prevented Ocean
+                  Plastic — covering intake, production, sampling, QC, and
+                  shipment across all roles.
+                </p>
+                <div class="card-actions">
+                  <a href="/prevented-ocean-plastic/" class="card-link" data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image card-image--icon">
+                <picture>
+                  <source
+                    srcset="/images/eralink-indonesia-logo.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/images/eralink-indonesia-logo.png"
+                    alt="Eralink Indonesia logo"
+                    onerror="
+                      this.onerror = null;
+                      this.parentElement.parentElement.className =
+                        'card-image card-image--text';
+                      this.parentElement.parentElement.textContent =
+                        'Itinerary Generator';
+                      this.parentElement.parentElement.style.cssText =
+                        'background:#FAFAFA;color:#09090B';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
+                </div>
+                <h3 class="card-title">Itinerary Generator</h3>
+                <p class="card-desc" data-i18n="itinerary-gen-desc">
+                  Web app for building and sharing travel itineraries, made for
+                  a private client.
+                </p>
+                <div class="card-actions">
+                  <a href="/itinerary-generator/" class="card-link" data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image">
+                <picture>
+                  <source
+                    srcset="/warehouse-ops/Preview-1.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/warehouse-ops/Preview-1.png"
+                    alt="Warehouse Ops stock dashboard"
+                    onerror="
+                      this.onerror = null;
+                      var box = this.parentElement.parentElement;
+                      box.className = 'card-image card-image--text';
+                      box.style.cssText = 'background:#0a0a0a;color:#ffffff';
+                      box.textContent = 'Warehouse Ops';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
+                </div>
+                <h3 class="card-title">Warehouse Ops</h3>
+                <p class="card-desc" data-i18n="warehouse-ops-desc">
+                  Warehouse app for an online bike-parts seller — shipping-label
+                  PDFs become pick lists in the browser, and every stock change
+                  is an approved entry in an append-only ledger.
+                </p>
+                <div class="card-actions">
+                  <a href="/warehouse-ops/" class="card-link" data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── School ─────────────────────────────────── -->
+      <section id="school">
+        <div class="section-inner">
+          <h2
+            class="section-title appear"
+            style="--appear-y: 14px"
+            data-i18n="section-school"
+          >
+            School
+          </h2>
+          <div class="project-grid project-grid--slim">
+            <article class="project-card">
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
+                </div>
+                <h3 class="card-title">Learn!</h3>
+                <p class="card-desc" data-i18n="learn-desc">
+                  Kids learning site with video lessons and quizzes, with
+                  streaks and rewards to keep them coming back.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://kengomatsuo.github.io/hciproject"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-visit"
+                    >Visit →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
+                </div>
+                <h3 class="card-title">Last Minute</h3>
+                <p class="card-desc" data-i18n="last-minute-desc">
+                  Online course platform where students can attend classes and
+                  peer-to-peer video call.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://github.com/kengomatsuo/last-minute"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-game">Game</span>
+                </div>
+                <h3 class="card-title">Let Me Rest</h3>
+                <p class="card-desc" data-i18n="let-me-rest-desc">
+                  Pixel-art browser minigame, also packaged for mobile.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://kengomatsuo.github.io/letmerest"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-play"
+                    >Play →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag">ML</span>
+                </div>
+                <h3 class="card-title">Sporocarp Classifier</h3>
+                <p class="card-desc" data-i18n="sporocarp-desc">
+                  Image classifier that tells edible mushrooms from poisonous
+                  ones, with a live demo on Hugging Face.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://huggingface.co/spaces/matsuokengo/sporocarp-toxicity-classifier"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-live-demo"
+                    >Live demo →</a
+                  >
+                  <a
+                    href="https://github.com/kengomatsuo/computer-vision-aol"
+                    class="card-link card-link--muted"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub →</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Research ───────────────────────────────── -->
+      <section id="research">
+        <div class="section-inner">
+          <h2
+            class="section-title appear"
+            style="--appear-y: 14px"
+            data-i18n="section-research"
+          >
+            Research
+          </h2>
+          <div class="pub appear" style="--appear-y: 16px">
+            <h3 class="pub-title">
+              Client-Based Learning and Zero-Knowledge Proof Implementation in
+              Social Media Recommendation Systems
+            </h3>
+            <p class="pub-authors">
+              Kenneth Johannes Fang · Bryan Archie · Anderies Anderies · Andry
+              Chowanda
+            </p>
+            <p class="pub-venue">
+              Bina Nusantara University, Tangerang, Indonesia · IEEE
+            </p>
+            <a
+              href="https://ieeexplore.ieee.org/document/11291883"
+              class="card-link"
+              target="_blank"
+              rel="noopener"
+              data-i18n="research-link"
+              >Read on IEEE Xplore →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications">
+        <div class="section-inner">
+          <h2
+            class="section-title appear"
+            style="--appear-y: 14px"
+            data-i18n="section-certifications"
+          >
+            Certifications
+          </h2>
+          <div class="project-grid project-grid--slim">
+            <article class="project-card">
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-cloud">Cloud</span>
+                </div>
+                <h3 class="card-title">
+                  Alibaba Cloud Certified Associate: Cloud Engineer
+                </h3>
+                <p class="card-desc" data-i18n="aca-cloud-engineer-desc">
+                  Associate-level Alibaba Cloud certification. Passed May 2025
+                  with a score of 72, valid through May 2027.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-cloud">Cloud</span>
+                </div>
+                <h3 class="card-title">
+                  AWS Educate — Getting Started with Compute
+                </h3>
+                <p class="card-desc" data-i18n="aws-compute-desc">
+                  AWS Educate training badge for completing the foundational
+                  course on compute services.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://www.credly.com/users/kenneth-fang/badges"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-credly"
+                    >Verify on Credly →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-cloud">Cloud</span>
+                </div>
+                <h3 class="card-title">
+                  AWS Educate — Introduction to Cloud 101
+                </h3>
+                <p class="card-desc" data-i18n="aws-cloud101-desc">
+                  AWS Educate training badge for completing the introductory
+                  course on cloud computing.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://www.credly.com/users/kenneth-fang/badges"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-credly"
+                    >Verify on Credly →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-language">Language</span>
+                </div>
+                <h3 class="card-title">IELTS Academic — Band 8.0</h3>
+                <p class="card-desc" data-i18n="ielts-desc">
+                  Overall Band Score 8.0 (CEFR C1) on the Academic module.
+                  Listening 8.0, Reading 8.5, Writing 6.5, Speaking 8.0.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button id="back-to-top" aria-label="Back to top">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 14 14"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="2,9 7,4 12,9" />
+      </svg>
+    </button>
+
+    <footer id="contact" class="appear" style="--appear-y: 0px">
+      <div class="footer-inner">
+        <span class="footer-name">Kenneth Fang</span>
+        <div class="footer-links">
+          <a
+            href="https://github.com/kengomatsuo"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <a href="mailto:kenneth@matsuokengo.com">Email</a>
+        </div>
+        <span class="footer-copy">© 2026</span>
+      </div>
+    </footer>
+    <script>const LANG=(()=>{const e=(Intl.DateTimeFormat().resolvedOptions().locale||navigator?.languages[0]||navigator.language||"").split("-")[0].toLowerCase();return["ja","id","ko"].includes(e)?e:null})(),loadingOverlay=document.getElementById("loading-overlay"),loadingText=document.getElementById("loading-text"),dotStates=["Loading","Loading.","Loading..","Loading..."];let dotIndex=0,dotInterval=null;const allImgs=Array.from(document.images),totalImgs=allImgs.length;let loadedImgs=0;const fill=loadingOverlay&&loadingOverlay.querySelector(".loading-bar-fill");function updateBar(){fill&&totalImgs&&(fill.style.transition="width 0.2s ease",fill.style.width=loadedImgs/totalImgs*100+"%")}allImgs.forEach(e=>{e.complete?loadedImgs++:(e.addEventListener("load",()=>{loadedImgs++,updateBar()},{once:!0}),e.addEventListener("error",()=>{loadedImgs++,updateBar()},{once:!0}))}),updateBar(),setTimeout(()=>{loadingOverlay&&(loadingOverlay.classList.add("visible"),dotInterval=setInterval(()=>{dotIndex=(dotIndex+1)%dotStates.length,loadingText&&(loadingText.textContent=dotStates[dotIndex])},400))},1e3),window.addEventListener("load",()=>{if(loadingOverlay){clearInterval(dotInterval),fill&&(fill.style.transition="width 0.3s ease",fill.style.width="100%");(document.fonts&&document.fonts.ready||Promise.resolve()).then(()=>{setTimeout(()=>{loadingOverlay.classList.add("done"),loadingOverlay.addEventListener("transitionend",()=>loadingOverlay.remove(),{once:!0})},300)})}const e=LANG?import(`/locales/${LANG}.js`):null,t=Date.now(),n=new Map,a=new IntersectionObserver(e=>{const o=[];if(e.forEach(({target:e,isIntersecting:t})=>{if(!t)return;const l=n.get(e);l?(l.forEach(e=>{a.unobserve(e),o.push(e)}),n.delete(e),l.forEach(e=>n.delete(e))):(a.unobserve(e),o.push(e))}),!o.length)return;const l=Math.max(0,550-(Date.now()-t));setTimeout(()=>requestAnimationFrame(()=>{o.forEach(e=>e.classList.add("visible"))}),l)},{threshold:.08,rootMargin:"0px 0px -20px 0px"});function o(e,t=0,n=18){e&&(e.classList.contains("appear")||(e.classList.add("appear"),18!==n&&e.style.setProperty("--appear-y",n+"px")),t&&e.style.setProperty("--appear-delay",t+"s"),a.observe(e))}const l=[];if(document.querySelectorAll(".project-card").forEach((e,t)=>{function n(){const t=e.getBoundingClientRect();return(180*Math.atan2(-t.height/2,-t.width/2)/Math.PI+90+360)%360}let a=n(),s=a,r=a,i=0,d=0,c=0,u=0,m=!1,g=!1,h=null;function y(){const t=g?.04:.18,n=r-s;Math.abs(n)>.2?s+=n*t:(s=r,g=!1),e.style.setProperty("--card-light-angle",s+"deg"),i+=.7*(c-i),d+=.7*(u-d),function(){const t=m?"translateY(-6px) scale(1.02)":"";e.style.transform=`perspective(800px) rotateX(${i.toFixed(2)}deg) rotateY(${d.toFixed(2)}deg) ${t}`}();Math.abs(n)>.2||Math.abs(c-i)>.05||Math.abs(u-d)>.05?h=requestAnimationFrame(y):(m||e.style.removeProperty("transform"),h=null)}function v(t,n){const o=e.getBoundingClientRect(),l=(180*Math.atan2(-o.height/2,o.width/2)/Math.PI+90+360)%360;r+=((a+t*((l-a+180+360)%360-180)-r+180)%360+360)%360-180;const s=Math.min(1,200/o.width);u=12*(t-.5)*s,c=6*-(n-.5)*s,m=!0,h||(h=requestAnimationFrame(y))}e.style.setProperty("--card-light-angle",s+"deg"),setTimeout(()=>{a=n(),s=a-90,r=a,e.style.setProperty("--card-light-angle",s+"deg"),e.style.setProperty("--card-glow","1"),g=!0,h||(h=requestAnimationFrame(y))},400+250*t),new ResizeObserver(()=>{a=n(),s=a,r=a,e.style.setProperty("--card-light-angle",a+"deg")}).observe(e);const f=Array.from(e.parentNode.children).indexOf(e),p=document.createElement("div");p.style.display="flex",e.classList.contains("project-card--featured")&&p.classList.add("project-card--featured"),e.parentNode.insertBefore(p,e),p.appendChild(e),e.style.flex="1",o(p,.15+.1*f,22),window.matchMedia("(hover: none)").matches?l.push(v):(p.addEventListener("mousemove",t=>function(t,n){const a=e.getBoundingClientRect();v((t-a.left)/a.width,(n-a.top)/a.height)}(t.clientX,t.clientY)),p.addEventListener("mouseleave",function(){a=n(),r+=((a-r+180)%360+360)%360-180,c=0,u=0,m=!1,h||(h=requestAnimationFrame(y))}))}),document.body.classList.remove("loading"),window.matchMedia("(hover: none)").matches&&window.DeviceOrientationEvent){const e=25;let t=null,n=null;"function"!=typeof DeviceOrientationEvent.requestPermission&&window.addEventListener("deviceorientation",function(a){if(null===a.gamma)return;null===t&&(t=a.gamma,n=a.beta??45);const o=Math.min(1,Math.max(0,.5+(a.gamma-t)/(2*e))),s=Math.min(1,Math.max(0,.5+((a.beta??45)-n)/(2*e)));l.forEach(e=>e(o,s))})}document.querySelectorAll(".project-grid").forEach(e=>{const t=Array.from(e.children);t.forEach(e=>n.set(e,t))}),document.querySelectorAll(".hero-btn").forEach((e,t)=>{function n(){const t=e.getBoundingClientRect();return(180*Math.atan2(-t.height/2,-t.width/2)/Math.PI+90+360)%360}let a=n(),o=a-90,l=a,s=!1,r=null;function i(){const t=s?.04:.18,n=l-o;Math.abs(n)>.2?o+=n*t:(o=l,s=!1),e.style.setProperty("--card-light-angle",o+"deg"),r=Math.abs(n)>.2?requestAnimationFrame(i):null}e.style.setProperty("--card-light-angle",o+"deg"),setTimeout(()=>{e.style.setProperty("--card-glow","1"),s=!0,r||(r=requestAnimationFrame(i))},100+250*t),e.addEventListener("mousemove",t=>{const n=e.getBoundingClientRect(),o=(t.clientX-n.left)/n.width,s=(180*Math.atan2(-n.height/2,n.width/2)/Math.PI+90+360)%360;l+=((a+o*((s-a+180+360)%360-180)-l+180)%360+360)%360-180,r||(r=requestAnimationFrame(i))}),e.addEventListener("mouseleave",()=>{a=n();l+=((a-l+180)%360+360)%360-180,r||(r=requestAnimationFrame(i))})}),requestAnimationFrame(()=>setTimeout(()=>{setTimeout(()=>document.querySelector("nav").classList.add("visible"),0),setTimeout(()=>document.querySelector("#hero h1").classList.add("visible"),60),setTimeout(()=>document.querySelector(".hero-alias").classList.add("visible"),120),setTimeout(()=>document.querySelector(".hero-sub").classList.add("visible"),200),setTimeout(()=>document.querySelector(".hero-links").classList.add("visible"),310),setTimeout(async()=>{if(!e)return;const{default:t}=await e;t()},1260),document.querySelectorAll(".section-title").forEach(e=>o(e)),document.querySelectorAll(".pub").forEach(e=>o(e,.15)),o(document.querySelector("footer"));const t=document.querySelector("nav"),n=document.getElementById("back-to-top"),a=()=>{t.classList.toggle("scrolled",window.scrollY>60),n.classList.toggle("visible",window.scrollY>300)};window.addEventListener("scroll",a,{passive:!0}),a(),n.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})})},100))});</script>
+  </body>
+</html>

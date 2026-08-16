@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Warehouse Ops — warehouse picking and stock app for an online bike-parts seller, by Kenneth Fang." />
+    <title>Warehouse Ops · Kenneth Fang</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+
+    <nav>
+      <a href="/" class="nav-logo">KF</a>
+      <ul class="nav-links">
+        <li><a href="/#client-work">← Work</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="hero" class="project-hero">
+        <div class="hero-inner">
+          <div class="card-meta">
+            <span class="card-tag">Web</span>
+          </div>
+          <h1>Warehouse Ops</h1>
+          <p class="hero-sub">Warehouse app for an Indonesian bike-parts seller on Shopee and TikTok — shipping-label PDFs become pick lists in the browser, and every stock change is an approved entry in an append-only ledger.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner prose">
+          <div class="detail-grid">
+
+            <div class="detail-block">
+              <h2>The Client</h2>
+              <p>An Indonesian seller of bicycle parts, shipping orders daily from two online storefronts. Their existing tool was a prototype that could read labels but could not be trusted with stock: counts were edited in place, so a mistake left no trace and nobody could say who made it. They needed the same daily flow with an auditable record underneath it.</p>
+            </div>
+
+            <div class="detail-block">
+              <h2>What It Does</h2>
+              <p>The daily admin uploads the day's shipping-label PDFs. The app parses them in the browser into orders and line items, matching each line to a SKU in the catalogue. Warehouse staff then scan and pick against those orders on a phone, and the head admin approves anything that changes stock — goods received, corrections, stock counts, returns — before it lands.</p>
+            </div>
+
+            <div class="detail-block">
+              <h2>Features</h2>
+              <ul>
+                <li>Shipping-label PDFs parsed client-side, no upload to a server</li>
+                <li>Scan-and-pick flow on a phone camera, safe to repeat without double-counting</li>
+                <li>Stock derived from an append-only ledger, never edited in place</li>
+                <li>Approval queues for goods-in, catalogue edits, stock counts, and returns</li>
+                <li>Every decision recorded immutably, with the person and the reason</li>
+                <li>Three roles on one account each, with the daily admin barred from scanning</li>
+                <li>Uncounted stock reads as "not yet counted" rather than zero</li>
+                <li>Label lines with no SKU resolve through a name book that learns permanently</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h2>Tech Stack</h2>
+              <ul>
+                <li>React 19, TypeScript, Vite</li>
+                <li>Tailwind CSS, shadcn/ui</li>
+                <li>Supabase (Postgres, row-level security, RPCs)</li>
+                <li>Cloudflare</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h2>Access</h2>
+              <p>Internal app for the client's warehouse and admin staff. Not publicly available.</p>
+            </div>
+
+          </div>
+
+          <!-- Captured from a local dev stack seeded with invented parts and
+               DUMMY- prefixed orders. No client data. -->
+          <div class="placeholder-screenshots placeholder-screenshots--wide">
+            <img
+              src="./Preview-1.png"
+              alt="Warehouse Ops daily summary — stock movement chart and stock health"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-2.png"
+              alt="Warehouse Ops append-only stock ledger, showing each change with its balance, reason, and the staff member responsible"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-3.png"
+              alt="Warehouse Ops stock list by SKU with unit price and quantity on hand"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-4.png"
+              alt="Warehouse Ops order list parsed from shipping-label PDFs, with tracking number and packing status"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-inner">
+        <span class="footer-name">Kenneth Fang</span>
+        <div class="footer-links">
+          <a href="https://github.com/kengomatsuo" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:kenneth@matsuokengo.com">Email</a>
+        </div>
+        <span class="footer-copy">© 2026</span>
+      </div>
+    </footer>
+
+  </body>
+</html>
