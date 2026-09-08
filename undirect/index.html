@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Undirect — Safari extension for Mac and iPhone that stops pages taking your click, by Kenneth Fang."
+    />
+    <title>Undirect · Kenneth Fang</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="nav-logo">KF</a>
+      <ul class="nav-links">
+        <li><a href="/#personal">← Work</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="hero" class="project-hero">
+        <div class="hero-inner">
+          <div class="card-meta">
+            <span class="card-tag">iOS &amp; macOS</span>
+          </div>
+          <h1>Undirect</h1>
+          <p class="hero-sub">
+            A Safari extension for Mac and iPhone that stops a page taking your
+            click. It clears the invisible layers that catch a press meant for
+            something else, refuses windows the site itself never asked to open,
+            and keeps a list of every place a page tried to send you.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner prose">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h2>The Idea</h2>
+              <p>
+                Pop networks do not wait for anyone to click their ad. They lay
+                a transparent screen over the page and take the next press, or
+                they build a link and click it themselves, or they open a blank
+                tab and rewrite the address of the one you were reading.
+              </p>
+              <p>
+                I read the code of two of these networks before writing a line
+                of my own. Their own function names describe the trick: a
+                full-viewport form with no colour, an anchor clicked from inside
+                their handler, a check for whether you pressed something that
+                was not a link.
+              </p>
+            </div>
+
+            <div class="detail-block">
+              <h2>How It Works</h2>
+              <p>
+                The guard runs in two places at once. One half sits beside the
+                page and clears the click catchers while your cursor is still
+                moving, so the press that follows lands where you aimed it. The
+                other half runs in the page's own world, where a pop can call
+                for a new window, and refuses any window whose destination
+                belongs to neither the site nor its own code.
+              </p>
+              <p>
+                Anything it catches is named, and the name becomes a blocking
+                rule. The second attempt dies as a network request rather than
+                as a fight in JavaScript.
+              </p>
+            </div>
+
+            <div class="detail-block">
+              <h2>What It Catches</h2>
+              <p>
+                An invisible form laid over the whole page. A transparent layer
+                at the top of the stacking order. A link the page clicked
+                without you. A link rewritten between your press and your
+                release, which is put back so you still arrive where you meant
+                to go. A window opened by code that does not belong to the site.
+              </p>
+            </div>
+
+            <div class="detail-block">
+              <h2>You Decide</h2>
+              <p>
+                Every cross-site destination gets a row, whether or not it was
+                stopped, so nothing happens out of sight. Each one can be
+                allowed or blocked for that site alone or for everywhere, and
+                the default for anything unknown is yours to set.
+              </p>
+              <p>
+                Where a site already offers a way to turn its ads off, the
+                extension uses that instead of fighting the page.
+              </p>
+            </div>
+
+            <div class="detail-block">
+              <h2>Privacy</h2>
+              <p>
+                Nothing leaves the device. There is no account, no analytics,
+                and no server. The list of destinations lives in the browser,
+                and the app reads it through a shared container on the same
+                machine.
+              </p>
+            </div>
+
+            <div class="detail-block">
+              <h2>Built With</h2>
+              <p>
+                Swift and SwiftUI for the app on both platforms, and a Safari
+                web extension in plain JavaScript with no dependencies. Blocking
+                uses Safari's declarative rules, so the extension never sees the
+                traffic it stops.
+              </p>
+              <p>
+                The detectors are covered by a browser harness that reproduces
+                each trick and checks the guard undoes it.
+              </p>
+            </div>
+
+            <div class="detail-block">
+              <h2>Availability</h2>
+              <p>
+                Built for macOS and iOS and prepared for the App Store. The
+                source is public.
+              </p>
+              <p>
+                <a
+                  href="https://github.com/kengomatsuo/undirect"
+                  target="_blank"
+                  rel="noopener"
+                  >Source on GitHub →</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="placeholder-screenshots">
+            <img
+              src="./Preview-1.png"
+              alt="Undirect on Mac showing the rules it has been given"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-2.png"
+              alt="Undirect on iPhone showing the same rules, read only"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-3.png"
+              alt="The Safari toolbar popup listing where a page tried to send the reader"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-4.png"
+              alt="Undirect on Mac before the extension has reported anything"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-inner">
+        <span class="footer-name">Kenneth Fang</span>
+        <div class="footer-links">
+          <a
+            href="https://github.com/kengomatsuo"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <a href="mailto:kenneth@matsuokengo.com">Email</a>
+        </div>
+        <span class="footer-copy">© 2026</span>
+      </div>
+    </footer>
+  </body>
+</html>
