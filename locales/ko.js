@@ -157,6 +157,9 @@ const STRINGS = {
   "cutling-desc":
     "iPhone, iPad, Mac용 네이티브 클립보드 매니저. 자주 쓰는 스니펫과 이미지를 저장하고, iOS에서는 맞춤 키보드, Mac에서는 메뉴 바 단축키로 어느 앱에나 붙여넣기 가능. 계정 불필요, 추적 없음, Mac 버전은 무료.",
   "card-link-website": "웹사이트 →",
+  "undirect-desc":
+    "페이지가 클릭을 가로채지 못하게 막는 Safari 확장 프로그램. 광고를 새 탭으로 여는 투명한 레이어를 걷어내고, 페이지가 데려가려던 사이트를 모두 보여 줌.",
+  "card-link-app-store": "App Store →",
   "what-desc":
     "화면 스트리밍 영상에 텍스트 번역을 실시간으로 덮어씌우는 iOS 앱. 완전 오프라인 지원.",
   "badge-in-progress": "제작 중",

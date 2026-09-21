@@ -166,6 +166,9 @@ const STRINGS = {
   "cutling-desc":
     "iPhone、iPad、Mac向けのネイティブクリップボードマネージャー。よく使うスニペットや画像を保存し、iOSではカスタムキーボード、Macではメニューバーのホットキーからどのアプリにも貼り付け可能。アカウント不要、追跡なし、Mac版は無料。",
   "card-link-website": "ウェブサイト →",
+  "undirect-desc":
+    "ページにクリックを横取りさせないSafari拡張機能。広告を新しいタブで開かせる透明なレイヤーを取り除き、ページが連れて行こうとしたサイトを一覧にする。",
+  "card-link-app-store": "App Store →",
   "what-desc":
     "画面のストリーミング映像にテキストの翻訳をリアルタイムで重ね合わせるiOSアプリ。完全オフライン対応。",
   "badge-in-progress": "制作中",

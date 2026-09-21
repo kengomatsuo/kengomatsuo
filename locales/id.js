@@ -107,6 +107,9 @@ const STRINGS = {
   "cutling-desc":
     "Manajer clipboard native untuk iPhone, iPad, dan Mac. Simpan cuplikan dan gambar yang sering digunakan, lalu tempel ke aplikasi mana pun — lewat keyboard khusus di iOS atau hotkey menu bar di Mac. Tanpa akun, tanpa pelacakan, dan gratis di Mac.",
   "card-link-website": "Situs web →",
+  "undirect-desc":
+    "Ekstensi Safari yang menjaga klik Anda dari halaman nakal. Lapisan tak kasatmata yang membuka iklan di tab baru disingkirkan, dan setiap situs yang coba dituju halaman itu tercatat.",
+  "card-link-app-store": "App Store →",
   "what-desc":
     "Aplikasi iOS yang melakukan streaming layar dan menampilkan terjemahan di atas teks asli secara real-time, sepenuhnya offline.",
   "badge-in-progress": "Sedang Dikerjakan",

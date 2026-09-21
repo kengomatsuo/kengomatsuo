@@ -175,6 +175,58 @@
             </article>
 
             <article class="project-card">
+              <div class="card-image card-image--icon">
+                <picture>
+                  <source
+                    srcset="/images/undirect-icon.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/images/undirect-icon.png"
+                    alt="Undirect app icon"
+                    onerror="
+                      this.onerror = null;
+                      this.parentElement.parentElement.className =
+                        'card-image card-image--text';
+                      this.parentElement.parentElement.textContent = 'Undirect';
+                      this.parentElement.parentElement.style.cssText =
+                        'background:#0b0b0c;color:#d9432f';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag">Safari · iOS &amp; macOS</span>
+                </div>
+                <h3 class="card-title">Undirect</h3>
+                <p class="card-desc" data-i18n="undirect-desc">
+                  Safari extension that stops pages taking your click. It clears
+                  the invisible layers that open ads in a new tab and lists
+                  every site a page tried to send you to.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://undirect.matsuokengo.com/"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-website"
+                    >Website →</a
+                  >
+                  <a
+                    href="https://apps.apple.com/app/id6810513194"
+                    class="card-link"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="card-link-app-store"
+                    >App Store →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
               <div class="card-image card-image--text placeholder" data-i18n="img-coming-soon">
                 Coming Soon
               </div>
