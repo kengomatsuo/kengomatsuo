@@ -105,10 +105,8 @@ const STRINGS = {
   "tag-pos": "Platform Kasir",
   "card-title-cutling": "Cutling",
   "cutling-desc":
-    "Manajer clipboard native untuk iPhone, iPad, dan Mac. Simpan cuplikan dan gambar yang sering digunakan, lalu tempel ke aplikasi mana pun — lewat keyboard khusus di iOS atau hotkey menu bar di Mac. Tanpa akun, tanpa pelacakan, dan gratis di Mac.",
+    "Manajer clipboard untuk iPhone, iPad, dan Mac. Cuplikan dan gambar yang disimpan bisa ditempel ke aplikasi apa pun.",
   "card-link-website": "Situs web →",
-  "undirect-desc":
-    "Ekstensi Safari yang menjaga klik Anda dari halaman nakal. Lapisan tak kasatmata yang membuka iklan di tab baru disingkirkan, dan setiap situs yang coba dituju halaman itu tercatat.",
   "card-link-app-store": "App Store →",
   "what-desc":
     "Aplikasi iOS yang melakukan streaming layar dan menampilkan terjemahan di atas teks asli secara real-time, sepenuhnya offline.",
@@ -119,22 +117,34 @@ const STRINGS = {
   "itinerary-id-desc":
     "Perencana itinerari perjalanan yang dibuat untuk wisatawan Indonesia.",
   "saf-desc":
-    "Alat AI lokal yang mengubah slide kuliah, PDF, dan dokumen menjadi ringkasan yang akurat serta kartu Anki yang dapat diekspor — berjalan sepenuhnya di perangkat Anda, tanpa internet atau API key.",
-  "solute-desc":
-    "Platform kasir white-label untuk kafe dan restoran — pemesanan mandiri lewat QR, aplikasi kasir, layar dapur, dan papan antrian TV dalam satu sistem real-time, dengan tampilan mengikuti brand tiap outlet di subdomainnya sendiri.",
+    "Alat AI lokal yang mengubah slide kuliah dan PDF menjadi ringkasan dan kartu Anki, tanpa internet atau API key.",
+  "stya-desc":
+    "Aplikasi kasir white-label untuk kafe dan restoran. Satu aplikasi yang sama di ponsel, tablet, dan meja kasir.",
   "card-link-visit": "Kunjungi →",
-  "txe-desc":
-    "Aplikasi operasional untuk TXE Express, perusahaan kurir dan pengiriman.",
+  "courier-desc":
+    "Aplikasi operasional untuk perusahaan kurir: pelacakan paket, status pengiriman, dan dasbor keuangan.",
   "card-link-visit-site": "Kunjungi situs →",
-  "polindo-desc":
-    "Aplikasi mobile internal untuk PT Polindo Utama — karyawan dapat menelusuri, mendaftar, dan memantau kegiatan serta acara perusahaan.",
+  "events-desc":
+    "Aplikasi internal bagi karyawan untuk melihat acara perusahaan, mendaftar, dan memantau acara yang diikuti.",
   "card-link-learn-more": "Pelajari lebih →",
-  "pop-desc":
-    "Platform operasional untuk Prevented Ocean Plastic — mencakup penerimaan, produksi, pengambilan sampel, QC, dan pengiriman untuk semua peran.",
+  "recycling-desc":
+    "Operasional pabrik daur ulang yang dipindahkan dari kertas ke digital, dari penerimaan bahan sampai pengiriman.",
   "itinerary-gen-desc":
-    "Aplikasi web untuk membuat dan berbagi itinerari perjalanan, dibuat untuk klien pribadi.",
+    "Aplikasi web internal untuk menyusun, membagikan, dan mengekspor itinerari perjalanan pelanggan.",
   "warehouse-ops-desc":
-    "Aplikasi gudang untuk penjual sparepart sepeda online — PDF label pengiriman diubah menjadi daftar pengambilan langsung di browser, dan setiap perubahan stok menjadi entri ledger yang disetujui dan tidak dapat diubah.",
+    "Aplikasi gudang untuk penjual sparepart sepeda online. Label pengiriman langsung jadi daftar pengambilan, dan setiap perubahan stok tercatat.",
+  "mahjong-booking-desc":
+    "Situs pemesanan untuk tempat mahjong, dengan meja yang bisa dipesan per jam.",
+  "erp-desc":
+    "ERP untuk sekolah kursus Mandarin: pendaftaran, jadwal, pembayaran, absensi, sampai rapor.",
+  "parts-desc":
+    "Stok, penjualan, pembelian, dan laporan pajak untuk toko sparepart dan bengkel motor.",
+  "emergency-desc":
+    "Prototipe dasbor bagi petugas darurat Jepang untuk mengoordinasikan penanganan bencana di atas peta.",
+  "leaderboard-desc":
+    "Klasemen klub mahjong yang diisi staf setelah tiap permainan dan bisa dibaca siapa saja.",
+  "undirect-desc":
+    "Ekstensi Safari yang mencegah halaman merebut klik, dan mencatat situs yang coba dibuka halaman itu.",
   "learn-desc":
     "Situs belajar anak-anak dengan pelajaran video dan kuis, dilengkapi streak dan hadiah untuk mendorong kembali.",
   "card-link-play": "Mainkan →",

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Kenneth Fang — developer and researcher."
+      content="Kenneth Fang, developer and researcher."
     />
     <title>Portfolio | Kenneth</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -135,10 +135,11 @@
                     alt="Cutling app icon"
                     onerror="
                       this.onerror = null;
-                      this.parentElement.parentElement.className =
+                      var box = this.parentElement.parentElement;
+                      box.className =
                         'card-image card-image--text';
-                      this.parentElement.parentElement.textContent = 'Cutling';
-                      this.parentElement.parentElement.style.cssText =
+                      box.textContent = 'Cutling';
+                      box.style.cssText =
                         'background:#4ECBA3;color:#1a1a1a';
                     "
                   />
@@ -150,10 +151,8 @@
                 </div>
                 <h3 class="card-title" data-i18n="card-title-cutling">Cutling</h3>
                 <p class="card-desc" data-i18n="cutling-desc">
-                  Native clipboard manager for iPhone, iPad, and Mac. Save your
-                  most-used snippets and images, then paste them into any app —
-                  through a custom keyboard on iOS or a menu-bar hotkey on Mac.
-                  No account, no tracking, and free on Mac.
+                  Clipboard manager for iPhone, iPad and Mac that pastes saved
+                  snippets and images into any app.
                 </p>
                 <div class="card-actions">
                   <a
@@ -186,10 +185,11 @@
                     alt="Undirect app icon"
                     onerror="
                       this.onerror = null;
-                      this.parentElement.parentElement.className =
+                      var box = this.parentElement.parentElement;
+                      box.className =
                         'card-image card-image--text';
-                      this.parentElement.parentElement.textContent = 'Undirect';
-                      this.parentElement.parentElement.style.cssText =
+                      box.textContent = 'Undirect';
+                      box.style.cssText =
                         'background:#0b0b0c;color:#d9432f';
                     "
                   />
@@ -201,9 +201,8 @@
                 </div>
                 <h3 class="card-title">Undirect</h3>
                 <p class="card-desc" data-i18n="undirect-desc">
-                  Safari extension that stops pages taking your click. It clears
-                  the invisible layers that open ads in a new tab and lists
-                  every site a page tried to send you to.
+                  Safari extension that stops pages taking your click and lists
+                  every site they tried to send you to.
                 </p>
                 <div class="card-actions">
                   <a
@@ -272,11 +271,12 @@
                     alt="Itinerary.id icon"
                     onerror="
                       this.onerror = null;
-                      this.parentElement.parentElement.className =
+                      var box = this.parentElement.parentElement;
+                      box.className =
                         'card-image card-image--text';
-                      this.parentElement.parentElement.textContent =
+                      box.textContent =
                         'Itinerary.id';
-                      this.parentElement.parentElement.style.cssText =
+                      box.style.cssText =
                         'background:#3D5A6C;color:#ffffff';
                     "
                   />
@@ -316,9 +316,8 @@
                 </div>
                 <h3 class="card-title">Summaries &amp; Flashcards</h3>
                 <p class="card-desc" data-i18n="saf-desc">
-                  Local AI tool that turns lecture slides, PDFs, and docs into
-                  faithful summaries and exportable Anki flashcards — runs
-                  entirely on your machine, no internet or API keys.
+                  Local AI tool that turns lecture slides and PDFs into summaries
+                  and Anki flashcards, with no internet or API keys.
                 </p>
                 <div class="card-actions">
                   <a
@@ -333,22 +332,22 @@
             </article>
 
             <article class="project-card">
-              <div class="card-image card-image--icon">
+              <div class="card-image">
                 <picture>
                   <source
-                    srcset="/images/solute-dark-mode-icon.svg"
-                    media="(prefers-color-scheme: dark)"
+                    srcset="/stya/Preview-1.webp"
+                    type="image/webp"
                   />
                   <img
-                    src="/images/solute-icon.svg"
-                    alt="Solute mark"
+                    src="/stya/Preview-1.png"
+                    alt="Stya point of sale"
                     onerror="
                       this.onerror = null;
-                      this.parentElement.parentElement.className =
-                        'card-image card-image--text';
-                      this.parentElement.parentElement.textContent = 'Solute';
-                      this.parentElement.parentElement.style.cssText =
-                        'background:#2c5fb7;color:#ffffff';
+                      var box = this.parentElement.parentElement;
+                      var box = box;
+                      box.className = 'card-image card-image--text';
+                      box.style.cssText = 'background:#16181c;color:#f7f8fa';
+                      box.textContent = 'Stya';
                     "
                   />
                 </picture>
@@ -358,31 +357,20 @@
                   <span class="card-tag" data-i18n="tag-pos">POS Platform</span>
                   <span
                     class="card-badge card-badge--progress"
-                    data-i18n="badge-pilot"
-                    >Pilot</span
+                    data-i18n="badge-in-progress"
+                    >In Progress</span
                   >
                 </div>
-                <h3 class="card-title">Solute</h3>
-                <p class="card-desc" data-i18n="solute-desc">
-                  White-label POS platform for cafés and restaurants — QR
-                  self-ordering, register, kitchen display, and queue TV in one
-                  real-time system, each venue themed to its own brand on its
-                  own subdomain.
+                <h3 class="card-title">Stya</h3>
+                <p class="card-desc" data-i18n="stya-desc">
+                  White-label point of sale for restaurants and cafés, one app across phone, tablet and desk.
                 </p>
                 <div class="card-actions">
                   <a
-                    href="/solute/"
+                    href="/stya/"
                     class="card-link"
                     data-i18n="card-link-learn-more"
                     >Learn more →</a
-                  >
-                  <a
-                    href="https://solute.id"
-                    class="card-link"
-                    target="_blank"
-                    rel="noopener"
-                    data-i18n="card-link-visit-site"
-                    >Visit site →</a
                   >
                 </div>
               </div>
@@ -406,47 +394,26 @@
               <div class="card-image card-image--icon">
                 <picture>
                   <source
-                    srcset="/images/txeexpress-dark-mode-icon.webp"
+                    srcset="/images/icon-courier-dark.svg"
                     media="(prefers-color-scheme: dark)"
                   />
-                  <img
-                    src="/images/txeexpress-icon.webp"
-                    alt="TXE Express logo"
-                    onerror="
-                      this.onerror = null;
-                      this.parentElement.parentElement.className =
-                        'card-image card-image--text';
-                      this.parentElement.parentElement.textContent =
-                        'TXE Express';
-                      this.parentElement.parentElement.style.cssText =
-                        'background:#023B72;color:#ffffff';
-                    "
-                  />
+                  <img src="/images/icon-courier.svg" alt="Courier icon" />
                 </picture>
               </div>
               <div class="card-body">
                 <div class="card-meta">
                   <span class="card-tag" data-i18n="tag-logistics-pwa">Logistics PWA</span>
                 </div>
-                <h3 class="card-title">TXE Express</h3>
-                <p class="card-desc" data-i18n="txe-desc">
-                  Operations app for TXE Express, a courier and delivery
-                  company.
+                <h3 class="card-title">Courier Operations</h3>
+                <p class="card-desc" data-i18n="courier-desc">
+                  Operations app for a courier company: shipment tracking, delivery status and a finance dashboard.
                 </p>
                 <div class="card-actions">
                   <a
-                    href="/txe-express/"
+                    href="/courier-ops/"
                     class="card-link"
                     data-i18n="card-link-learn-more"
                     >Learn more →</a
-                  >
-                  <a
-                    href="https://txeexpress.com"
-                    class="card-link"
-                    target="_blank"
-                    rel="noopener"
-                    data-i18n="card-link-visit-site"
-                    >Visit site →</a
                   >
                 </div>
               </div>
@@ -456,45 +423,27 @@
               <div class="card-image card-image--icon">
                 <picture>
                   <source
-                    srcset="/images/polindo-dark-mode-logo.webp"
-                    media="(prefers-color-scheme: dark)"
-                    type="image/webp"
-                  />
-                  <source
-                    srcset="/images/polindo-logo.webp"
-                    type="image/webp"
-                  />
-                  <source
-                    srcset="/images/polindo-dark-mode-logo.png"
+                    srcset="/images/icon-events-dark.svg"
                     media="(prefers-color-scheme: dark)"
                   />
-                  <img
-                    src="/images/polindo-logo.png"
-                    alt="PT Polindo Utama logo"
-                    onerror="
-                      this.onerror = null;
-                      this.parentElement.parentElement.className =
-                        'card-image card-image--text';
-                      this.parentElement.parentElement.textContent =
-                        'PolindoHC';
-                      this.parentElement.parentElement.style.cssText =
-                        'background:#214384;color:#f3b335';
-                    "
-                  />
+                  <img src="/images/icon-events.svg" alt="Events icon" />
                 </picture>
               </div>
               <div class="card-body">
                 <div class="card-meta">
                   <span class="card-tag" data-i18n="tag-mobile">Mobile</span>
                 </div>
-                <h3 class="card-title">PolindoHC</h3>
-                <p class="card-desc" data-i18n="polindo-desc">
-                  Internal mobile app for PT Polindo Utama — employees browse,
-                  register for, and track upcoming company activities and
-                  events.
+                <h3 class="card-title">Employee Events</h3>
+                <p class="card-desc" data-i18n="events-desc">
+                  Internal app where employees browse company events, register and track the ones they joined.
                 </p>
                 <div class="card-actions">
-                  <a href="/polindohc/" class="card-link" data-i18n="card-link-learn-more">Learn more →</a>
+                  <a
+                    href="/employee-events/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
                 </div>
               </div>
             </article>
@@ -503,31 +452,10 @@
               <div class="card-image card-image--icon">
                 <picture>
                   <source
-                    srcset="/images/prevented-ocean-plastic-dark-mode-logo.webp"
-                    media="(prefers-color-scheme: dark)"
-                    type="image/webp"
-                  />
-                  <source
-                    srcset="/images/prevented-ocean-plastic-logo.webp"
-                    type="image/webp"
-                  />
-                  <source
-                    srcset="/images/prevented-ocean-plastic-dark-mode-logo.png"
+                    srcset="/images/icon-recycling-dark.svg"
                     media="(prefers-color-scheme: dark)"
                   />
-                  <img
-                    src="/images/prevented-ocean-plastic-logo.png"
-                    alt="Prevented Ocean Plastic certification mark"
-                    onerror="
-                      this.onerror = null;
-                      this.parentElement.parentElement.className =
-                        'card-image card-image--text';
-                      this.parentElement.parentElement.textContent =
-                        'Prevented Ocean Plastic';
-                      this.parentElement.parentElement.style.cssText =
-                        'background:#00B4D8;color:#ffffff';
-                    "
-                  />
+                  <img src="/images/icon-recycling.svg" alt="Recycling icon" />
                 </picture>
               </div>
               <div class="card-body">
@@ -539,14 +467,15 @@
                     >In Progress</span
                   >
                 </div>
-                <h3 class="card-title">POP App</h3>
-                <p class="card-desc" data-i18n="pop-desc">
-                  Paper-to-digital operations platform for Prevented Ocean
-                  Plastic — covering intake, production, sampling, QC, and
-                  shipment across all roles.
+                <h3 class="card-title">Recycling Operations</h3>
+                <p class="card-desc" data-i18n="recycling-desc">
+                  Paper-to-digital operations for a recycling plant, from material intake to shipment.
                 </p>
                 <div class="card-actions">
-                  <a href="/prevented-ocean-plastic/" class="card-link" data-i18n="card-link-learn-more"
+                  <a
+                    href="/recycling-ops/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
                     >Learn more →</a
                   >
                 </div>
@@ -557,22 +486,10 @@
               <div class="card-image card-image--icon">
                 <picture>
                   <source
-                    srcset="/images/eralink-indonesia-logo.webp"
-                    type="image/webp"
+                    srcset="/images/icon-travel-dark.svg"
+                    media="(prefers-color-scheme: dark)"
                   />
-                  <img
-                    src="/images/eralink-indonesia-logo.png"
-                    alt="Eralink Indonesia logo"
-                    onerror="
-                      this.onerror = null;
-                      this.parentElement.parentElement.className =
-                        'card-image card-image--text';
-                      this.parentElement.parentElement.textContent =
-                        'Itinerary Generator';
-                      this.parentElement.parentElement.style.cssText =
-                        'background:#FAFAFA;color:#09090B';
-                    "
-                  />
+                  <img src="/images/icon-travel.svg" alt="Travel icon" />
                 </picture>
               </div>
               <div class="card-body">
@@ -581,11 +498,13 @@
                 </div>
                 <h3 class="card-title">Itinerary Generator</h3>
                 <p class="card-desc" data-i18n="itinerary-gen-desc">
-                  Web app for building and sharing travel itineraries, made for
-                  a private client.
+                  Internal web app for drafting, sharing and exporting customer travel itineraries.
                 </p>
                 <div class="card-actions">
-                  <a href="/itinerary-generator/" class="card-link" data-i18n="card-link-learn-more"
+                  <a
+                    href="/itinerary-generator/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
                     >Learn more →</a
                   >
                 </div>
@@ -605,6 +524,7 @@
                     onerror="
                       this.onerror = null;
                       var box = this.parentElement.parentElement;
+                      var box = box;
                       box.className = 'card-image card-image--text';
                       box.style.cssText = 'background:#0a0a0a;color:#ffffff';
                       box.textContent = 'Warehouse Ops';
@@ -618,12 +538,213 @@
                 </div>
                 <h3 class="card-title">Warehouse Ops</h3>
                 <p class="card-desc" data-i18n="warehouse-ops-desc">
-                  Warehouse app for an online bike-parts seller — shipping-label
-                  PDFs become pick lists in the browser, and every stock change
-                  is an approved entry in an append-only ledger.
+                  Warehouse app for an online bike-parts seller: shipping labels become pick lists and every stock change is logged.
                 </p>
                 <div class="card-actions">
-                  <a href="/warehouse-ops/" class="card-link" data-i18n="card-link-learn-more"
+                  <a
+                    href="/warehouse-ops/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image">
+                <picture>
+                  <source
+                    srcset="/mahjong-booking/Preview-1.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/mahjong-booking/Preview-1.png"
+                    alt="Mahjong Booking landing page"
+                    onerror="
+                      this.onerror = null;
+                      var box = this.parentElement.parentElement;
+                      var box = box;
+                      box.className = 'card-image card-image--text';
+                      box.style.cssText = 'background:#1c1917;color:#fffdf9';
+                      box.textContent = 'Mahjong Booking';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
+                </div>
+                <h3 class="card-title">Mahjong Booking</h3>
+                <p class="card-desc" data-i18n="mahjong-booking-desc">
+                  Booking site for a mahjong parlour where guests reserve a table by the hour.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="/mahjong-booking/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image">
+                <picture>
+                  <source
+                    srcset="/course-school-erp/Preview-1.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/course-school-erp/Preview-1.png"
+                    alt="Course School ERP screen"
+                    onerror="
+                      this.onerror = null;
+                      var box = this.parentElement.parentElement;
+                      var box = box;
+                      box.className = 'card-image card-image--text';
+                      box.style.cssText = 'background:#16181c;color:#f7f8fa';
+                      box.textContent = 'Course School ERP';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
+                </div>
+                <h3 class="card-title">Course School ERP</h3>
+                <p class="card-desc" data-i18n="erp-desc">
+                  ERP for a Mandarin course school covering registration, scheduling, payments, attendance and report cards.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="/course-school-erp/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image">
+                <picture>
+                  <source
+                    srcset="/parts-shop-cms/Preview-1.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/parts-shop-cms/Preview-1.png"
+                    alt="Parts Shop CMS screen"
+                    onerror="
+                      this.onerror = null;
+                      var box = this.parentElement.parentElement;
+                      var box = box;
+                      box.className = 'card-image card-image--text';
+                      box.style.cssText = 'background:#16181c;color:#f7f8fa';
+                      box.textContent = 'Parts Shop CMS';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
+                </div>
+                <h3 class="card-title">Parts Shop CMS</h3>
+                <p class="card-desc" data-i18n="parts-desc">
+                  Stock, sales, purchases and tax reports for a motorcycle parts and service shop.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="/parts-shop-cms/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image">
+                <picture>
+                  <source
+                    srcset="/emergency-dashboard/Preview-1.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/emergency-dashboard/Preview-1.png"
+                    alt="Emergency Dashboard map"
+                    onerror="
+                      this.onerror = null;
+                      var box = this.parentElement.parentElement;
+                      var box = box;
+                      box.className = 'card-image card-image--text';
+                      box.style.cssText = 'background:#16181c;color:#f7f8fa';
+                      box.textContent = 'Emergency Dashboard';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
+                </div>
+                <h3 class="card-title">Emergency Dashboard</h3>
+                <p class="card-desc" data-i18n="emergency-desc">
+                  Prototype dashboard for Japanese emergency officers to coordinate disaster response on a map.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="/emergency-dashboard/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
+                    >Learn more →</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-image">
+                <picture>
+                  <source
+                    srcset="/club-leaderboard/Preview-1.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/club-leaderboard/Preview-1.png"
+                    alt="Club Leaderboard standings"
+                    onerror="
+                      this.onerror = null;
+                      var box = this.parentElement.parentElement;
+                      var box = box;
+                      box.className = 'card-image card-image--text';
+                      box.style.cssText = 'background:#16181c;color:#f7f8fa';
+                      box.textContent = 'Club Leaderboard';
+                    "
+                  />
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-tag" data-i18n="tag-web">Web</span>
+                </div>
+                <h3 class="card-title">Club Leaderboard</h3>
+                <p class="card-desc" data-i18n="leaderboard-desc">
+                  Mahjong club standings that staff enter after each game and anyone can read.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="/club-leaderboard/"
+                    class="card-link"
+                    data-i18n="card-link-learn-more"
                     >Learn more →</a
                   >
                 </div>
