@@ -60,7 +60,7 @@ find "$DIST" -name "*.png" | while IFS= read -r f; do
 done
 
 # Minify SVGs
-find "$DIST" -name "*.svg" | while IFS= read -r f; do
+find "$DIST" -name "*.svg" ! -name "stya-*" | while IFS= read -r f; do
   bunx svgo "$f" -o "$f" --config svgo.config.js --quiet
 done
 

@@ -489,6 +489,30 @@ section {
   padding: 1.5rem;
 }
 
+/* Brand tile: a product's own identity, one flat colour, logo clear of the edges. */
+.card-image--brand {
+  background: #008760;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image--brand img {
+  width: auto;
+  height: 46%;
+  object-fit: contain;
+}
+
+/* Phone capture: whole screen shown on a neutral ground instead of cropped. */
+.card-image--phone {
+  background: var(--surface);
+}
+
+.card-image--phone img {
+  object-fit: contain;
+  object-position: center center;
+}
+
 .placeholder {
   background: var(--placeholder);
 }
@@ -810,4 +834,20 @@ footer {
 #back-to-top:hover {
   border-color: var(--text);
   color: var(--text);
+}
+
+/* Stya page: paper behind the captures, teal wordmark as the title. */
+.theme-stya .shot img {
+  background: #f1f1ee;
+}
+
+.theme-stya .chips li {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-stya .project-hero h1 img {
+  display: block;
+  height: 56px;
+  width: auto;
 }
