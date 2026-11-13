@@ -132,6 +132,10 @@ const STRINGS = {
     "Aplikasi web untuk membuat dan berbagi itinerari perjalanan, dibuat untuk klien pribadi.",
   "warehouse-ops-desc":
     "Aplikasi gudang untuk penjual sparepart sepeda online — PDF label pengiriman diubah menjadi daftar pengambilan langsung di browser, dan setiap perubahan stok menjadi entri ledger yang disetujui dan tidak dapat diubah.",
+  "king-mahjong-desc":
+    "Situs profil dan pemesanan untuk sebuah tempat mahjong — tamu memesan meja per jam lewat kalender yang tertanam, lalu mengecek pesanannya dengan kode dari email konfirmasi.",
+  "undirect-desc":
+    "Ekstensi Safari yang menahan halaman saat mencoba merebut klik. Lapisan tembus pandang yang menadah tekanan jari dibersihkan, jendela yang bukan dibuka oleh situsnya ditolak, dan setiap tujuan yang sempat dicoba dicatat supaya kamu yang menentukan mana yang boleh.",
   "learn-desc":
     "Situs belajar anak-anak dengan pelajaran video dan kuis, dilengkapi streak dan hadiah untuk mendorong kembali.",
   "card-link-play": "Mainkan →",

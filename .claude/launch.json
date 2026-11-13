@@ -1,0 +1,26 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      // A static site with no build step, so it is served straight from the
+      // repo root the same way emergency-dashboard is.
+      //
+      // autoPort is OFF deliberately: runtimeArgs are passed to the process
+      // directly rather than through a shell, so a "$PORT" here would arrive
+      // as the literal four characters and never expand. python's http.server
+      // takes its port as an argument and reads no environment variable, so a
+      // launcher-assigned port could not reach it either way.
+      "name": "kengomatsuo",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "5600",
+        "--bind",
+        "127.0.0.1"
+      ],
+      "port": 5600,
+      "autoPort": false
+    }
+  ]
+}
