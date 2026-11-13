@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="King Mahjong — landing and booking site for a mahjong parlour, by Kenneth Fang." />
+    <title>King Mahjong · Kenneth Fang</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+
+    <nav>
+      <a href="/" class="nav-logo">KF</a>
+      <ul class="nav-links">
+        <li><a href="/#client-work">← Work</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="hero" class="project-hero">
+        <div class="hero-inner">
+          <div class="card-meta">
+            <span class="card-tag">Web</span>
+          </div>
+          <h1>King Mahjong</h1>
+          <p class="hero-sub">Landing and booking site for a mahjong parlour — guests hold a table by the hour through an embedded calendar, then look their booking up by its reference. English and Indonesian.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner prose">
+          <div class="detail-grid">
+
+            <div class="detail-block">
+              <h2>The Client</h2>
+              <p>A mahjong parlour that rents tables by the hour. Guests were arriving on a WhatsApp message and a promise, with nothing they could check afterwards and no calendar the venue could point at. They wanted a public site that takes the booking and confirms it, and they wanted it to stay separate from the register they use at the counter.</p>
+            </div>
+
+            <div class="detail-block">
+              <h2>What It Does</h2>
+              <p>The landing page states the hours, the starting price and where the venue is, then sends the guest to a two-step booking: pick a session, pick a day and an hour. A confirmation email goes out with a reference, and a second page turns that reference back into the booking — the table, the name, the day, the time, and links to reschedule.</p>
+            </div>
+
+            <div class="detail-block">
+              <h2>Features</h2>
+              <ul>
+                <li>Booking taken by an embedded Cal.com calendar, skinned to the venue's own palette</li>
+                <li>Tables modelled as seats on the hour, so the calendar itself refuses the fifth party</li>
+                <li>Look up a booking by its reference, read straight from Cal's public API with no key</li>
+                <li>English and Indonesian, the first visit following the browser and the choice remembered</li>
+                <li>Venue facts — hours, address, price, map — set by the client without touching code</li>
+                <li>A blank venue fact shows a bracketed placeholder rather than an empty row</li>
+                <li>Static build with no database, no accounts and no server of its own</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h2>Tech Stack</h2>
+              <ul>
+                <li>Astro, TypeScript</li>
+                <li>Tailwind CSS</li>
+                <li>Cal.com (inline embed, public booking API)</li>
+                <li>GitHub Pages</li>
+              </ul>
+            </div>
+
+            <div class="detail-block">
+              <h2>Access</h2>
+              <p>Built and handed over. The venue has not published it on its own domain yet, so the screenshots come from the build rather than a live address.</p>
+            </div>
+
+          </div>
+
+          <!-- Captured from the built site. The venue's own hours, address and prices
+               are not filled in yet, so the placeholders they leave are visible. -->
+          <div class="placeholder-screenshots placeholder-screenshots--wide">
+            <img
+              src="./Preview-1.png"
+              alt="King Mahjong landing page — hero photo of a mahjong table with the booking buttons"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-2.png"
+              alt="King Mahjong landing page — the three booking steps beside a photo of a game in play"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-3.png"
+              alt="Booking step one — the regular table and beginners sessions as cards"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-4.png"
+              alt="Booking step two — the Cal.com calendar in the venue's colours, each hour showing the seats left"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+            <img
+              src="./Preview-5.png"
+              alt="Check a booking — one field for the reference from the confirmation email"
+              loading="lazy"
+              style="border-radius: var(--radius); display: block; width: 100%"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-inner">
+        <span class="footer-name">Kenneth Fang</span>
+        <div class="footer-links">
+          <a href="https://github.com/kengomatsuo" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:kenneth@matsuokengo.com">Email</a>
+        </div>
+        <span class="footer-copy">© 2026</span>
+      </div>
+    </footer>
+
+  </body>
+</html>
