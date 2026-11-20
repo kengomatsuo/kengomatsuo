@@ -29,7 +29,7 @@ cp /tmp/_min.css "$DIST/style.css"
 rm -f /tmp/_min.css /tmp/_min.js
 
 # Copy remaining assets
-cp favicon.svg CNAME robots.txt 404.html _headers llms.txt "$DIST/"
+cp favicon.svg CNAME robots.txt 404.html _headers llms.txt BingSiteAuth.xml "$DIST/"
 cp -r images itinerary-generator employee-events recycling-ops warehouse-ops \
       cutling undirect courier-ops mahjong-booking stya course-school-erp \
       parts-shop-cms emergency-dashboard club-leaderboard privacy locales "$DIST/"
