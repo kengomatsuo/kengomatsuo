@@ -63,9 +63,8 @@ find "$DIST" -name "*.png" | while IFS= read -r f; do
 done
 
 # Minify SVGs
-find "$DIST" -name "*.svg" ! -name "stya-*" | while IFS= read -r f; do
-  bunx svgo "$f" -o "$f" --config svgo.config.js --quiet
-done
+# One svgo run over every file: a bunx start per file cost ~11 s each.
+find "$DIST" -name "*.svg" ! -name "stya-*" -print0 | xargs -0 bunx svgo --config svgo.config.js --quiet
 
 # Push to gh-pages
 cd "$DIST"
