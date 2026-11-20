@@ -53,6 +53,9 @@ find "$DIST" \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) \
   magick "$f" -resize 'x512>' "$f"
 done
 
+# The link-preview image keeps its full 1200x630 size, so it is copied after the resize.
+cp og.png "$DIST/"
+
 # Convert PNGs to WebP (only keep if smaller)
 find "$DIST" -name "*.png" | while IFS= read -r f; do
   out="${f%.png}.webp"
