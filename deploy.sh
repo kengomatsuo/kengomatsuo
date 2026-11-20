@@ -29,10 +29,13 @@ cp /tmp/_min.css "$DIST/style.css"
 rm -f /tmp/_min.css /tmp/_min.js
 
 # Copy remaining assets
-cp favicon.svg CNAME robots.txt "$DIST/"
+cp favicon.svg CNAME robots.txt 404.html _headers llms.txt "$DIST/"
 cp -r images itinerary-generator employee-events recycling-ops warehouse-ops \
       cutling undirect courier-ops mahjong-booking stya course-school-erp \
       parts-shop-cms emergency-dashboard club-leaderboard privacy locales "$DIST/"
+
+# Canonical URLs and sitemap.xml (seo.py says why 404.html must ship).
+python3 seo.py "$DIST"
 
 # Self-hosted webfonts: subset + convert to woff2 fresh from source (build-fonts.sh),
 # so the deployed fonts always match the current locales/ glyph set.

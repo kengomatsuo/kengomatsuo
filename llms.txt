@@ -1,0 +1,20 @@
+# Kenneth Fang
+
+> Kenneth Johannes Fang (also Matsuo Kengo) is an independent software developer. He makes Undirect, a Safari extension for iPhone, iPad and Mac that stops pages redirecting, opening pop-under tabs or catching a tap through an invisible layer, and Cutling, a paid-once snippet keyboard for iPhone and iPad and menu bar snippet and clipboard app for Mac.
+
+## Apps
+
+- [Undirect](https://undirect.matsuokengo.com/): Safari redirect and pop-under blocker for iPhone, iPad and Mac; its own summary is at https://undirect.matsuokengo.com/llms.txt
+- [Cutling](https://cutling.matsuokengo.com/): snippet keyboard and clipboard app for iPhone, iPad and Mac; its own summary is at https://cutling.matsuokengo.com/llms.txt
+
+## Pages
+
+- [Home](https://matsuokengo.com/): personal projects, client work, school and research
+- [Undirect project page](https://matsuokengo.com/undirect/): screenshots and links
+- [Cutling project page](https://matsuokengo.com/cutling/): screenshots and links
+- [Privacy](https://matsuokengo.com/privacy/): what the tools on this site do with data
+
+## Elsewhere
+
+- [GitHub](https://github.com/kengomatsuo)
+- [Contact](mailto:kenneth@matsuokengo.com)
