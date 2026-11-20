@@ -213,7 +213,7 @@ export default function () {
     'a[href*="apps.apple.com/app/cutling"]',
   );
   if (appStore)
-    appStore.href = "https://apps.apple.com/kr/app/cutling/id6759476314";
+    appStore.href = "https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&ct=matsuokengo&mt=8";
 
   const cutlingSite = document.querySelector(
     'a[href*="cutling.matsuokengo.com"]',
