@@ -32,9 +32,10 @@ Do **not** push directly to `gh-pages` — the branch is owned by the deploy scr
 
 ## Architecture
 
-Everything lives in two files:
+Everything lives in three files; `deploy.sh` inlines the last two into the built page:
 
-- **`index.html`** — all markup and all JavaScript (inline `<script>` at the bottom of `<body>`). Sections: hero, personal projects, client work, school, research, contact/footer.
+- **`index.html`** — all markup. Sections: hero, personal projects, client work, school, research, contact/footer.
+- **`script.js`** — all JavaScript, loaded at the bottom of `<body>`.
 - **`style.css`** — all styling. Uses CSS custom properties for theming; dark mode via `prefers-color-scheme`. Key variables defined on `:root`.
 
 ### JS animation system
