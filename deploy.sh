@@ -37,6 +37,17 @@ cp -r images itinerary-generator employee-events recycling-ops warehouse-ops \
 # Canonical URLs and sitemap.xml (seo.py says why 404.html must ship).
 python3 seo.py "$DIST"
 
+# Cloudflare Web Analytics on every shipped page (one site for *.matsuokengo.com, split by host;
+# traffic.ts in claude-house-rules reads it). Added here so a new page cannot ship without it.
+python3 - "$DIST" <<'PY'
+import pathlib, sys
+tag = "<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" data-cf-beacon='{\"token\": \"ca9784aea0cc4bf699f79f2ac42e5e31\"}'></script>"
+for f in pathlib.Path(sys.argv[1]).rglob("*.html"):
+    t = f.read_text(encoding="utf-8")
+    if "cloudflareinsights" not in t and "</head>" in t:
+        f.write_text(t.replace("</head>", tag + "\n</head>", 1), encoding="utf-8")
+PY
+
 # Self-hosted webfonts: subset + convert to woff2 fresh from source (build-fonts.sh),
 # so the deployed fonts always match the current locales/ glyph set.
 MK_FONTS_OUT="$DIST/fonts" bash build-fonts.sh
